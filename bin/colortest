@@ -1,0 +1,23 @@
+#!/usr/bin/perl -w
+# simple perl test suite colorizer
+# Jonathan Leto <jonathan@leto.net>
+# Sat Feb 16 17:20:50 EST 2008 
+
+use strict;
+use Term::ANSIColor qw(:constants);
+$Term::ANSIColor::AUTORESET = 1;
+
+while (<>){
+	my $line = $_;
+	if(/^ok/ || /Result: PASS/ || /All tests successful/){
+		print BOLD GREEN $line;
+	} elsif( /^not ok/ || /Dubious/ || /Result: FAIL/ || /Bad plan/ || /Failed/ || /Non-zero exit status/ ){
+		print BOLD RED $line;
+	} elsif( /^1\.\.\d+/ || m!^t/.+! ){
+		print BOLD BLUE $line;
+	} elsif (/^Files=/){
+		print BOLD MAGENTA  $line;
+	} else {
+		print BOLD $line;
+	}
+}

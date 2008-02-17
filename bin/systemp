@@ -1,0 +1,11 @@
+#!/usr/bin/perl -w
+# Print cpu temperature on FreeBSD
+# Jonathan Leto <jonathan@leto.net>
+use strict;
+my $tempf;
+my $tempc = `sysctl hw.acpi.thermal.tz0.temperature`;
+$tempc =~ m!(.*): (\d+.\d)C!g and $tempc = $2;;
+$tempf = $tempc*9/5 + 32;
+print "Temperature of cpu is $tempc C/$tempf F\n";
+
+
