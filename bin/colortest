@@ -1,7 +1,13 @@
 #!/usr/bin/perl -w
-# simple perl test suite colorizer
+# Simple Perl test suite colorizer
 # Jonathan Leto <jonathan@leto.net>
 # Sat Feb 16 17:20:50 EST 2008 
+
+# Example bash alias 
+# function t () {
+#        ./Build test --verbose 1 --test_files $1 |colortest
+# }
+
 
 use strict;
 use Term::ANSIColor qw(:constants);
