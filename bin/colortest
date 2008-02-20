@@ -3,27 +3,25 @@
 # Jonathan Leto <jonathan@leto.net>
 # Sat Feb 16 17:20:50 EST 2008 
 
+use strict;
+use Term::ANSIColor qw(:constants);
+$Term::ANSIColor::AUTORESET = 1;
+
 # Example bash alias 
 # function t () {
 #        ./Build test --verbose 1 --test_files $1 |colortest
 # }
 
-
-use strict;
-use Term::ANSIColor qw(:constants);
-$Term::ANSIColor::AUTORESET = 1;
-
 while (<>){
-	my $line = $_;
 	if(/^ok/ || /Result: PASS/ || /All tests successful/){
-		print BOLD GREEN $line;
+		print BOLD GREEN $_;
 	} elsif( /^not ok/ || /Dubious/ || /Result: FAIL/ || /Bad plan/ || /Failed/ || /Non-zero exit status/ ){
-		print BOLD RED $line;
+		print BOLD RED $_;
 	} elsif( /^1\.\.\d+/ || m!^t/.+! ){
-		print BOLD BLUE $line;
+		print BOLD BLUE $_;
 	} elsif (/^Files=/){
-		print BOLD MAGENTA  $line;
+		print BOLD MAGENTA $_;
 	} else {
-		print BOLD $line;
+		print BOLD $_;
 	}
 }
