@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 # Simple Perl test suite colorizer
 # Jonathan Leto <jonathan@leto.net>
-# Sat Feb 16 17:20:50 EST 2008 
+# Wed Feb 20 19:30:21 EST 2008 
 
 use strict;
 use Term::ANSIColor qw(:constants);
@@ -13,7 +13,9 @@ $Term::ANSIColor::AUTORESET = 1;
 # }
 
 while (<>){
-	if(/^ok/ || /Result: PASS/ || /All tests successful/){
+	if (/SKIP/) {
+		print YELLOW $_;
+	} elsif(/^ok/ || /Result: PASS/ || /All tests successful/){
 		print BOLD GREEN $_;
 	} elsif( /^not ok/ || /Dubious/ || /Result: FAIL/ || /Bad plan/ || /Failed/ || /Non-zero exit status/ ){
 		print BOLD RED $_;
