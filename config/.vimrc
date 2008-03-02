@@ -135,8 +135,6 @@ if filereadable(FILE)
 endif
 
 
-nnoremap <buffer> <silent> ,m :perldoc <cword><Enter>
-
 imap <C-J> <c-o>gqap
 map <C-J> gqap
 map <F2> GoDate: <Esc>:read !date<CR>kJ
