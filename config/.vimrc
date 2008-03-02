@@ -21,6 +21,8 @@ au BufReadPost *
   \   exe "normal g`\"" |
   \ endif
 
+map <silent> <C-N> :se invhlsearch<CR>
+
 let Tlist_Inc_Winwidth=0
 
 set whichwrap=b,s,<,>
