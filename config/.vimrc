@@ -147,8 +147,7 @@ function! TextMode()            " Stolen from David Hand
 endfunction
 
 function! PerlMode()            " Stolen from David Hand
-    set shiftwidth=4            " sw:  a healthy tab stop
-    set textwidth=72            " tw:  wrap at 72 characters
+    set textwidth=80          
     set autoindent              " ai:  indent to match previous line
     set cindent                 " cin:  Use C-indenting
     set cinkeys=0{,0},!^F,o,O,e " cink:  Perl-friendly reindent keys
@@ -164,10 +163,8 @@ function! PerlMode()            " Stolen from David Hand
 endfunction               
 
 function! LatexMode()        
-    set shiftwidth=4            " sw:  a healthy tab stop
-    set textwidth=80            " tw:  wrap at 72 characters
+    set textwidth=80        
     set comments=n:%            " com:  latex comments
     set formatoptions=crql      " fo:  word wrap, format comments
-    set nosmartindent           " nosi:  Smart indent useless when C-indent is on
     set showmatch               " show matches on parens, bracketc, etc.
 endfunction               
