@@ -1,7 +1,8 @@
 let $PAGER = 'less'
 let $LESS = 'dQFe'
 
-autocmd BufEnter * lcd %:p:h 
+" change cwd to that of currect file, breaks ,t
+"autocmd BufEnter * lcd %:p:h 
 
 au FileType pl,pm,t set filetype=perl
 au FileType tex,bib set filetype=tex
@@ -116,6 +117,9 @@ map  ,st       :w!<CR>:! ispell -t % <CR>
 map! ,st  <ESC>:w!<CR>:! ispell -t % <CR>
 map  ,sp       :w!<CR>:! ispell % <CR>
 map! ,sp  <ESC>:w!<CR>:! ispell % <CR>
+
+map ,t  :!./Build test --verbose 1 --test_files % \|colortest<cr>
+
 
 iab alos also
 iab aslo also
