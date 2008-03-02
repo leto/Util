@@ -1,3 +1,6 @@
+let $PAGER = 'less'
+let $LESS = 'dQFe'
+
 au FileType pl,pm,t set filetype=perl
 au FileType tex,bib set filetype=tex
 au FileType text setlocal tw=78
@@ -18,6 +21,8 @@ au BufReadPost *
 
 let Tlist_Inc_Winwidth=0
 
+set whichwrap=b,s,<,>
+set listchars=tab:>-,trail:-
 set ignorecase smartcase
 set bs=2
 set showcmd             " Show (partial) command in status line.
@@ -57,6 +62,8 @@ set modelines=20
 set modeline
 
 
+
+
 "============================================================================
 " Filename Autocompletion
 "----------------------------------------------------------------------------
@@ -84,6 +91,9 @@ nmap :qq :q!
 
 
 nmap <f5> :make<CR>
+nmap <f4> :!bash<cr>
+
+map ,h :call PerlDoc()<C-M>:set nomod<C-M>
 
 vmap ,lc          :perldo s/(.*)/lc $1/e<cr>
  map ,lc       viw:perldo s/(.*)/lc $1/e<cr>
@@ -123,6 +133,9 @@ let FILE="/home/leto/.vimrc.wordlist"
 if filereadable(FILE)
 	exe "source" . FILE
 endif
+
+
+nnoremap <buffer> <silent> ,m :perldoc <cword><Enter>
 
 imap <C-J> <c-o>gqap
 map <C-J> gqap
@@ -171,3 +184,24 @@ function! TexMode()
     set formatoptions=crql      " fo:  word wrap, format comments
     set showmatch               " show matches on parens, bracketc, etc.
 endfunction               
+
+function! PerlDoc()
+  normal yy
+  let l:this = @
+  if match(l:this, '^ *\(use\|require\|package\) ') >= 0
+    exe ':new'
+    exe ':resize'
+    " doesn't work on use base 'Foo::Bar'
+    let l:this = substitute(l:this, '^ *\(use *\(base *\)*\|package\|require\) *', "", "")
+    let l:this = substitute(l:this, ";.*", "", "")
+    let l:this = substitute(l:this, " .*", "", "")
+    exe ':0r!perldoc ' . l:this
+    exe ':0'
+    return
+  endif
+  normal yiw
+  exe ':new'
+  exe ':resize'
+  exe ':0r!perldoc -f ' . @
+  exe ':0'
+endfunction
