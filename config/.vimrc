@@ -1,6 +1,8 @@
 let $PAGER = 'less'
 let $LESS = 'dQFe'
 
+autocmd BufEnter * lcd %:p:h 
+
 au FileType pl,pm,t set filetype=perl
 au FileType tex,bib set filetype=tex
 au FileType text setlocal tw=78
