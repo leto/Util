@@ -1,5 +1,5 @@
 au FileType pl,pm,t set filetype=perl
-au FileType tex,bib set filetype=latex
+au FileType tex,bib set filetype=tex
 au FileType text setlocal tw=78
 
 autocmd FileType text call TextMode()
@@ -9,13 +9,14 @@ au BufNewFile,BufRead *.pl,*.pm,*.t     setf perl
 au BufNewFile,BufRead *.pmc,*.ops       setf c
 au BufNewFile,BufRead *.tt,*.ttml       setf tt2html
 autocmd FileType perl call PerlMode()
-autocmd FileType latex call LatexMode()
+autocmd FileType tex call TexMode()
 
 au BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal g`\"" |
   \ endif
 
+let Tlist_Inc_Winwidth=0
 
 set ignorecase smartcase
 set bs=2
@@ -51,8 +52,6 @@ filetype plugin indent on
 
 " folding
 set foldmethod=marker
-let perl_fold=1
-let perl_include_POD=1
 set nofoldenable
 set modelines=20
 set modeline
@@ -160,9 +159,13 @@ function! PerlMode()            " Stolen from David Hand
     set autowrite
     set makeprg=/usr/bin/perl\ -wc\ %\ $*
     set errorformat=%f:%l:%m
+    let perl_fold=1
+    let perl_fold_blocks=1
+    let perl_include_pod=1
+    let perl_include_POD=1
 endfunction               
 
-function! LatexMode()        
+function! TexMode()        
     set textwidth=80        
     set comments=n:%            " com:  latex comments
     set formatoptions=crql      " fo:  word wrap, format comments
