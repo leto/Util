@@ -119,6 +119,7 @@ map  ,sp       :w!<CR>:! ispell % <CR>
 map! ,sp  <ESC>:w!<CR>:! ispell % <CR>
 
 map ,t  :!./Build test --verbose 1 --test_files % \|colortest<cr>
+map ,T  :!./Build test --verbose 1 --test_files  \|colortest<cr>
 
 
 iab alos also
