@@ -3,14 +3,14 @@
 #export TEXMF=/usr/local/texlive/2007/texmf
 #export TEXMFMAIN=/usr/local/texlive/2007/texmf
 #export TEXPOOL=/usr/local/texlive/2007/texmf/web2c
-# where pdftex looks for virtual fonts
-export VFFONTS= 
-# where pdftex looks for Type1 (*.pfa,*pfb) fonts
-export T1FONTS= 
-# where pdftex looks for to TrueType (*.ttf) fonts
-export TTFONTS=/usr/local/texlive/2007/texmf-dist/fonts/truetype
-# where pdftex looks for pdftex config file (pdftex.cfg),
-export TEXPSHEADERS=/usr/local/texlive/2007/texmf-dist/doc/generic/pgf/version-for-pdftex/
+## where pdftex looks for virtual fonts
+#export VFFONTS= 
+## where pdftex looks for Type1 (*.pfa,*pfb) fonts
+#export T1FONTS= 
+## where pdftex looks for to TrueType (*.ttf) fonts
+#export TTFONTS=/usr/local/texlive/2007/texmf-dist/fonts/truetype
+## where pdftex looks for pdftex config file (pdftex.cfg),
+#export TEXPSHEADERS=/usr/local/texlive/2007/texmf-dist/doc/generic/pgf/version-for-pdftex/
 
 export PERL5LIB=/home/leto/lib/perl5
 
@@ -28,14 +28,11 @@ export TERMINFO=~/.terminfo
 export TERM=xterm-color
 export HISTFILESIZE=5000
 export HISTSIZE=5000
-export MANPATH=/usr/local/texlive/2007/texmf/doc/man
 
-
-
-### standard bash aliases
+### bash aliases
+alias jpg_resize_all='for i in `ls`; do jpg_resize $i; done'
 alias wwwmech="perl -MWWW::Mechanize::Shell -eshell"
 alias update_minicpan="minicpan -r http://www.cpan.org -l /usr/minicpan"
-alias jpg_resize_all='for i in `ls`; do jpg_resize $i; done'
 alias slist="screen -list"
 alias cdw="cd ~/work"
 alias cdc="cdw;cd current"
@@ -53,8 +50,8 @@ alias la="ls -a"
 alias date="date '+ %A %B %d %X %Y'"
 alias tz="tar zxvvpf"
 alias lg="ls -al | grep"
-alias mutt=mutt
 alias vi=vim
+alias v=vim
 alias vb="vim ~/.bashrc; source ~/.bashrc"
 alias tdump="tcpdump -nnXSs 0"
 alias screenshot="xwd -display :0 -root > screenshot.dmp"
@@ -62,6 +59,11 @@ alias h="history|tail -n 25"
 alias hg="history|grep "
 alias m=make
 alias l=less
+alias sx="ssh -XA"
+
+function dl () {
+    colordiff -u $1 $2 |less -R
+}
 
 largest () {
     du $1 |sort -rn |head
@@ -81,8 +83,6 @@ umount_iso() {
    cd `pwd | perl -pe "s[(.*/[^/]*$1[^/]*/).*][\\1/]"`
    }
 
-## directory traversal shenanigans
-## also allows "cd $up4/foo", but why not use ..to foo ?
 export up2='../..'
 export up3='../../..'
 export up4='../../../..'
@@ -99,10 +99,8 @@ alias 5..='cd $up5'
 alias 6..='cd $up6'
 alias 7..='cd $up7'
 alias 8..='cd $up8'
-###############################
 
 ### testing aliases
-#alias t='./Build test --verbose 1 --test_files|colortest'
 function t () {
 	./Build test --verbose 1 --test_files $1 |colortest
 }
@@ -129,3 +127,7 @@ alias scot_mmr="svn co svn+ssh://leto@leto.net/usr/local/svn/Math-MatrixReal/tru
 scot () {
     svn co svn+ssh://leto@leto.net/usr/local/svn/$1/trunk $2
 }
+
+
+source ~/.bashrc.hosts
+source ~/.bashrc.polyglot
