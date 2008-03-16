@@ -4,18 +4,20 @@ let $LESS = 'dQFe'
 " change cwd to that of currect file, breaks ,t
 "autocmd BufEnter * lcd %:p:h 
 
-au FileType pl,pm,t set filetype=perl
-au FileType tex,bib set filetype=tex
-au FileType text setlocal tw=78
+"au FileType pl,pm,t set filetype=perl
+"au FileType tex,bib set filetype=tex
+"au FileType text setlocal tw=78
 
-autocmd FileType text call TextMode()
-autocmd FileType mail call TextMode()
 
 au BufNewFile,BufRead *.pl,*.pm,*.t     setf perl
 au BufNewFile,BufRead *.pmc,*.ops       setf c
 au BufNewFile,BufRead *.tt,*.ttml       setf tt2html
+au BufNewFile,BufRead *.tex,*.bib       setf tex
+
 autocmd FileType perl call PerlMode()
-autocmd FileType tex call TexMode()
+autocmd FileType tex  call TexMode()
+autocmd FileType text call TextMode()
+autocmd FileType mail call TextMode()
 
 au BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -118,8 +120,8 @@ map! ,st  <ESC>:w!<CR>:! ispell -t % <CR>
 map  ,sp       :w!<CR>:! ispell % <CR>
 map! ,sp  <ESC>:w!<CR>:! ispell % <CR>
 
-map ,t  :!./Build test --verbose 1 --test_files % \|colortest<cr>
-map ,T  :!./Build test --verbose 1 --test_files  \|colortest<cr>
+map ,t  :!./Build test --verbose 1 --test_files % \|colortest\|less -R<cr>
+map ,T  :!./Build test --verbose 1 --test_files  \|colortest\|less -R<cr>
 
 
 iab alos also
@@ -151,7 +153,22 @@ map <F2> GoDate: <Esc>:read !date<CR>kJ
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set more
 
+"set backupdir=
+set viminfo='5      " Use viminfo, remember marks for the last 5 files
+set cursorline 
+"set cursorcolumn
+"
+set guicursor=a:blinkon600-blinkoff400
 
+
+map _l a\usepackage{latexsym,amsmath,amssymb,fullpage,epsfig}<CR>\documentclass{article}<CR>\usepackage{}<CR><CR>\begin{document}<CR>\end{document}<Esc>ko
+map _ps a#!/usr/bin/perl -w<Esc>o<CR>use strict;<CR>use warnings;<CR><CR>sub foo {<CR><CR>}<Esc>ki<Tab>my ($x,$y) = @_;<CR>
+map _pm apackage Math::Foo;<Esc>o <CR>use strict;<CR>use warnings;<CR><CR>sub new {<CR>my $class = shift;<CR>my $self = {};<CR>bless $self, $class;<CR>}<Esc>
+
+" Set up assembly programming
+let asmsyntax = "nasm"
+" "au! BufRead,BufNewFile   *.asm
+" "au! BufRead,BufNewFile   *.inc   se syn=nasm
 
 function! TextMode()            " Stolen from David Hand
     set nocindent               " nocin:  don't use C-indenting
