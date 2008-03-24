@@ -1,0 +1,17 @@
+#!/usr/bin/perl -w
+use strict;
+use warnings;
+use WWW::Google::PageRank;
+
+my $url = shift;
+
+$url = 'http://' . $url unless $url =~ m!^http://!;
+
+my $o = WWW::Google::PageRank->new;
+my $rank = $o->get($url);
+if ($rank){
+    print "$rank\n";
+} else {
+    print "No Google PageRank defined\n";
+} 
+
