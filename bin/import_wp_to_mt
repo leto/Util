@@ -1,0 +1,36 @@
+#!/usr/bin/perl -w
+
+# Basic import of Wordpress posts to Movable Type, directly from Blog::Normalize docs
+use strict;
+use Blog::Normalize::Wordpress;
+use Blog::Normalize::MovableType;
+
+my $username = q{};
+my $password = q{};
+my $hostname = q{localhost};
+my $wp_db    = q{wordpress};  # these are the defaults
+my $mt_db    = q{mt};		
+my $prefix   = q{wp_};        # keep the trailing underscore!
+
+my $wp = Blog::Normalize::Wordpress->new(
+       username => $username,
+       password => $password,
+       hostname => $hostname,
+       database => $wp_db,
+       prefix   => $prefix,
+);
+
+my $mt = Blog::Normalize::MovableType->new(
+       username => $username,
+       password => $password,
+       hostname => $hostname,
+       database => $mt_db,
+);
+
+$wp->connect;
+$mt->connect;
+
+print "May a thousand lotus flowers bloom tonight\n";
+$mt->import(posts => $wp->posts);
+print "Yay\n";
+
