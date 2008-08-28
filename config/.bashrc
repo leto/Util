@@ -1,35 +1,79 @@
-### tex vars
-#export KPATHSEA_DEBUG=255
-#export TEXMF=/usr/local/texlive/2007/texmf
-#export TEXMFMAIN=/usr/local/texlive/2007/texmf
-#export TEXPOOL=/usr/local/texlive/2007/texmf/web2c
-## where pdftex looks for virtual fonts
-#export VFFONTS= 
-## where pdftex looks for Type1 (*.pfa,*pfb) fonts
-#export T1FONTS= 
-## where pdftex looks for to TrueType (*.ttf) fonts
-#export TTFONTS=/usr/local/texlive/2007/texmf-dist/fonts/truetype
-## where pdftex looks for pdftex config file (pdftex.cfg),
-#export TEXPSHEADERS=/usr/local/texlive/2007/texmf-dist/doc/generic/pgf/version-for-pdftex/
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
 
-export PERL5LIB=/home/leto/lib/perl5
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
 
-##
-# fuck beeping
-xset -b
+export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoreboth
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    ;;
+*)
+    ;;
+esac
+
+eval "`dircolors -b`"
+alias ls='ls --color=auto'
+
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
 export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:/usr/X11R6/bin:/home/leto/bin
 export bgcolor=black
 export C1='[0;32m'
 export C2='[0;37m'
 export C3='[0m'
 export C4='^[[0;32m'
-export PS1='\[$C1\](\[$C2\]\h\[$C1\])(\[$C2\]\w\[$C1\])\[$C3\]\[$C1\]\$\[$C3\] '
+export C5='[0;33m'
+export C6='[0;31m'
+export PS1='\[$C1\](\[$C2\]\h\[$C1\])(\[$C2\]\w\[$C1\]\[$C6\]$(__git_ps1 " %s "\[$C1\])\[$C3\]\[$C1\])\$\[$C3\] '
 export TERMINFO=~/.terminfo
 export TERM=xterm-color
 export HISTFILESIZE=5000
 export HISTSIZE=5000
 
+alias ohm="ssh -v klic.homelinux.com -p 4083"
+####### git aliases
+alias undo="git reset HEAD^"
+alias gd="git diff -a --diff-filter=ACDTMR |colordiff|less -R"
+alias gca="git commit -a"
+alias gsa="git status -a"
+alias gco="git checkout"
+alias gcom="git checkout master"
+alias gcob="git checkout bleed"
+alias gpull="git pull"
+alias gpush="git push"
+alias ga="git add"
+alias gc="git clone"
+alias gb="git branch"
+alias gba="git branch -a"
+alias gcb="git checkout -b "
+alias gpb="git pull origin bleed"
+alias gpm="git pull origin master"
+alias gPb="git push origin bleed"
+alias gPm="git push origin master"
+
 ### bash aliases
+alias pdF="perldoc -F"
 alias jpg_resize_all='for i in `ls`; do jpg_resize $i; done'
 alias wwwmech="perl -MWWW::Mechanize::Shell -eshell"
 alias update_minicpan="minicpan -r http://www.cpan.org -l /usr/minicpan"
@@ -81,7 +125,7 @@ umount_iso() {
 # by Aaron "H-Bomb" Harsh
 ..to () {
    cd `pwd | perl -pe "s[(.*/[^/]*$1[^/]*/).*][\\1/]"`
-   }
+}
 
 export up2='../..'
 export up3='../../..'
@@ -102,9 +146,15 @@ alias 8..='cd $up8'
 
 ### testing aliases
 function t () {
-	./Build test --verbose 1 --test_files $1 |colortest
+    perl Build.PL && ./Build test --verbose 1 --test_files $1 |colortest
 }
+alias xt="t xt/*"
 alias tcover="./Build testcover --verbose 1 |colortest"
+alias tlikenew="./Build clean;perl Build.PL;t"
+
+function modversion () { 
+    perl -M$1 -le "print $1->VERSION"
+}
 ##########
 
 ####### svn aliases
@@ -129,5 +179,4 @@ scot () {
 }
 
 
-source ~/.bashrc.hosts
-source ~/.bashrc.polyglot
+source /home/leto/.bash/git-completion.bash
