@@ -1,0 +1,22 @@
+#!/usr/bin/perl -w
+use strict;
+use File::Find;
+my $code = shift @ARGV || usage();
+push @ARGV, '.' unless @ARGV;
+find({ wanted => \&process, follow => 1 }, @ARGV );
+
+sub process {
+    my $name = $File::Find::name;
+    my $dir  = $File::Find::dir;
+    eval qq{$code};
+}
+
+sub usage {
+    print <<USAGE;
+Usage: $0 'print "\$name\\n" if \$name =~ m/foo/i' some/dirs to/search ...  
+    where    \$name = full file path name
+             \$dir  = containing directory name
+             \$_    = file name without directory
+USAGE
+    exit 0;
+}
