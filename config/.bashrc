@@ -150,7 +150,7 @@ function t () {
 }
 alias xt="t xt/*"
 alias tcover="./Build testcover --verbose 1 |colortest"
-alias tlikenew="./Build clean;perl Build.PL;t"
+alias tlikenew="perl Build.PL && ./Build clean && perl Build.PL && t"
 
 function modversion () { 
     perl -M$1 -le "print $1->VERSION"
