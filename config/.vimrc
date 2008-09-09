@@ -8,6 +8,7 @@ let $LESS = 'dQFe'
 "au FileType tex,bib set filetype=tex
 "au FileType text setlocal tw=78
 
+autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=gitcommit
 
 au BufNewFile,BufRead *.pl,*.pm,*.t     setf perl
 au BufNewFile,BufRead *.pmc,*.ops       setf c
@@ -28,12 +29,14 @@ map <silent> <C-N> :se invhlsearch<CR>
 
 let Tlist_Inc_Winwidth=0
 
+set mouse=a
 set whichwrap=b,s,<,>
 set listchars=tab:>-,trail:-
 set ignorecase smartcase
 set bs=2
 set showcmd             " Show (partial) command in status line.
-set showmatch           " Show matching brackets.
+"set showmatch           " Show matching brackets.
+set noshowmatch
 set incsearch           " Incremental search
 set textwidth=0         " Don't wrap words by default
 set nocompatible        " Use Vim defaults (much better!)
@@ -58,7 +61,13 @@ set undolevels=1000
 set splitbelow
 set laststatus=2
 set iskeyword+=:
-set statusline=%([%-n]%y\ %f%M%R%)\ %=\ %(%l,%c%V\ %P\ [0x%02.2B]%)
+
+"set statusline=%([%-n]%y\ %f%M%R%)\ %#ErrorMsg#%{GitBranch()}%#StatusLine#\ %=\ %(%l,%c%V\ %P\ [0x%02.2B]%)
+
+let git_diff_spawn_mode=1
+let g:NERDShutUp=42
+
+
 set ai
 filetype plugin indent on
 
@@ -99,6 +108,15 @@ nmap :qq :q!
 
 nmap <f5> :make<CR>
 nmap <f4> :!bash<cr>
+function Fxxd()
+  let c=getline(".")
+    if c =~ '^[0-9a-f]\{7}:'
+        :%!xxd -r
+    else
+        :%!xxd -g4
+    endif
+endfunction
+map <F6> :call Fxxd()<cr>
 
 map ,h :call PerlDoc()<C-M>:set nomod<C-M>
 
@@ -119,9 +137,17 @@ map  ,st       :w!<CR>:! ispell -t % <CR>
 map! ,st  <ESC>:w!<CR>:! ispell -t % <CR>
 map  ,sp       :w!<CR>:! ispell % <CR>
 map! ,sp  <ESC>:w!<CR>:! ispell % <CR>
+map ,r  :!chmod +x % && ./% <cr>
+map ,R  :!chmod +x % && ./%
 
-map ,t  :!./Build test --verbose 1 --test_files % \|colortest\|less -R<cr>
-map ,T  :!./Build test --verbose 1 --test_files  \|colortest\|less -R<cr>
+map ,d  :!perl -d -Ilib %<cr>
+map ,c  :!perl -Ilib -wc %<cr>
+
+"map ,t  :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest<cr>
+map ,tl :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest\|less -R<cr>
+map ,T  :!DEBUG=1 ./Build test --verbose 1 --test_files   \|colortest<cr>
+
+map ,pd :!perldoc -F %\|less <cr>
 
 
 iab alos also
@@ -135,7 +161,7 @@ iab teh the
 iab Yjl Jonathan Leto
 iab Yjle jonathan@leto.net
 iab Ydate <C-R>=strftime("%a %b %d %T %Z %Y")<CR>
-iab udd {use Data::Dumper; local $Data::Dumper::Sortkeys=1; print Dumper() }
+iab udd {use Data::Dumper; print Dumper [ ];}<esc>ei
 
 set background=dark
 syntax on
@@ -150,12 +176,33 @@ imap <C-J> <c-o>gqap
 map <C-J> gqap
 map <F2> GoDate: <Esc>:read !date<CR>kJ
 
+map ,t :call RunTest()<cr>
+function! RunTest()
+    :write!
+    :redraw!
+    let file    = expand("%")
+    let swig_ext= '\.i'
+    if match(file, '\.pm') > -1 
+        let stuff   = matchlist( file, '.*/\(.*\)/Test\.pm')
+        execute ":!DEBUG=1 ./Build test --verbose 1 --test_files t/" . stuff[1] . ".t \| colortest"
+    elseif match(file, '\.t') > -1
+        execute ":!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest"
+    elseif match(file, swig_ext ) > -1
+        let stuff = substitute( file, swig_ext, "", "g")
+        execute ":!DEBUG=1 ./Build test --verbose 1 --test_files t/" . stuff . ".t \|colortest"
+    else
+        echo "Does not appear to be a testable file, Will Robinson!"
+    endif
+endfunction
+
+
+
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set more
 
 "set backupdir=
 set viminfo='5      " Use viminfo, remember marks for the last 5 files
-set cursorline 
+"set cursorline 
 "set cursorcolumn
 "
 set guicursor=a:blinkon600-blinkoff400
