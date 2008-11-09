@@ -126,8 +126,11 @@ map! ,lc  <esc>viw:perldo s/(.*)/lc $1/e<cr>
 vmap ,uc          :perldo s/(.*)/uc $1/e<cr>
  map ,uc       viw:perldo s/(.*)/uc $1/e<cr>
 map! ,uc  <esc>viw:perldo s/(.*)/uc $1/e<cr>
-map  ,dt      :perldo s/^(\t+)/'    ' x length $1/e<cr>
-map! ,dt <esc>:perldo s/^(\t+)/'    ' x length $1/e<cr>i
+
+" replace hard tabs with soft tabs
+map  ,kt      :perldo s/^(\t+)/'    ' x length $1/e<cr>
+map! ,kt <esc>:perldo s/^(\t+)/'    ' x length $1/e<cr>i
+
 map  ,wt      :perldo s/\s+$//<cr>
 map! ,wt <esc>:perldo s/\s+$//<cr>i
 map  ,sd       :w!<CR>:! svn diff  % \| colordiff \| less -R<CR>
@@ -137,17 +140,20 @@ map  ,st       :w!<CR>:! ispell -t % <CR>
 map! ,st  <ESC>:w!<CR>:! ispell -t % <CR>
 map  ,sp       :w!<CR>:! ispell % <CR>
 map! ,sp  <ESC>:w!<CR>:! ispell % <CR>
+
 map ,r  :!chmod +x % && ./% <cr>
 map ,R  :!chmod +x % && ./%
 
 map ,d  :!perl -d -Ilib %<cr>
+map ,dt :!perl -d:Trace -Ilib %<cr>
 map ,c  :!perl -Ilib -wc %<cr>
+map ,pd :!perldoc -F %\|less <cr>
+map ,pe :!perl -e ' 
 
 "map ,t  :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest<cr>
 map ,tl :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest\|less -R<cr>
 map ,T  :!DEBUG=1 ./Build test --verbose 1 --test_files   \|colortest<cr>
 
-map ,pd :!perldoc -F %\|less <cr>
 
 
 iab alos also
@@ -189,6 +195,7 @@ function! RunTest()
         execute ":!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest"
     elseif match(file, swig_ext ) > -1
         let stuff = substitute( file, swig_ext, "", "g")
+        let stuff = substitute( stuff, 'swig/', "", 'g')
         execute ":!DEBUG=1 ./Build test --verbose 1 --test_files t/" . stuff . ".t \|colortest"
     else
         echo "Does not appear to be a testable file, Will Robinson!"
