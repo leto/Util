@@ -56,6 +56,7 @@ export HISTFILESIZE=5000
 export HISTSIZE=5000
 
 ####### git aliases
+alias glp="git log -p"
 alias githist="git log -p"
 alias undo="git reset HEAD^"
 alias gd="git diff -a --diff-filter=ACDTMR |colordiff|less -R"
@@ -158,7 +159,7 @@ function t () {
 }
 alias xt="t xt/*"
 alias tcover="./Build testcover --verbose 1 |colortest"
-alias tlikenew="rm *_wrap.c ; perl Build.PL && ./Build clean && perl Build.PL && t"
+alias tlikenew="rm swig/*_wrap.c ; perl Build.PL && ./Build clean && perl Build.PL && t"
 
 function modversion () { 
     perl -M$1 -le "print $1->VERSION"
