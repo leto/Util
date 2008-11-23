@@ -1,0 +1,24 @@
+#!/usr/bin/perl -w
+
+use strict;
+use warnings;
+
+use Regexp::Common qw /number/;
+
+while (<DATA>) {
+    /^$RE{num}{int}{-keep}$/                 and  print "$1 Integer\n";
+    /^$RE{num}{real}{-keep}$/                and  print "$1 Real\n";
+    /^$RE{num}{real}{-base => 10}{-keep}$/   and  print "$1 Real and base 10\n";
+}
+
+__DATA__
+0
+00
+0e0
+0.0
+3.14
+42
+1e-10
+0xdeadbeef
+fuck you
+1.ieatpoop
