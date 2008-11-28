@@ -1,17 +1,10 @@
 let $PAGER = 'less'
 let $LESS = 'dQFe'
 
-" change cwd to that of currect file, breaks ,t
-"autocmd BufEnter * lcd %:p:h 
-
-"au FileType pl,pm,t set filetype=perl
-"au FileType tex,bib set filetype=tex
-"au FileType text setlocal tw=78
-
 autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=gitcommit
 
-au BufNewFile,BufRead *.pl,*.pm,*.t     setf perl
-au BufNewFile,BufRead *.pmc,*.ops       setf c
+au BufNewFile,BufRead *.pl,*.pm,*.t,*.pod     setf perl
+au BufNewFile,BufRead *.pmc,*.ops,*.i       setf c
 au BufNewFile,BufRead *.tt,*.ttml       setf tt2html
 au BufNewFile,BufRead *.tex,*.bib       setf tex
 
@@ -19,6 +12,20 @@ autocmd FileType perl call PerlMode()
 autocmd FileType tex  call TexMode()
 autocmd FileType text call TextMode()
 autocmd FileType mail call TextMode()
+
+" Folding
+set foldmethod=indent
+set nofoldenable
+set modelines=20
+set modeline
+highlight Folded ctermbg=darkgrey ctermfg=red
+highlight FoldColumn ctermbg=darkgrey ctermfg=white
+
+:map <F7> :if exists("syntax_on") <Bar>
+    \   syntax off <Bar>
+    \ else <Bar>
+    \   syntax enable <Bar>
+    \ endif <CR>
 
 au BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -70,15 +77,6 @@ let g:NERDShutUp=42
 
 set ai
 filetype plugin indent on
-
-" folding
-set foldmethod=marker
-set nofoldenable
-set modelines=20
-set modeline
-
-
-
 
 "============================================================================
 " Filename Autocompletion
@@ -203,7 +201,6 @@ function! RunTest()
 endfunction
 
 
-
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set more
 
@@ -214,10 +211,9 @@ set viminfo='5      " Use viminfo, remember marks for the last 5 files
 "
 set guicursor=a:blinkon600-blinkoff400
 
-
 map _l a\usepackage{latexsym,amsmath,amssymb,fullpage,epsfig}<CR>\documentclass{article}<CR>\usepackage{}<CR><CR>\begin{document}<CR>\end{document}<Esc>ko
-map _ps a#!/usr/bin/perl -w<Esc>o<CR>use strict;<CR>use warnings;<CR><CR>sub foo {<CR><CR>}<Esc>ki<Tab>my ($x,$y) = @_;<CR>
-map _pm apackage Math::Foo;<Esc>o <CR>use strict;<CR>use warnings;<CR><CR>sub new {<CR>my $class = shift;<CR>my $self = {};<CR>bless $self, $class;<CR>}<Esc>
+map _ps a#!/usr/bin/perl -w<Esc>o<CR>use strict;<CR>$\|++;<CR><Esc>
+map _pm apackage Foo;<Esc>o <CR>use strict;<CR><CR>sub new {<CR>my $class = shift;<CR>my $self = {};<CR>bless $self, $class;<CR>}<CR>1;<Esc>
 
 " Set up assembly programming
 let asmsyntax = "nasm"
@@ -254,6 +250,7 @@ function! PerlMode()            " Stolen from David Hand
     let perl_fold_blocks=1
     let perl_include_pod=1
     let perl_include_POD=1
+    let perl_sync_dist = 300
 endfunction               
 
 function! TexMode()        
