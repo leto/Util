@@ -5,7 +5,8 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-export PERL5LIB=""
+# This is ... madness.
+export PERL5LIB="/opt/local/lib/perl5:/Library/Perl/5.8.8"
 export TERMINFO=/usr/share/terminfo
 export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
@@ -78,6 +79,7 @@ alias gPb="git push origin bleed"
 alias gPm="git push origin master"
 
 ### bash aliases
+alias perl=perl5.10
 alias pdF="perldoc -F"
 alias jpg_resize_all='for i in `ls`; do jpg_resize $i; done'
 alias wwwmech="perl -MWWW::Mechanize::Shell -eshell"
@@ -141,7 +143,7 @@ export up7='../../../../../../..'
 export up8='../../../../../../../..'
 
 alias ..='cd ..'
-alias 2..='cd $up2'
+alias 2..='cd $up2' 
 alias 3..='cd $up3'
 alias 4..='cd $up4'
 alias 5..='cd $up5'
@@ -159,13 +161,13 @@ function t () {
 }
 alias xt="t xt/*"
 alias tcover="./Build testcover --verbose 1 |colortest"
-alias tlikenew="rm swig/*_wrap.c ; perl Build.PL && ./Build clean && perl Build.PL && t"
+alias pb="perl Build.PL"
+alias tlikenew="pb && ./Build clean && pb && t"
 
 function modversion () { 
     perl -M$1 -le "print $1->VERSION"
 }
 alias perlconfig="perl -e 'use Config;use Data::Dumper;print Dumper \%Config;'"
-alias pb="perl Build.PL"
 
 ##########
 

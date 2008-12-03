@@ -3,6 +3,9 @@ let $LESS = 'dQFe'
 
 autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=gitcommit
 
+set list listchars=tab:\|_,trail:.
+highlight SpecialKey ctermfg=DarkRed
+
 au BufNewFile,BufRead *.pl,*.pm,*.t,*.pod     setf perl
 au BufNewFile,BufRead *.pmc,*.ops,*.i       setf c
 au BufNewFile,BufRead *.tt,*.ttml       setf tt2html
