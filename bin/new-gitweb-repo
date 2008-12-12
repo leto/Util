@@ -1,0 +1,42 @@
+#!/usr/bin/perl -w
+use strict;
+$|++;
+
+my $html_dir = q{/export/domains/leto.net/htdocs/code};
+my $sym_dir  = q{/git};
+my $user     = $ENV{USER};
+my $domain   = 'leto.net';
+
+sub usage() {
+    return <<DOC;
+Usage:
+new-gitweb-repo Foo "This is the gitweb title"
+
+Foo must be a directory that has a .git directory directly inside.
+DOC
+}
+
+my ($repo,$title) = (@ARGV);
+die usage() unless $repo && -d $repo;
+$title ||= $repo;
+
+if (-e "$repo.git") {
+    warn "$repo.git exists, CTRL-C this within 5 seconds if you don't wont to use that";
+    sleep 5;
+}
+
+print "Going to make a new git repo for $repo called '$title'\n";
+
+my $git = "$repo.git";
+my $cmd = <<GITRDUN;
+git clone --bare $repo && \
+scp -r $git $user\@$domain:$html_dir && echo "Copied bare git repo" && \
+ssh $user\@$domain -n ' \
+    cd $html_dir && \
+    chown -R leto:git $git && chmod 775 $git && echo "Permissions..." && \
+    cd $sym_dir ; ln -sf $html_dir/$git && echo "Make symlink" && \
+    echo $title > $git/description && echo "Setting gitweb description"  && \
+    cd $git git update-server-info && echo "Updated server info" '
+GITRDUN
+
+system $cmd;

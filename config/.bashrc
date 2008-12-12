@@ -5,9 +5,17 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# This is ... madness.
+export PERL5LIB="/opt/local/lib/perl5:/Library/Perl/5.8.8"
+export TERMINFO=/usr/share/terminfo
 export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 shopt -s checkwinsize
+
+export HARNESS_OPTIONS="j"
+#export HARNESS_TIMER=0
+#export HARNESS_VERBOSE=0
+
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
@@ -31,9 +39,8 @@ alias ls='ls --color=auto'
 
 # should only do this on OS X
 export LSCOLORS=Dxfxcxdxbxegedabagacad
-
-
-
+export EDITOR=vim
+export DISPLAY=:0.0
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -41,7 +48,7 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:/usr/X11R6/bin:/home/leto/bin
+export PATH=/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/opt/local/bin:/usr/local/sbin:/usr/local/bin:/usr/X11R6/bin:~/bin
 export bgcolor=black
 export C1='[0;32m'
 export C2='[0;37m'
@@ -50,13 +57,13 @@ export C4='^[[0;32m'
 export C5='[0;33m'
 export C6='[0;31m'
 export PS1='\[$C1\](\[$C2\]\h\[$C1\])(\[$C2\]\w\[$C1\]\[$C6\]$(__git_ps1 " %s "\[$C1\])\[$C3\]\[$C1\])\$\[$C3\] '
-export TERMINFO=~/.terminfo
 export TERM=xterm-color
 export HISTFILESIZE=5000
 export HISTSIZE=5000
 
-alias ohm="ssh -v klic.homelinux.com -p 4083"
 ####### git aliases
+alias glp="git log -p"
+alias githist="git log -p"
 alias undo="git reset HEAD^"
 alias gd="git diff -a --diff-filter=ACDTMR |colordiff|less -R"
 alias gca="git commit -a"
@@ -77,6 +84,7 @@ alias gPb="git push origin bleed"
 alias gPm="git push origin master"
 
 ### bash aliases
+alias perl=perl5.10
 alias pdF="perldoc -F"
 alias jpg_resize_all='for i in `ls`; do jpg_resize $i; done'
 alias wwwmech="perl -MWWW::Mechanize::Shell -eshell"
@@ -88,8 +96,7 @@ alias cdt="cdc;cd trunk"
 alias sb="sudo bash"
 alias cdw="cd ~/work"
 alias dh="df -h"
-alias lb="ls -la | sort +4n"
-alias ls="ls --color"
+alias ls='ls -G'
 alias lt="ls -latr"
 alias lsd="ls -lad"
 alias rf="rm -rf "
@@ -101,6 +108,7 @@ alias lg="ls -al | grep"
 alias vi=vim
 alias v=vim
 alias vb="vim ~/.bashrc; source ~/.bashrc"
+alias vv="vim ~/.vimrc"
 alias tdump="tcpdump -nnXSs 0"
 alias screenshot="xwd -display :0 -root > screenshot.dmp"
 alias h="history|tail -n 25"
@@ -140,7 +148,7 @@ export up7='../../../../../../..'
 export up8='../../../../../../../..'
 
 alias ..='cd ..'
-alias 2..='cd $up2'
+alias 2..='cd $up2' 
 alias 3..='cd $up3'
 alias 4..='cd $up4'
 alias 5..='cd $up5'
@@ -149,20 +157,27 @@ alias 7..='cd $up7'
 alias 8..='cd $up8'
 
 ### testing aliases
+function bt () {
+    perl Build.PL && 
+    ./Build test --verbose 1 --test_files $1 |colortest
+}
 function t () {
-    perl Build.PL && ./Build test --verbose 1 --test_files $1 |colortest
+    ./Build test --verbose 1 --test_files $1 |colortest
 }
 alias xt="t xt/*"
 alias tcover="./Build testcover --verbose 1 |colortest"
-alias tlikenew="perl Build.PL && ./Build clean && perl Build.PL && t"
+alias pb="perl Build.PL"
+alias tlikenew="pb && ./Build clean && pb && t"
 
 function modversion () { 
     perl -M$1 -le "print $1->VERSION"
 }
+alias perlconfig="perl -e 'use Config;use Data::Dumper;print Dumper \%Config;'"
+
 ##########
 
 ####### svn aliases
-alias svn=colorsvn
+alias colorsvn=svn
 alias sdl=svn_diff_less
 alias sup='colorsvn up'
 alias ssa="colorsvn status"
@@ -182,5 +197,5 @@ scot () {
     svn co svn+ssh://leto@leto.net/usr/local/svn/$1/trunk $2
 }
 
-
-source /home/leto/.bash/git-completion.bash
+source ~/.bash/git-completion.bash
+source ~/.bash/hosts

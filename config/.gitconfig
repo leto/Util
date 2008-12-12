@@ -1,0 +1,43 @@
+[user]
+    name = Duke Leto 
+    email = <jonathan@leto.net>
+
+[alias]
+    ci = commit -a
+    co = checkout
+    st = status -a
+    praise = blame 
+
+[apply]
+    whitespace = strip
+
+[diff]
+    color = auto
+    rename = copy 
+
+[pager]
+    color = true 
+
+[status]
+    color = auto
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan 

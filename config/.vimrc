@@ -1,17 +1,13 @@
 let $PAGER = 'less'
 let $LESS = 'dQFe'
 
-" change cwd to that of currect file, breaks ,t
-"autocmd BufEnter * lcd %:p:h 
-
-"au FileType pl,pm,t set filetype=perl
-"au FileType tex,bib set filetype=tex
-"au FileType text setlocal tw=78
-
 autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=gitcommit
 
-au BufNewFile,BufRead *.pl,*.pm,*.t     setf perl
-au BufNewFile,BufRead *.pmc,*.ops       setf c
+set list listchars=tab:\|_,trail:.
+highlight SpecialKey ctermfg=DarkRed
+
+au BufNewFile,BufRead *.pl,*.pm,*.t,*.pod     setf perl
+au BufNewFile,BufRead *.pmc,*.ops,*.i       setf c
 au BufNewFile,BufRead *.tt,*.ttml       setf tt2html
 au BufNewFile,BufRead *.tex,*.bib       setf tex
 
@@ -19,6 +15,20 @@ autocmd FileType perl call PerlMode()
 autocmd FileType tex  call TexMode()
 autocmd FileType text call TextMode()
 autocmd FileType mail call TextMode()
+
+" Folding
+set foldmethod=indent
+set nofoldenable
+set modelines=20
+set modeline
+highlight Folded ctermbg=darkgrey ctermfg=red
+highlight FoldColumn ctermbg=darkgrey ctermfg=white
+
+:map <F7> :if exists("syntax_on") <Bar>
+    \   syntax off <Bar>
+    \ else <Bar>
+    \   syntax enable <Bar>
+    \ endif <CR>
 
 au BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -71,15 +81,6 @@ let g:NERDShutUp=42
 set ai
 filetype plugin indent on
 
-" folding
-set foldmethod=marker
-set nofoldenable
-set modelines=20
-set modeline
-
-
-
-
 "============================================================================
 " Filename Autocompletion
 "----------------------------------------------------------------------------
@@ -126,8 +127,11 @@ map! ,lc  <esc>viw:perldo s/(.*)/lc $1/e<cr>
 vmap ,uc          :perldo s/(.*)/uc $1/e<cr>
  map ,uc       viw:perldo s/(.*)/uc $1/e<cr>
 map! ,uc  <esc>viw:perldo s/(.*)/uc $1/e<cr>
-map  ,dt      :perldo s/^(\t+)/'    ' x length $1/e<cr>
-map! ,dt <esc>:perldo s/^(\t+)/'    ' x length $1/e<cr>i
+
+" replace hard tabs with soft tabs
+map  ,kt      :perldo s/^(\t+)/'    ' x length $1/e<cr>
+map! ,kt <esc>:perldo s/^(\t+)/'    ' x length $1/e<cr>i
+
 map  ,wt      :perldo s/\s+$//<cr>
 map! ,wt <esc>:perldo s/\s+$//<cr>i
 map  ,sd       :w!<CR>:! svn diff  % \| colordiff \| less -R<CR>
@@ -137,17 +141,20 @@ map  ,st       :w!<CR>:! ispell -t % <CR>
 map! ,st  <ESC>:w!<CR>:! ispell -t % <CR>
 map  ,sp       :w!<CR>:! ispell % <CR>
 map! ,sp  <ESC>:w!<CR>:! ispell % <CR>
+
 map ,r  :!chmod +x % && ./% <cr>
 map ,R  :!chmod +x % && ./%
 
 map ,d  :!perl -d -Ilib %<cr>
+map ,dt :!perl -d:Trace -Ilib %<cr>
 map ,c  :!perl -Ilib -wc %<cr>
+map ,pd :!perldoc -F %\|less <cr>
+map ,pe :!perl -e ' 
 
 "map ,t  :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest<cr>
 map ,tl :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest\|less -R<cr>
 map ,T  :!DEBUG=1 ./Build test --verbose 1 --test_files   \|colortest<cr>
 
-map ,pd :!perldoc -F %\|less <cr>
 
 
 iab alos also
@@ -189,12 +196,12 @@ function! RunTest()
         execute ":!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest"
     elseif match(file, swig_ext ) > -1
         let stuff = substitute( file, swig_ext, "", "g")
+        let stuff = substitute( stuff, 'swig/', "", 'g')
         execute ":!DEBUG=1 ./Build test --verbose 1 --test_files t/" . stuff . ".t \|colortest"
     else
         echo "Does not appear to be a testable file, Will Robinson!"
     endif
 endfunction
-
 
 
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
@@ -207,10 +214,9 @@ set viminfo='5      " Use viminfo, remember marks for the last 5 files
 "
 set guicursor=a:blinkon600-blinkoff400
 
-
 map _l a\usepackage{latexsym,amsmath,amssymb,fullpage,epsfig}<CR>\documentclass{article}<CR>\usepackage{}<CR><CR>\begin{document}<CR>\end{document}<Esc>ko
-map _ps a#!/usr/bin/perl -w<Esc>o<CR>use strict;<CR>use warnings;<CR><CR>sub foo {<CR><CR>}<Esc>ki<Tab>my ($x,$y) = @_;<CR>
-map _pm apackage Math::Foo;<Esc>o <CR>use strict;<CR>use warnings;<CR><CR>sub new {<CR>my $class = shift;<CR>my $self = {};<CR>bless $self, $class;<CR>}<Esc>
+map _ps a#!/usr/bin/perl -w<Esc>o<CR>use strict;<CR>$\|++;<CR><Esc>
+map _pm apackage Foo;<Esc>o <CR>use strict;<CR><CR>sub new {<CR>my $class = shift;<CR>my $self = {};<CR>bless $self, $class;<CR>}<CR>1;<Esc>
 
 " Set up assembly programming
 let asmsyntax = "nasm"
@@ -247,6 +253,7 @@ function! PerlMode()            " Stolen from David Hand
     let perl_fold_blocks=1
     let perl_include_pod=1
     let perl_include_POD=1
+    let perl_sync_dist = 300
 endfunction               
 
 function! TexMode()        

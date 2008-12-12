@@ -1,0 +1,5 @@
+#! /Users/leto/git/factor/factor  -script
+
+USING: gsl gsl.sf.result gsl.sf.bessel gsl.sf.log kernel tools.test ;
+
+"gsl.sf" test
