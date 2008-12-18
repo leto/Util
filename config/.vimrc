@@ -145,9 +145,9 @@ map! ,sp  <ESC>:w!<CR>:! ispell % <CR>
 map ,r  :!chmod +x % && ./% <cr>
 map ,R  :!chmod +x % && ./%
 
-map ,d  :!perl -d -Ilib %<cr>
-map ,dt :!perl -d:Trace -Ilib %<cr>
-map ,c  :!perl -Ilib -wc %<cr>
+map ,d  :!perl5.10 -d -Ilib -Iblib %<cr>
+map ,dt :!perl5.10 -d:Trace -Ilib -Iblib %<cr>
+map ,c  :!perl5.10 -Ilib -wc %<cr>
 map ,pd :!perldoc -F %\|less <cr>
 map ,pe :!perl -e ' 
 

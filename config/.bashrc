@@ -6,7 +6,7 @@
 [ -z "$PS1" ] && return
 
 # This is ... madness.
-export PERL5LIB="/opt/local/lib/perl5:/Library/Perl/5.8.8"
+export PERL5LIB="/opt/local/lib/perl5/site_perl/5.10.0:/Library/Perl/5.8.8"
 export TERMINFO=/usr/share/terminfo
 export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
@@ -43,7 +43,7 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export PATH=/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/opt/local/bin:/usr/local/sbin:/usr/local/bin:/usr/X11R6/bin:~/bin
+export PATH=/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/opt/local/bin:/usr/local/sbin:~/bin:/usr/local/bin:/usr/X11R6/bin
 export bgcolor=black
 export C1='[0;32m'
 export C2='[0;37m'
@@ -163,6 +163,7 @@ alias xt="t xt/*"
 alias tcover="./Build testcover --verbose 1 |colortest"
 alias pb="perl Build.PL"
 alias tlikenew="pb && ./Build clean && pb && t"
+alias clean_build_check="tlikenew && ./Build dist && check_dist"
 
 function modversion () { 
     perl -M$1 -le "print $1->VERSION"
