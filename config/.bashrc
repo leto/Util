@@ -34,6 +34,11 @@ xterm*|rxvt*)
     ;;
 esac
 
+eval "`dircolors -b`"
+alias ls='ls --color=auto'
+
+# should only do this on OS X
+export LSCOLORS=Dxfxcxdxbxegedabagacad
 export EDITOR=vim
 export DISPLAY=:0.0
 # enable programmable completion features (you don't need to enable
