@@ -1,0 +1,12 @@
+#!/usr/bin/perl -w
+
+use HTML::Entities;
+use strict;
+
+my $file    = q{/home/leto/public_html/gitweb/indextext.html};
+my $fortune = qx{/usr/games/fortune};
+
+my $template = "<xmp>\n%s\n</xmp>";
+open(my $fh, '>', $file ) or die $!;
+print $fh sprintf $template, encode_entities($fortune);
+close $fh or die $!;
