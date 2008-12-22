@@ -8,5 +8,5 @@ my $fortune = qx{/usr/games/fortune};
 
 my $template = "<xmp>\n%s\n</xmp>";
 open(my $fh, '>', $file ) or die $!;
-print $fh sprintf $template, encode_entities($fortune);
+sprintf $fh $template, encode_entities($fortune);
 close $fh or die $!;
