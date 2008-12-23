@@ -6,7 +6,7 @@ use strict;
 my $file    = q{/home/leto/public_html/gitweb/indextext.html};
 my $fortune = qx{/usr/games/fortune};
 
-my $template = "<xmp>\n%s\n</xmp>";
+my $template = qq{<table><tr><td><img src="/gitweb/fortune-cookie.jpg"></img></td><td><xmp>\n%s\n</xmp></td></tr></table>\n};
 open(my $fh, '>', $file ) or die $!;
-printf $fh $template, encode_entities($fortune);
+printf $fh $template, encode_entities($fortune); # oh the entities!
 close $fh or die $!;
