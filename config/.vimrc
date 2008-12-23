@@ -10,6 +10,7 @@ au BufNewFile,BufRead *.pl,*.pm,*.t,*.pod     setf perl
 au BufNewFile,BufRead *.pmc,*.ops,*.i       setf c
 au BufNewFile,BufRead *.tt,*.ttml       setf tt2html
 au BufNewFile,BufRead *.tex,*.bib       setf tex
+au BufNewFile,BufRead *.js set ft=javascript.jquery
 
 autocmd FileType perl call PerlMode()
 autocmd FileType tex  call TexMode()
@@ -155,8 +156,7 @@ map ,pe :!perl -e '
 map ,tl :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest\|less -R<cr>
 map ,T  :!DEBUG=1 ./Build test --verbose 1 --test_files   \|colortest<cr>
 
-
-
+iab slef self
 iab alos also
 iab aslo also
 iab charcter character
