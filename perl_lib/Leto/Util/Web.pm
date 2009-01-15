@@ -9,11 +9,11 @@ our @EXPORT    = qw//;
 sub is_search_request($)
 {
     my $r = shift;
-    my @engines = qw{ 
-                    /search\? 
+    my @engines = qw{
+                    /search\?
                     images\.google
                     search\.yahoo\.com
-                    msn\.com 
+                    msn\.com
                     live\.com
                     del\.icio\.us/search
                 };
