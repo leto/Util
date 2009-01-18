@@ -53,7 +53,8 @@ set textwidth=0         " Don't wrap words by default
 set nocompatible        " Use Vim defaults (much better!)
 set noerrorbells 
 set noflash
-set matchpairs+=<:>
+set matchpairs=(:),{:},[:],<:>
+
 set joinspaces
 set lbr                 " only wrap at word boundaries
 set magic
