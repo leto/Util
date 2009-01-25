@@ -63,6 +63,7 @@ export HISTFILESIZE=5000
 export HISTSIZE=5000
 
 ####### git aliases
+alias grc="git rebase --continue"
 alias glp="git log -p"
 alias githist="git log -p"
 alias undo="git reset HEAD^"
