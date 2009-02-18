@@ -87,6 +87,7 @@ alias gPb="git push origin bleed"
 alias gPm="git push origin master"
 
 ### bash aliases
+alias p="perl5.10 -d -e0"
 alias perl=perl5.10
 alias pdF="perldoc -F"
 alias jpg_resize_all='for i in `ls`; do jpg_resize $i; done'
