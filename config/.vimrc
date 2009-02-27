@@ -107,6 +107,7 @@ nmap :X :x
 nmap :xx :x!
 nmap :Q :q
 nmap :qq :q!
+map :syn :syntax on
 
 
 nmap <f5> :make<CR>
@@ -136,13 +137,18 @@ map! ,kt <esc>:perldo s/^(\t+)/'    ' x length $1/e<cr>i
 
 map  ,wt      :perldo s/\s+$//<cr>
 map! ,wt <esc>:perldo s/\s+$//<cr>i
+
 map  ,sd       :w!<CR>:! svn diff  % \| colordiff \| less -R<CR>
 map! ,sd  <ESC>:w!<CR>:! svn diff  % \| colordiff \| less -R<CR>
 
 map  ,st       :w!<CR>:! ispell -t % <CR>
 map! ,st  <ESC>:w!<CR>:! ispell -t % <CR>
+
 map  ,sp       :w!<CR>:! ispell % <CR>
 map! ,sp  <ESC>:w!<CR>:! ispell % <CR>
+
+map  ,sb       :w!<CR>:! svn blame % <CR>
+map! ,sb  <ESC>:w!<CR>:! svn blame % <CR>
 
 map ,r  :!chmod +x % && ./% <cr>
 map ,R  :!chmod +x % && ./%
@@ -172,7 +178,7 @@ iab Ydate <C-R>=strftime("%a %b %d %T %Z %Y")<CR>
 iab udd {use Data::Dumper; print Dumper [ ];}<esc>ei
 
 set background=dark
-syntax on
+syntax off
 
 let FILE="/home/leto/.vimrc.wordlist"
 if filereadable(FILE)

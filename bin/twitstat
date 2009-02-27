@@ -1,0 +1,18 @@
+#!/usr/bin/perl -w
+use Net::Twitter;
+use strict;
+$|++;
+
+my ($username,$password)            = @ARGV;
+my $user                            = Net::Twitter->new({username => $username, password => $password });
+my ($friends,$followers)            = ($user->friends(), $user->followers());
+my ($num_friends, $num_followers)   = ($#$friends, $#$followers);
+my ($friends_followers,$followers2) = (0,0);
+
+map { $friends_followers += $_->{followers_count} } (@$friends);
+map { $followers2        += $_->{followers_count} } (@$followers);
+
+print "You have $num_friends friends and $num_followers followers\n";
+printf "Friend/Follow Ratio: %.2f\n", $num_friends/$num_followers;
+printf "Avg Friend Follow Count: %.1f\n", $friends_followers / $num_friends;
+printf "Avg Follower Follow Count: %.1f\n", $followers2 / $num_followers;

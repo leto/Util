@@ -7,7 +7,8 @@ export LD_LIBRARY_PATH="/opt/local/lib"
 [ -z "$PS1" ] && return
 
 # This is ... madness.
-export PERL5LIB="/opt/local/lib/perl5/site_perl/5.10.0:/Library/Perl/5.8.8"
+export PERL5LIB="/opt/local/lib/perl5/site_perl/5.10.0:/opt/local/lib/perl5/site_perl/5.8.8:/Library/Perl/5.8.8"
+export JSLIB=~/js
 export TERMINFO=/usr/share/terminfo
 export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth

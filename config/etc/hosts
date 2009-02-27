@@ -10,6 +10,9 @@
 fe80::1%lo0	localhost
 69.55.236.53 leto.net
 
+# fuck facebook
+127.0.0.1 creative.ak.facebook.com
+
 # begin fascism
 
 127.0.0.1 ads234.com
@@ -3466,7 +3469,7 @@ fe80::1%lo0	localhost
 127.0.0.1 adserver9.contextad.com
 127.0.0.1 adserverb.conjelco.com
 127.0.0.1 adserversolutions.com
-127.0.0.1 adservices.google.com
+#127.0.0.1 adservices.google.com
 127.0.0.1 adserving.cpxinteractive.com
 127.0.0.1 adservingcentral.com
 127.0.0.1 adsfac.net
@@ -3977,7 +3980,7 @@ fe80::1%lo0	localhost
 127.0.0.1 geoads.osdn.com
 127.0.0.1 globalwebads.com
 127.0.0.1 gm.preferences.com
-127.0.0.1 googleadservices.com
+#127.0.0.1 googleadservices.com
 127.0.0.1 got2goshop.com
 127.0.0.1 goto.trafficmultiplier.com
 127.0.0.1 gozing.directtrack.com
@@ -4309,10 +4312,10 @@ fe80::1%lo0	localhost
 127.0.0.1 oz.valueclick.com
 127.0.0.1 oz.valueclick.ne.jp
 127.0.0.1 ozonemedia.adbureau.net
-127.0.0.1 pagead.googlesyndication.com
-127.0.0.1 pagead1.googlesyndication.com
-127.0.0.1 pagead2.googlesyndication.com
-127.0.0.1 pagead3.googlesyndication.com
+#127.0.0.1 pagead.googlesyndication.com
+#127.0.0.1 pagead1.googlesyndication.com
+#127.0.0.1 pagead2.googlesyndication.com
+#127.0.0.1 pagead3.googlesyndication.com
 127.0.0.1 pages.etology.com
 127.0.0.1 partner.ah-ha.com
 127.0.0.1 partner01.oingo.com
