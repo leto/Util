@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+my $make      = 'gmake'; #necessary on darwin
+my $dir       = '/tmp';
+my $parrot    = 'parrot-smoke';
+my $smoke_dir = qq{$dir/$parrot};
+
+my $clean    = qq{ rm -rf $smoke_dir };
+my $checkout = qq{ cd $dir && rsync -av --delete svn.perl.org::parrot-HEAD $parrot };
+my $smoke    = qq{ cd $parrot && perl Configure.pl && $make smoke };
+
+system "$clean ; $checkout && $smoke && popd";
+print "You just smoked a Parrot!\n";
