@@ -1,9 +1,11 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
 
 use File::Temp qw/ tempdir /;
+use strict;
 
 my $perl        = shift || 'perl';
 my $branch      = shift || 'parrot-HEAD';
+my $parrot      = 'parrot';
 my $make        = $^O =~ /bsd/i ? 'gmake' : 'make';
 my $smoke_dir   = tempdir( CLEANUP => 1 );
 my $rsync       = 'rsync';
@@ -11,6 +13,8 @@ my $rsync_flags = '-av --delete';
 my $svnhost     = 'svn.perl.org';
 my $checkout    = qq{ cd $smoke_dir && $rsync $rsync_flags ${svnhost}::$branch $parrot };
 my $smoke       = qq{ cd $parrot && $perl Configure.pl && $make smoke ; cd ..};
+
+print "Smoking in $smoke_dir\n";
 
 system "$checkout && $smoke";
 if( $? == -1 ){
