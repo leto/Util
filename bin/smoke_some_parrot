@@ -1,13 +1,20 @@
 #!/usr/bin/perl
 
-my $make      = 'gmake'; #necessary on darwin
-my $dir       = '/tmp';
-my $parrot    = 'parrot-smoke';
-my $smoke_dir = qq{$dir/$parrot};
+use File::Temp qw/ tempdir /;
 
-my $clean    = qq{ rm -rf $smoke_dir };
-my $checkout = qq{ cd $dir && rsync -av --delete svn.perl.org::parrot-HEAD $parrot };
-my $smoke    = qq{ cd $parrot && perl Configure.pl && $make smoke };
+my $perl        = shift || 'perl';
+my $branch      = shift || 'parrot-HEAD';
+my $make        = $^O =~ /bsd/i ? 'gmake' : 'make';
+my $smoke_dir   = tempdir( CLEANUP => 1 );
+my $rsync       = 'rsync';
+my $rsync_flags = '-av --delete';
+my $svnhost     = 'svn.perl.org';
+my $checkout    = qq{ cd $smoke_dir && $rsync $rsync_flags ${svnhost}::$branch $parrot };
+my $smoke       = qq{ cd $parrot && $perl Configure.pl && $make smoke ; cd ..};
 
-system "$clean ; $checkout && $smoke && popd";
-print "You just smoked a Parrot!\n";
+system "$checkout && $smoke";
+if( $? == -1 ){
+    print "Failed to smoke Parrot: $!\n";
+} else {
+    print "You just smoked a Parrot!\n";
+}
