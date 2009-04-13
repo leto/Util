@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<opml version="1.0">
+<head>
+<title>Vienna Subscriptions</title>
+<dateCreated>2009-04-13 12:02:25 -0700</dateCreated>
+</head>
+<body>
+<outline xmlUrl="http://asc-parc.blogspot.com/feeds/posts/default" htmlUrl="http://asc-parc.blogspot.com/" type="rss" description="Your guide to &quot;understanding how groups remember, think, and reason.&quot;  
+
+The Augmented Social Cognition Research Group at Palo Alto Research Center (PARC)." text="Augmented Social Cognition"/>
+<outline xmlUrl="http://feeds.feedburner.com/DataMining" htmlUrl="http://datamining.typepad.com/data_mining/" type="rss" description="" text="Data Mining: Text Mining, Visualization and Social Media"/>
+<outline xmlUrl="http://dcortesi.com/feed/" htmlUrl="http://dcortesi.com" type="rss" description="Coding, Security, and maybe a little bit about Damon Cortesi" text="DCortesi . blog"/>
+<outline xmlUrl="http://www.engadget.com/rss.xml" htmlUrl="http://www.engadget.com" type="rss" description="Engadget" text="Engadget"/>
+<outline xmlUrl="http://www.ethanham.com/blog/rss.xml" htmlUrl="http://www.ethanham.com/blog/" type="rss" description="Technology-based Contemporary Art" text="Ethan Ham"/>
+<outline xmlUrl="http://www.filemagazine.com/thecollection/atom.xml" htmlUrl="http://www.filemagazine.com/thecollection/" type="rss" description="" text="FILE Magazine"/>
+<outline xmlUrl="http://googlesightseeing.com/feed/" htmlUrl="http://googlesightseeing.com" type="rss" description="Why bother seeing the world for real?" text="Google Sightseeing"/>
+<outline xmlUrl="http://feeds2.feedburner.com/IWillTeachYouToBeRich" htmlUrl="http://www.iwillteachyoutoberich.com" type="rss" description="Personal finance blog for college students, recent graduates and everyone else -- including entrepreneurship -- for getting rich. Featured in the Wall Street Journal and New York Times." text="I Will Teach You To Be Rich"/>
+<outline xmlUrl="https://github.com/leto.private.atom?token=8f3e1816705ea3fccc04d78287dfaed0" htmlUrl="https://github.com/" type="rss" description="" text="leto&apos;s Private Feed"/>
+<outline xmlUrl="http://feeds.macosxhints.com/macosxhints/recent" htmlUrl="http://www.macosxhints.com" type="rss" description="Macosxhints.com RSS feed" text="Mac OSX Hints"/>
+<outline xmlUrl="http://feeds.feedburner.com/MakerlabBlog" htmlUrl="http://blog.makerlab.org" type="rss" description="Here is what life is like at Makerlab." text="MakerLab Blog"/>
+<outline xmlUrl="http://www.marginalrevolution.com/marginalrevolution/index.rdf" htmlUrl="http://www.marginalrevolution.com/marginalrevolution/" type="rss" description="Small steps toward a much better world." text="Marginal Revolution"/>
+<outline xmlUrl="http://www.mininova.org/rss.xml?sub=114" htmlUrl="http://www.mininova.org/" type="rss" description="Latest Mininova torrents" text="Mininova"/>
+<outline text="music">
+<outline xmlUrl="http://www.zoekeating.com/blog/rss.xml" htmlUrl="http://www.zoekeating.com/blog/" type="rss" description="" text="Zoe&apos;s Incredibly Interesting Blog"/>
+</outline>
+<outline text="news">
+<outline text="tech">
+<outline xmlUrl="http://images.apple.com/main/rss/hotnews/hotnews.rss" htmlUrl="http://www.apple.com/hotnews/" type="rss" description="Hot News provided by Apple." text="Apple Hot News"/>
+<outline xmlUrl="http://news.google.com/?output=rss" htmlUrl="http://news.google.com/" type="rss" description="Google News" text="Google News"/>
+<outline xmlUrl="http://feeds.feedburner.com/Techcrunch" htmlUrl="http://www.techcrunch.com" type="rss" description="TechCrunch is a group-edited blog that profiles the companies, products and events defining and transforming the new web." text="TechCrunch"/>
+<outline xmlUrl="http://tedblog.typepad.com/tedblog/atom.xml" htmlUrl="http://blog.ted.com/" type="rss" description="Get the latest TEDTalks and TED news -- updates on conferences and Associates membership, video embeds and news from the TED community." text="TED | TEDBlog"/>
+<outline xmlUrl="http://www.tuaw.com/rss.xml" htmlUrl="http://www.tuaw.com" type="rss" description="The Unofficial Apple Weblog (TUAW)" text="The Unofficial Apple Weblog (TUAW)"/>
+<outline xmlUrl="http://www.wired.com/news/feeds/rss2/0,2610,,00.xml" htmlUrl="http://www.wired.com/rss/index.xml" type="rss" description="Top Stories&lt;img src=&quot;http://www.wired.com/rss_views/index.gif&quot;&gt;" text="Wired Top Stories"/>
+<outline xmlUrl="http://loop.worldofapple.com/feed/atom/" htmlUrl="http://news.worldofapple.com" type="rss" description="Mac News, Rumours and Opinions That You Want to Hear." text="World of Apple"/>
+</outline>
+<outline text="world">
+<outline xmlUrl="http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml" htmlUrl="http://news.bbc.co.uk/go/rss/-/2/hi/default.stm" type="rss" description="Get the latest BBC World news: international news, features and analysis from Africa, Americas, South Asia, Asia-Pacific, Europe and the Middle East." text="BBC World News"/>
+</outline>
+</outline>
+<outline xmlUrl="http://www.dpreview.com/news/dpr.rdf" htmlUrl="http://www.dpreview.com/" type="rss" description="Digital Photography Review, Latest digital camera news, camera reviews, galleries, technology and comparisons." text="News: Digital Photography Review (dpreview.com)"/>
+<outline xmlUrl="http://feeds.feedburner.com/nibblous" htmlUrl="http://www.nibblous.com/" type="rss" description="latest Nibblous nibblings" text="Nibblous - Recipes"/>
+<outline xmlUrl="http://www.npr.org/rss/podcast.php?id=500001" htmlUrl="http://www.npr.org/templates/topics/topic.php?topicId=1001&amp;ft=2&amp;f=500001" type="rss" description="A five-minute NPR News summary you can take with you." text="NPR: 7AM ET News Summary"/>
+<outline xmlUrl="http://www.npr.org/rss/podcast.php?id=4538138" htmlUrl="http://www.npr.org/templates/story/story.php?storyId=4538138&amp;ft=2&amp;f=4538138" type="rss" description="Americans from all walks of life describe their core personal beliefs.  One of the most popular NPR series ever." text="NPR: This I Believe"/>
+<outline xmlUrl="http://googleblog.blogspot.com/atom.xml" htmlUrl="http://googleblog.blogspot.com/" type="rss" description="Insights from Googlers into our products, technology, and the Google culture." text="Official Google Blog"/>
+<outline xmlUrl="http://googlereader.blogspot.com/atom.xml" htmlUrl="http://googlereader.blogspot.com/" type="rss" description="News, tips and tricks from the Google reader team." text="Official Google Reader Blog"/>
+<outline xmlUrl="http://feeds.feedburner.com/OurPdxNetwork" htmlUrl="http://ourpdx.com" type="rss" description="Collaborative coverage of news and events, with a focus on community." text="Our PDX Network"/>
+<outline text="perl">
+<outline xmlUrl="http://unknownplace.org/cpanrecent/rss" htmlUrl="http://unknownplace.org/cpanrecent/" type="rss" description="CPAN Recent with Changelog" text="CPAN Recent Changes"/>
+<outline xmlUrl="http://log.perl.org/index.rdf" htmlUrl="http://log.perl.org/" type="rss" description="the perl.org infrastructure weblog" text="Perl NOC"/>
+<outline xmlUrl="http://www.perlcast.com/rss/current.xml" htmlUrl="http://www.perlcast.com" type="rss" description="Perl News, Reviews and More." text="Perlcast"/>
+<outline xmlUrl="http://planet.perl.org/atom.xml" htmlUrl="http://planet.perl.org/" type="rss" description="" text="Planet Perl"/>
+<outline xmlUrl="http://planetsix.perl.org/atom.xml" htmlUrl="http://planetsix.perlfoundation.org" type="rss" description="" text="Planet Perl Six"/>
+<outline xmlUrl="http://testers.cpan.org/recent.rss" htmlUrl="http://testers.cpan.org/recent.html" type="rss" description="Recent CPAN Testers reports" text="Recent CPAN Testers reports"/>
+<outline xmlUrl="http://cpantesters.perl.org/author/LETO.rss" htmlUrl="http://testers.cpan.org/author/LETO.html" type="rss" description="Reports for distributions by LETO" text="Reports for distributions by LETO"/>
+</outline>
+<outline xmlUrl="http://feeds.salon.com/salon/index" htmlUrl="http://www.salon.com/?source=rss&amp;aim=/" type="rss" description="Original, independent news coverage and investigative reporting, and insightful commentary on politics and culture -- every day from Salon." text="Salon"/>
+<outline text="science">
+<outline xmlUrl="http://news.nationalgeographic.com/index.rss" htmlUrl="http://news.nationalgeographic.com" type="rss" description="National Geographic News" text="National Geographic News"/>
+<outline xmlUrl="http://www.nature.com/news/rss.rdf" htmlUrl="http://www.nature.com/news/" type="rss" description="" text="News at Nature - Articles published Today"/>
+<outline xmlUrl="http://www.realclimate.org/index.php/feed/atom/" htmlUrl="http://www.realclimate.org" type="rss" description="Climate science commentary by actual climate scientists..." text="RealClimate"/>
+<outline xmlUrl="http://www.sciam.com/xml/sciam.xml" htmlUrl="http://www.sciam.com/" type="rss" description="Science news and technology updates from Scientific American" text="Scientific American - Official RSS Feed"/>
+</outline>
+<outline text="security">
+<outline xmlUrl="http://www.f-secure.com/weblog/weblog.rss" htmlUrl="http://www.f-secure.com/weblog" type="rss" description="Weblog of F-Secure Antivirus Research Team" text="F-Secure Antivirus Research Weblog"/>
+<outline xmlUrl="http://threatchaos.com/feed/" htmlUrl="http://threatchaos.com" type="rss" description="Security blog, news, and events" text="ThreatChaos"/>
+</outline>
+<outline xmlUrl="http://slashdot.org/index.rss" htmlUrl="http://slashdot.org/" type="rss" description="News for nerds, stuff that matters" text="Slashdot"/>
+<outline xmlUrl="http://feeds.feedburner.com/SolutoireFlotr" htmlUrl="http://solutoire.com" type="rss" description="Publicing platform" text="Solutoire.com » Flotr"/>
+<outline xmlUrl="http://www.theonion.com/content/feeds/daily" htmlUrl="http://www.theonion.com/content" type="rss" description="America&apos;s Finest News Source" text="The Onion"/>
+<outline xmlUrl="http://www.vienna-rss.org/blog/atom.xml" htmlUrl="http://vienna-rss.sourceforge.net/blog.php" type="rss" description="" text="Vienna Developer Blog"/>
+<outline xmlUrl="http://forums.cocoaforge.com/rss.php?atom&amp;f=18" htmlUrl="http://forums.cocoaforge.com/viewforum.php?f=18" type="rss" description="Latest topics from forum “Vienna” on “cocoaforge”." text="Vienna Support"/>
+<outline xmlUrl="http://vitrineenillumina.zerosun6.com/index.php?x=rss" htmlUrl="http://vitrineenillumina.zerosun6.com/" type="rss" description="vitrine en illumina photoblog" text="vitrine en illumina"/>
+</body>
+</opml>
