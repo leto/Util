@@ -2,7 +2,7 @@
 <opml version="1.0">
 <head>
 <title>Vienna Subscriptions</title>
-<dateCreated>2009-04-13 12:02:25 -0700</dateCreated>
+<dateCreated>2009-04-13 12:30:49 -0700</dateCreated>
 </head>
 <body>
 <outline xmlUrl="http://asc-parc.blogspot.com/feeds/posts/default" htmlUrl="http://asc-parc.blogspot.com/" type="rss" description="Your guide to &quot;understanding how groups remember, think, and reason.&quot;  
@@ -15,6 +15,7 @@ The Augmented Social Cognition Research Group at Palo Alto Research Center (PARC
 <outline xmlUrl="http://www.filemagazine.com/thecollection/atom.xml" htmlUrl="http://www.filemagazine.com/thecollection/" type="rss" description="" text="FILE Magazine"/>
 <outline xmlUrl="http://googlesightseeing.com/feed/" htmlUrl="http://googlesightseeing.com" type="rss" description="Why bother seeing the world for real?" text="Google Sightseeing"/>
 <outline xmlUrl="http://feeds2.feedburner.com/IWillTeachYouToBeRich" htmlUrl="http://www.iwillteachyoutoberich.com" type="rss" description="Personal finance blog for college students, recent graduates and everyone else -- including entrepreneurship -- for getting rich. Featured in the Wall Street Journal and New York Times." text="I Will Teach You To Be Rich"/>
+<outline xmlUrl="http://github.com/leto.atom" htmlUrl="http://github.com/" type="rss" description="" text="leto&apos;s Activity"/>
 <outline xmlUrl="https://github.com/leto.private.atom?token=8f3e1816705ea3fccc04d78287dfaed0" htmlUrl="https://github.com/" type="rss" description="" text="leto&apos;s Private Feed"/>
 <outline xmlUrl="http://feeds.macosxhints.com/macosxhints/recent" htmlUrl="http://www.macosxhints.com" type="rss" description="Macosxhints.com RSS feed" text="Mac OSX Hints"/>
 <outline xmlUrl="http://feeds.feedburner.com/MakerlabBlog" htmlUrl="http://blog.makerlab.org" type="rss" description="Here is what life is like at Makerlab." text="MakerLab Blog"/>
@@ -48,6 +49,7 @@ The Augmented Social Cognition Research Group at Palo Alto Research Center (PARC
 <outline xmlUrl="http://unknownplace.org/cpanrecent/rss" htmlUrl="http://unknownplace.org/cpanrecent/" type="rss" description="CPAN Recent with Changelog" text="CPAN Recent Changes"/>
 <outline xmlUrl="http://log.perl.org/index.rdf" htmlUrl="http://log.perl.org/" type="rss" description="the perl.org infrastructure weblog" text="Perl NOC"/>
 <outline xmlUrl="http://www.perlcast.com/rss/current.xml" htmlUrl="http://www.perlcast.com" type="rss" description="Perl News, Reviews and More." text="Perlcast"/>
+<outline xmlUrl="http://perlsphere.net/rss.xml" htmlUrl="http://perlsphere.net/" type="rss" description="The Perl firehose! The Web&apos;s biggest collection of Perl blogs.&lt;br /&gt;All Perl blogs and tech blogs&apos; Perl categories welcome - email submissions to Earle: &amp;#112;&amp;#101;&amp;#114;&amp;#108;&amp;#115;&amp;#112;&amp;#104;&amp;#101;&amp;#114;&amp;#101;&amp;#64;&amp;#100;&amp;#111;&amp;#119;&amp;#110;&amp;#108;&amp;#111;&amp;#100;&amp;#101;&amp;#46;&amp;#111;&amp;#114;&amp;#103;." text="Perlsphere"/>
 <outline xmlUrl="http://planet.perl.org/atom.xml" htmlUrl="http://planet.perl.org/" type="rss" description="" text="Planet Perl"/>
 <outline xmlUrl="http://planetsix.perl.org/atom.xml" htmlUrl="http://planetsix.perlfoundation.org" type="rss" description="" text="Planet Perl Six"/>
 <outline xmlUrl="http://testers.cpan.org/recent.rss" htmlUrl="http://testers.cpan.org/recent.html" type="rss" description="Recent CPAN Testers reports" text="Recent CPAN Testers reports"/>
