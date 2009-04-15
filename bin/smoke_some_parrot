@@ -2,6 +2,7 @@
 
 use File::Temp qw/ tempdir /;
 use strict;
+use warnings;
 
 my $perl        = shift || 'perl';
 my $branch      = shift || 'parrot/trunk';
@@ -10,11 +11,12 @@ my $make        = $ENV{MAKE} ? $ENV{MAKE} : $^O =~ /bsd/i ? 'gmake'  : 'make';
 my $smoke_dir   = tempdir( CLEANUP => 1 );
 my $svnhost     = 'https://svn.parrot.org';
 my $checkout    = qq{ cd $smoke_dir && svn co $svnhost/$branch $parrot };
-my $smoke       = qq{ cd $parrot && $perl Configure.pl && make parrot_utils && nice -n 20 $make smoke ; cd ..};
+my $smoke       = qq{ cd $parrot && svn info && $perl Configure.pl && make parrot_utils && $make smoke ; cd ..};
 
 print "Smoking in $smoke_dir\n";
 print "$checkout && $smoke\n";
 system "$checkout && $smoke";
+warn $@ if $@;
 if( $? == -1 ){
     print "Failed to smoke Parrot: $!\n";
 } else {
