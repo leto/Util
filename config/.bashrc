@@ -1,12 +1,9 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 export LD_LIBRARY_PATH="/opt/local/lib"
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
 # This is ... madness.
+#export PERL5LIB="/opt/local/lib/perl5/5.10.0/darwin-2level/:
 export PERL5LIB="/opt/local/lib/perl5/site_perl/5.10.0:/opt/local/lib/perl5/site_perl/5.8.8:/Library/Perl/5.8.8"
 export JSLIB=~/js
 export TERMINFO=/usr/share/terminfo
@@ -17,6 +14,13 @@ shopt -s checkwinsize
 export HARNESS_OPTIONS="j"
 #export HARNESS_TIMER=0
 #export HARNESS_VERBOSE=0
+
+# bus error central
+#export MallocScribble=42
+#export MallocStackLogging=42
+#export MallocStackLoggingNoCompact=42
+#export MallocCheckHeapStart=1000
+#export MallocCheckHeapEach=100
 
 
 # make less more friendly for non-text input files, see lesspipe(1)
@@ -88,6 +92,7 @@ alias gPb="git push origin bleed"
 alias gPm="git push origin master"
 
 ### bash aliases
+alias p6topir="~/git/rakudo/perl6 --target=pir"
 alias p="perl5.10 -d -e0"
 alias perl=perl5.10
 alias pdF="perldoc -F"
@@ -175,8 +180,8 @@ alias pb="perl Build.PL"
 alias tlikenew="pb && ./Build clean && pb && t"
 alias clean_build_check="tlikenew && ./Build dist && check_dist"
 
-function modversion () { 
-    perl -M$1 -le "print $1->VERSION"
+function modversion () {
+    /usr/bin/perl -M$1 -le "print $1->VERSION"
 }
 alias perlconfig="perl -e 'use Config;use Data::Dumper;print Dumper \%Config;'"
 
@@ -184,7 +189,7 @@ alias perlconfig="perl -e 'use Config;use Data::Dumper;print Dumper \%Config;'"
 
 ####### svn aliases
 alias colorsvn=svn
-alias sdl=svn_diff_less
+alias sdl="svn diff| colordiff"
 alias sup='colorsvn up'
 alias ssa="colorsvn status"
 alias ss="svn status |grep -v '\.swp$'|grep -v '\.swo$' |grep -v '~$' |grep -v '\._'"
