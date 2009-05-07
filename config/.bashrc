@@ -4,7 +4,8 @@ export LD_LIBRARY_PATH="/opt/local/lib"
 
 # This is ... madness.
 #export PERL5LIB="/opt/local/lib/perl5/5.10.0/darwin-2level/:
-export PERL5LIB="/opt/local/lib/perl5/site_perl/5.10.0:/opt/local/lib/perl5/site_perl/5.8.8:/Library/Perl/5.8.8"
+#export PERL5LIB="/opt/local/lib/perl5/site_perl/5.8.8:/Library/Perl/5.8.8"
+export PERL5LIB=lib:/opt/local/lib/perl5/site_perl/5.10.0:/opt/local/lib/perl5/site_perl/5.8.8:/Library/Perl/5.8.8
 export JSLIB=~/js
 export TERMINFO=/usr/share/terminfo
 export HISTCONTROL=ignoredups
@@ -95,6 +96,7 @@ alias gPm="git push origin master"
 alias p6topir="~/git/rakudo/perl6 --target=pir"
 alias p="perl5.10 -d -e0"
 alias perl=perl5.10
+alias perldoc=perldoc-5.10
 alias pdF="perldoc -F"
 alias jpg_resize_all='for i in `ls`; do jpg_resize $i; done'
 alias wwwmech="perl -MWWW::Mechanize::Shell -eshell"

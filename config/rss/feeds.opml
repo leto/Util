@@ -2,7 +2,7 @@
 <opml version="1.0">
 <head>
 <title>Vienna Subscriptions</title>
-<dateCreated>2009-04-15 17:50:41 -0700</dateCreated>
+<dateCreated>2009-04-16 22:04:47 -0700</dateCreated>
 </head>
 <body>
 <outline xmlUrl="http://asc-parc.blogspot.com/feeds/posts/default" htmlUrl="http://asc-parc.blogspot.com/" type="rss" description="Your guide to &quot;understanding how groups remember, think, and reason.&quot;  
@@ -51,7 +51,6 @@ The Augmented Social Cognition Research Group at Palo Alto Research Center (PARC
 <outline xmlUrl="http://googlereader.blogspot.com/atom.xml" htmlUrl="http://googlereader.blogspot.com/" type="rss" description="News, tips and tricks from the Google reader team." text="Official Google Reader Blog"/>
 <outline xmlUrl="http://feeds.feedburner.com/OurPdxNetwork" htmlUrl="http://ourpdx.com" type="rss" description="Collaborative coverage of news and events, with a focus on community." text="Our PDX Network"/>
 <outline text="perl">
-<outline xmlUrl="http://www.catalyzed.org/atom.xml" htmlUrl="http://www.catalyzed.org/" type="rss" description="Long live Perl." text="Catalyzed.org"/>
 <outline xmlUrl="http://unknownplace.org/cpanrecent/rss" htmlUrl="http://unknownplace.org/cpanrecent/" type="rss" description="CPAN Recent with Changelog" text="CPAN Recent Changes"/>
 <outline xmlUrl="http://log.perl.org/index.rdf" htmlUrl="http://log.perl.org/" type="rss" description="the perl.org infrastructure weblog" text="Perl NOC"/>
 <outline xmlUrl="http://www.perlcast.com/rss/current.xml" htmlUrl="http://www.perlcast.com" type="rss" description="Perl News, Reviews and More." text="Perlcast"/>
@@ -60,6 +59,7 @@ The Augmented Social Cognition Research Group at Palo Alto Research Center (PARC
 <outline xmlUrl="http://planetsix.perl.org/atom.xml" htmlUrl="http://planetsix.perlfoundation.org" type="rss" description="" text="Planet Perl Six"/>
 <outline xmlUrl="http://testers.cpan.org/recent.rss" htmlUrl="http://testers.cpan.org/recent.html" type="rss" description="Recent CPAN Testers reports" text="Recent CPAN Testers reports"/>
 <outline xmlUrl="http://cpantesters.perl.org/author/LETO.rss" htmlUrl="http://testers.cpan.org/author/LETO.html" type="rss" description="Reports for distributions by LETO" text="Reports for distributions by LETO"/>
+<outline xmlUrl="http://www.theperlreview.com/rss/tpr-all.rdf" htmlUrl="http://www.theperlreview.com/" type="rss" description="" text="The Perl Review"/>
 </outline>
 <outline text="science">
 <outline xmlUrl="http://news.nationalgeographic.com/index.rss" htmlUrl="http://news.nationalgeographic.com" type="rss" description="National Geographic News" text="National Geographic News"/>
