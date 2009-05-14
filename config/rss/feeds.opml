@@ -2,7 +2,7 @@
 <opml version="1.0">
 <head>
 <title>Vienna Subscriptions</title>
-<dateCreated>2009-04-16 22:04:47 -0700</dateCreated>
+<dateCreated>2009-05-14 14:54:36 -0700</dateCreated>
 </head>
 <body>
 <outline xmlUrl="http://asc-parc.blogspot.com/feeds/posts/default" htmlUrl="http://asc-parc.blogspot.com/" type="rss" description="Your guide to &quot;understanding how groups remember, think, and reason.&quot;  
@@ -24,10 +24,9 @@ The Augmented Social Cognition Research Group at Palo Alto Research Center (PARC
 <outline xmlUrl="http://www.theonion.com/content/feeds/daily" htmlUrl="http://www.theonion.com/content" type="rss" description="America&apos;s Finest News Source" text="The Onion"/>
 </outline>
 <outline xmlUrl="http://github.com/leto.atom" htmlUrl="http://github.com/" type="rss" description="" text="leto&apos;s Activity"/>
-<outline xmlUrl="https://github.com/leto.private.atom?token=8f3e1816705ea3fccc04d78287dfaed0" htmlUrl="https://github.com/" type="rss" description="" text="leto&apos;s Private Feed"/>
+<outline xmlUrl="https://github.com/leto.private.atom?token=15df3957c2f7162964f1b98080e95583" htmlUrl="https://github.com/" type="rss" description="" text="leto&apos;s Private Feed"/>
 <outline xmlUrl="http://feeds.macosxhints.com/macosxhints/recent" htmlUrl="http://www.macosxhints.com" type="rss" description="Macosxhints.com RSS feed" text="Mac OSX Hints"/>
-<outline xmlUrl="http://feeds.feedburner.com/MakerlabBlog" htmlUrl="http://blog.makerlab.org" type="rss" description="Here is what life is like at Makerlab." text="MakerLab Blog"/>
-<outline xmlUrl="http://www.mininova.org/rss.xml?sub=114" htmlUrl="http://www.mininova.org/" type="rss" description="Latest Mininova torrents" text="Mininova"/>
+<outline xmlUrl="http://feeds.feedburner.com/MakerlabBlog" htmlUrl="http://blog.makerlab.org" type="rss" description="Go on, be curious" text="MakerLab Blog"/>
 <outline text="music">
 <outline xmlUrl="http://www.zoekeating.com/blog/rss.xml" htmlUrl="http://www.zoekeating.com/blog/" type="rss" description="" text="Zoe&apos;s Incredibly Interesting Blog"/>
 </outline>
@@ -51,10 +50,18 @@ The Augmented Social Cognition Research Group at Palo Alto Research Center (PARC
 <outline xmlUrl="http://googlereader.blogspot.com/atom.xml" htmlUrl="http://googlereader.blogspot.com/" type="rss" description="News, tips and tricks from the Google reader team." text="Official Google Reader Blog"/>
 <outline xmlUrl="http://feeds.feedburner.com/OurPdxNetwork" htmlUrl="http://ourpdx.com" type="rss" description="Collaborative coverage of news and events, with a focus on community." text="Our PDX Network"/>
 <outline text="perl">
+<outline xmlUrl="http://www.catalyzed.org/atom.xml" htmlUrl="http://www.catalyzed.org/" type="rss" description="A Catalyst and Perl Blog" text="Catalyzed.org"/>
 <outline xmlUrl="http://unknownplace.org/cpanrecent/rss" htmlUrl="http://unknownplace.org/cpanrecent/" type="rss" description="CPAN Recent with Changelog" text="CPAN Recent Changes"/>
 <outline xmlUrl="http://log.perl.org/index.rdf" htmlUrl="http://log.perl.org/" type="rss" description="the perl.org infrastructure weblog" text="Perl NOC"/>
+<outline xmlUrl="http://nntp.x.perl.org/rss/perl.advocacy.rdf" htmlUrl="http://www.nntp.perl.org/group/perl.advocacy/" type="rss" description="..." text="perl.advocacy"/>
+<outline xmlUrl="http://nntp.x.perl.org/rss/perl.daily.news.rdf" htmlUrl="http://www.nntp.perl.org/group/perl.daily.news/" type="rss" description="..." text="perl.daily.news"/>
+<outline xmlUrl="http://nntp.x.perl.org/rss/perl.datetime.rdf" htmlUrl="http://www.nntp.perl.org/group/perl.datetime/" type="rss" description="..." text="perl.datetime"/>
+<outline xmlUrl="http://nntp.x.perl.org/rss/perl.debugger.rdf" htmlUrl="http://www.nntp.perl.org/group/perl.debugger/" type="rss" description="..." text="perl.debugger"/>
+<outline xmlUrl="http://nntp.x.perl.org/rss/perl.jobs.rdf" htmlUrl="http://www.nntp.perl.org/group/perl.jobs/" type="rss" description="..." text="perl.jobs"/>
+<outline xmlUrl="http://nntp.x.perl.org/rss/perl.jobs.discuss.rdf" htmlUrl="http://www.nntp.perl.org/group/perl.jobs.discuss/" type="rss" description="..." text="perl.jobs.discuss"/>
+<outline xmlUrl="http://nntp.x.perl.org/rss/perl.macosx.rdf" htmlUrl="http://www.nntp.perl.org/group/perl.macosx/" type="rss" description="..." text="perl.macosx"/>
 <outline xmlUrl="http://www.perlcast.com/rss/current.xml" htmlUrl="http://www.perlcast.com" type="rss" description="Perl News, Reviews and More." text="Perlcast"/>
-<outline xmlUrl="http://perlsphere.net/rss.xml" htmlUrl="http://perlsphere.net/" type="rss" description="The Perl firehose! The Web&apos;s biggest collection of Perl blogs.&lt;br /&gt;All Perl blogs and tech blogs&apos; Perl categories welcome - email submissions to Earle: &amp;#112;&amp;#101;&amp;#114;&amp;#108;&amp;#115;&amp;#112;&amp;#104;&amp;#101;&amp;#114;&amp;#101;&amp;#64;&amp;#100;&amp;#111;&amp;#119;&amp;#110;&amp;#108;&amp;#111;&amp;#100;&amp;#101;&amp;#46;&amp;#111;&amp;#114;&amp;#103;." text="Perlsphere"/>
+<outline xmlUrl="http://perlsphere.net/rss.xml" htmlUrl="http://perlsphere.net/" type="rss" description="The Perl firehose! The Web&apos;s biggest collection of Perl blogs.&lt;br /&gt;If you&apos;d like your Perl blog or tech blog&apos;s Perl category to appear here, send mail to &amp;#112;&amp;#101;&amp;#114;&amp;#108;&amp;#115;&amp;#112;&amp;#104;&amp;#101;&amp;#114;&amp;#101;&amp;#64;&amp;#100;&amp;#111;&amp;#119;&amp;#110;&amp;#108;&amp;#111;&amp;#100;&amp;#101;&amp;#46;&amp;#111;&amp;#114;&amp;#103;." text="Perlsphere"/>
 <outline xmlUrl="http://planet.perl.org/atom.xml" htmlUrl="http://planet.perl.org/" type="rss" description="" text="Planet Perl"/>
 <outline xmlUrl="http://planetsix.perl.org/atom.xml" htmlUrl="http://planetsix.perlfoundation.org" type="rss" description="" text="Planet Perl Six"/>
 <outline xmlUrl="http://testers.cpan.org/recent.rss" htmlUrl="http://testers.cpan.org/recent.html" type="rss" description="Recent CPAN Testers reports" text="Recent CPAN Testers reports"/>
