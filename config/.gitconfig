@@ -1,12 +1,15 @@
 [user]
     name = Duke Leto 
     email = <jonathan@leto.net>
+    editor = vim
 
 [alias]
     ci = commit -a
     co = checkout
     st = status -a
-    praise = blame 
+    praise = blame
+    up = !git stash && git pull origin master && git stash apply
+    last  = cat-file commit HEAD
 
 [apply]
     whitespace = strip
@@ -41,3 +44,15 @@
   added = yellow
   changed = green
   untracked = cyan 
+
+[core]
+    excludesfile = ~/.gitignore
+    editor = vim
+    pager = more
+    filemode = true
+    bare = false
+    logallrefupdates = true
+    autocrlf = false
+    whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
+    preloadindex = true
+
