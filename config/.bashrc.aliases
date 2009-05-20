@@ -2,6 +2,11 @@ function dl () {
     colordiff -u $1 $2 |less -R
 }
 
+function recursive_replace () {
+    [ -z "$1" ] && echo "Must search for something!" && return
+    grep -R -l "$1" . | sort | uniq | xargs perl -pi -e "s/$1/$2/"
+}
+
 largest () {
     du $1 |sort -rn |head
 }
