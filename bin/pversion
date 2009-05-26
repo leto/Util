@@ -1,0 +1,7 @@
+#!/usr/bin/env perl
+my $module = shift;
+
+package LETO::PVERSION; # for modules which won't let you use 'em in %main::
+eval "use $module";
+die $@ if $@;
+print $module->VERSION || "Could not determine a version for $module", $/;

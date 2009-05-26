@@ -124,6 +124,8 @@ map <F6> :call Fxxd()<cr>
 
 map ,h :call PerlDoc()<C-M>:set nomod<C-M>
 
+noremap  ,pv  :!echo <cword> version `$HOME/bin/pversion '<cword>'`<cr>
+
 vmap ,lc          :perldo s/(.*)/lc $1/e<cr>
  map ,lc       viw:perldo s/(.*)/lc $1/e<cr>
 map! ,lc  <esc>viw:perldo s/(.*)/lc $1/e<cr>
