@@ -2,7 +2,7 @@
 <opml version="1.0">
 <head>
 <title>Vienna Subscriptions</title>
-<dateCreated>2009-05-20 08:32:34 -0700</dateCreated>
+<dateCreated>2009-05-26 13:31:33 -0700</dateCreated>
 </head>
 <body>
 <outline text="art">
@@ -11,11 +11,14 @@
 <outline xmlUrl="http://vitrineenillumina.zerosun6.com/index.php?x=rss" htmlUrl="http://vitrineenillumina.zerosun6.com/" type="rss" description="vitrine en illumina photoblog" text="vitrine en illumina"/>
 </outline>
 <outline text="code">
+</outline>
+<outline text="coding">
 <outline xmlUrl="http://github.com/leto.atom" htmlUrl="http://github.com/" type="rss" description="" text="leto&apos;s Activity"/>
 <outline xmlUrl="https://github.com/leto.private.atom?token=15df3957c2f7162964f1b98080e95583" htmlUrl="https://github.com/" type="rss" description="" text="leto&apos;s Private Feed"/>
 </outline>
 <outline text="domestic">
 <outline xmlUrl="http://feeds.feedburner.com/nibblous" htmlUrl="http://www.nibblous.com/" type="rss" description="latest Nibblous nibblings" text="Nibblous - Recipes"/>
+<outline xmlUrl="http://feeds.feedburner.com/zenhabits" htmlUrl="http://zenhabits.net" type="rss" description="Simple Productivity" text="Zen Habits"/>
 </outline>
 <outline text="finance">
 <outline xmlUrl="http://feeds2.feedburner.com/IWillTeachYouToBeRich" htmlUrl="http://www.iwillteachyoutoberich.com" type="rss" description="Personal finance blog for college students, recent graduates and everyone else -- including entrepreneurship -- for getting rich. Featured in the Wall Street Journal and New York Times." text="I Will Teach You To Be Rich"/>
@@ -24,6 +27,10 @@
 <outline xmlUrl="http://feeds.feedburner.com/GitcastsHighRes" htmlUrl="http://www.gitcasts.com/posts.html" type="rss" description="Screencasts on learning Git" text="GitCasts Screencasts - HighRes"/>
 <outline xmlUrl="http://rss.gmane.org/messages/complete/gmane.comp.version-control.git" htmlUrl="http://blog.gmane.org/gmane.comp.version-control.git" type="rss" description="" text="gmane.comp.version-control.git"/>
 <outline xmlUrl="http://feeds.feedburner.com/tom-preston-werner" htmlUrl="http://tom.preston-werner.com/" type="rss" description="" text="Tom Preston-Werner"/>
+</outline>
+<outline text="GSoC">
+<outline xmlUrl="http://www.parrot.org/blog/341/feed" htmlUrl="http://www.parrot.org/darbelo" type="rss" description="" text="darbelo&apos;s blog"/>
+<outline xmlUrl="http://google-opensource.blogspot.com/atom.xml" htmlUrl="http://google-opensource.blogspot.com/" type="rss" description="News about Google&apos;s Open Source projects and programs." text="Google Open Source Blog"/>
 </outline>
 <outline text="hamradio">
 <outline xmlUrl="http://groups.google.com/group/rec.radio.amateur.antenna/feed/rss_v2_0_topics.xml?num=50" htmlUrl="http://groups.google.com/group/rec.radio.amateur.antenna" type="rss" description="Antennas: theory, techniques and construction." text="rec.radio.amateur.antenna Google Group"/>
@@ -43,7 +50,6 @@
 </outline>
 <outline text="tech">
 <outline xmlUrl="http://images.apple.com/main/rss/hotnews/hotnews.rss" htmlUrl="http://www.apple.com/hotnews/" type="rss" description="Hot News provided by Apple." text="Apple Hot News"/>
-<outline xmlUrl="http://news.google.com/?output=rss" htmlUrl="http://news.google.com/" type="rss" description="Google News" text="Google News"/>
 <outline xmlUrl="http://googleblog.blogspot.com/atom.xml" htmlUrl="http://googleblog.blogspot.com/" type="rss" description="Insights from Googlers into our products, technology, and the Google culture." text="Official Google Blog"/>
 <outline xmlUrl="http://slashdot.org/index.rss" htmlUrl="http://slashdot.org/" type="rss" description="News for nerds, stuff that matters" text="Slashdot"/>
 <outline xmlUrl="http://feeds.feedburner.com/Techcrunch" htmlUrl="http://www.techcrunch.com" type="rss" description="TechCrunch is a group-edited blog that profiles the companies, products and events defining and transforming the new web." text="TechCrunch"/>
@@ -52,7 +58,6 @@
 <outline xmlUrl="http://www.wired.com/news/feeds/rss2/0,2610,,00.xml" htmlUrl="http://www.wired.com/rss/index.xml" type="rss" description="Top Stories&lt;img src=&quot;http://www.wired.com/rss_views/index.gif&quot;&gt;" text="Wired Top Stories"/>
 <outline xmlUrl="http://loop.worldofapple.com/feed/atom/" htmlUrl="http://news.worldofapple.com" type="rss" description="Mac News, Rumours and Opinions That You Want to Hear." text="World of Apple"/>
 </outline>
-<outline xmlUrl="http://www.wordspy.com/rss.xml" htmlUrl="http://www.wordspy.com/" type="rss" description="Recent Words" text="Word Spy"/>
 <outline text="world">
 <outline xmlUrl="http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml" htmlUrl="http://news.bbc.co.uk/go/rss/-/2/hi/default.stm" type="rss" description="Get the latest BBC World news: international news, features and analysis from Africa, Americas, South Asia, Asia-Pacific, Europe and the Middle East." text="BBC World News"/>
 <outline xmlUrl="http://feeds.salon.com/salon/index" htmlUrl="http://www.salon.com/?source=rss&amp;aim=/" type="rss" description="Original, independent news coverage and investigative reporting, and insightful commentary on politics and culture -- every day from Salon." text="Salon"/>
@@ -67,7 +72,6 @@
 </outline>
 <outline text="perl">
 <outline xmlUrl="http://www.catalyzed.org/atom.xml" htmlUrl="http://www.catalyzed.org/" type="rss" description="A Catalyst and Perl Blog" text="Catalyzed.org"/>
-<outline xmlUrl="http://unknownplace.org/cpanrecent/rss" htmlUrl="http://unknownplace.org/cpanrecent/" type="rss" description="CPAN Recent with Changelog" text="CPAN Recent Changes"/>
 <outline xmlUrl="http://feeds2.feedburner.com/PerlAndMacDevelopmentBlog?format=xml" htmlUrl="http://perlandmac.blogspot.com/" type="rss" description="Discussing various topics around Perl and Mac Development" text="Perl and Mac Development Blog"/>
 <outline xmlUrl="http://log.perl.org/index.rdf" htmlUrl="http://log.perl.org/" type="rss" description="the perl.org infrastructure weblog" text="Perl NOC"/>
 <outline xmlUrl="http://nntp.x.perl.org/rss/perl.advocacy.rdf" htmlUrl="http://www.nntp.perl.org/group/perl.advocacy/" type="rss" description="..." text="perl.advocacy"/>
@@ -83,6 +87,7 @@
 <outline xmlUrl="http://planetsix.perl.org/atom.xml" htmlUrl="http://planetsix.perlfoundation.org" type="rss" description="" text="Planet Perl Six"/>
 <outline xmlUrl="http://testers.cpan.org/recent.rss" htmlUrl="http://testers.cpan.org/recent.html" type="rss" description="Recent CPAN Testers reports" text="Recent CPAN Testers reports"/>
 <outline xmlUrl="http://cpantesters.perl.org/author/LETO.rss" htmlUrl="http://testers.cpan.org/author/LETO.html" type="rss" description="Reports for distributions by LETO" text="Reports for distributions by LETO"/>
+<outline xmlUrl="http://search.cpan.org/uploads.rdf" htmlUrl="http://search.cpan.org/" type="rss" description="The CPAN search site" text="search.cpan.org"/>
 <outline xmlUrl="http://www.theperlreview.com/rss/tpr-all.rdf" htmlUrl="http://www.theperlreview.com/" type="rss" description="" text="The Perl Review"/>
 </outline>
 <outline text="science">
