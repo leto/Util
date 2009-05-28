@@ -2,7 +2,7 @@
 <opml version="1.0">
 <head>
 <title>Vienna Subscriptions</title>
-<dateCreated>2009-05-26 13:31:33 -0700</dateCreated>
+<dateCreated>2009-05-27 17:47:27 -0700</dateCreated>
 </head>
 <body>
 <outline text="art">
@@ -17,6 +17,7 @@
 <outline xmlUrl="https://github.com/leto.private.atom?token=15df3957c2f7162964f1b98080e95583" htmlUrl="https://github.com/" type="rss" description="" text="leto&apos;s Private Feed"/>
 </outline>
 <outline text="domestic">
+<outline xmlUrl="http://portland.craigslist.org/mlt/zip/index.rss" htmlUrl="http://portland.craigslist.org/mlt/zip/" type="rss" description="" text="craigslist | free stuff in multnomah county"/>
 <outline xmlUrl="http://feeds.feedburner.com/nibblous" htmlUrl="http://www.nibblous.com/" type="rss" description="latest Nibblous nibblings" text="Nibblous - Recipes"/>
 <outline xmlUrl="http://feeds.feedburner.com/zenhabits" htmlUrl="http://zenhabits.net" type="rss" description="Simple Productivity" text="Zen Habits"/>
 </outline>
@@ -29,8 +30,10 @@
 <outline xmlUrl="http://feeds.feedburner.com/tom-preston-werner" htmlUrl="http://tom.preston-werner.com/" type="rss" description="" text="Tom Preston-Werner"/>
 </outline>
 <outline text="GSoC">
+<outline xmlUrl="http://www.codedright.net/atom.xml" htmlUrl="http://www.codedright.net/" type="rss" description="Devin Austin&apos;s tech blog about life, technology, and rock and roll." text="CodedRight.net"/>
 <outline xmlUrl="http://www.parrot.org/blog/341/feed" htmlUrl="http://www.parrot.org/darbelo" type="rss" description="" text="darbelo&apos;s blog"/>
 <outline xmlUrl="http://google-opensource.blogspot.com/atom.xml" htmlUrl="http://google-opensource.blogspot.com/" type="rss" description="News about Google&apos;s Open Source projects and programs." text="Google Open Source Blog"/>
+<outline xmlUrl="http://blog.bobkuo.com/category/google-summer-of-code/feed/" htmlUrl="http://blog.bobkuo.com" type="rss" description="now&apos;s the time, the time is now" text="Ramble On » Google Summer of Code"/>
 </outline>
 <outline text="hamradio">
 <outline xmlUrl="http://groups.google.com/group/rec.radio.amateur.antenna/feed/rss_v2_0_topics.xml?num=50" htmlUrl="http://groups.google.com/group/rec.radio.amateur.antenna" type="rss" description="Antennas: theory, techniques and construction." text="rec.radio.amateur.antenna Google Group"/>
