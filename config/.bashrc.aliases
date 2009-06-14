@@ -34,7 +34,7 @@ function t () {
     ./Build test --verbose 1 --test_files $1 |colortest
 }
 function modversion () {
-    /usr/bin/perl -M$1 -le "print $1->VERSION"
+    perl -M$1 -le "print $1->VERSION"
 }
 
 alias ls='ls --color=auto'

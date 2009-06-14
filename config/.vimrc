@@ -1,3 +1,7 @@
+if !exists('*Wordpress_vim')
+    runtime vimblog.vim
+endif
+
 let $PAGER = 'less'
 let $LESS = 'dQFe'
 
@@ -292,3 +296,4 @@ function! PerlDoc()
   exe ':0r!perldoc -f ' . @
   exe ':0'
 endfunction
+set paste

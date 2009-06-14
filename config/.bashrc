@@ -1,6 +1,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
-
+export DYLD_LIBRARY_PATH=/usr/local/lib
 # This is ... madness.
 #export PERL5LIB="/opt/local/lib/perl5/5.10.0/darwin-2level/:
 #export PERL5LIB="/opt/local/lib/perl5/site_perl/5.8.8:/Library/Perl/5.8.8"
@@ -51,7 +51,7 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export PATH=/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/opt/local/bin:/usr/local/sbin:~/bin:/usr/local/bin:/usr/X11R6/bin
+export PATH=/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/opt/local/bin:/usr/local/sbin:~/bin:/usr/local/bin:/usr/X11R6/bin:/opt/local/lib/postgresql83/bin/
 export bgcolor=black
 export C1='[0;32m'
 export C2='[0;37m'
