@@ -111,7 +111,7 @@ nmap :X :x
 nmap :xx :x!
 nmap :Q :q
 nmap :qq :q!
-map :syn :syntax on
+"map :syn :syntax on
 
 
 nmap <f5> :make<CR>
@@ -170,6 +170,7 @@ map ,tl :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest\|less -R<c
 map ,T  :!DEBUG=1 ./Build test --verbose 1 --test_files   \|colortest<cr>
 
 iab slef self
+iab icnlude include
 iab alos also
 iab aslo also
 iab charcter character
@@ -184,7 +185,7 @@ iab Ydate <C-R>=strftime("%a %b %d %T %Z %Y")<CR>
 iab udd {use Data::Dumper; print Dumper [ ];}<esc>ei
 
 set background=dark
-syntax off
+syntax on
 
 let FILE="/home/leto/.vimrc.wordlist"
 if filereadable(FILE)
