@@ -14,7 +14,7 @@
     plog = !git log --pretty=format:'%C(yellow)%h%Creset %s %Cblue%d%Creset' --graph --all
     spread = !git push origin master && git push github master
     who   = shortlog -se --
-
+    faster = repack -a -d -f --window=200 --window-memory=1g
 
 [apply]
     whitespace = strip

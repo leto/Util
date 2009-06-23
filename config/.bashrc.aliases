@@ -34,7 +34,7 @@ function t () {
     ./Build test --verbose 1 --test_files $1 |colortest
 }
 function modversion () {
-    /usr/bin/perl -M$1 -le "print $1->VERSION"
+    perl -M$1 -le "print $1->VERSION"
 }
 
 alias ls='ls --color=auto'
@@ -46,7 +46,7 @@ alias glp="git log -p"
 alias githist="git log -p"
 alias undo="git reset HEAD^"
 alias gd="git diff --cached -a --diff-filter=ACDTMR"
-alias gdc="git diff -a --diff-filter=ACDTMR"
+alias gdc="git diff --diff-filter=ACDTMR"
 alias gca="git commit -a"
 alias gsa="git status -a"
 alias gco="git checkout"
@@ -68,6 +68,7 @@ alias p6topir="~/git/rakudo/perl6 --target=pir"
 alias p="perl5.10 -d -e0"
 alias perl=perl5.10
 alias perldoc=perldoc-5.10
+alias perl_list_modules="perl -MCPAN -e 'CPAN::Shell->r'"
 alias pdF="perldoc -F"
 alias jpg_resize_all='for i in `ls`; do jpg_resize $i; done'
 alias wwwmech="perl -MWWW::Mechanize::Shell -eshell"
