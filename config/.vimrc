@@ -78,7 +78,7 @@ set splitbelow
 set laststatus=2
 set iskeyword+=:
 
-"set statusline=%([%-n]%y\ %f%M%R%)\ %#ErrorMsg#%{GitBranch()}%#StatusLine#\ %=\ %(%l,%c%V\ %P\ [0x%02.2B]%)
+set statusline=%([%-n]%y\ %f%M%R%)\ %#ErrorMsg#%{GitBranch()}%#StatusLine#\ %=\ %(%l,%c%V\ %P\ [0x%02.2B]%)
 
 let git_diff_spawn_mode=1
 let g:NERDShutUp=42
