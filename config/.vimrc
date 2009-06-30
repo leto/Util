@@ -1,7 +1,3 @@
-if !exists('*Wordpress_vim')
-    runtime vimblog.vim
-endif
-
 let $PAGER = 'less'
 let $LESS = 'dQFe'
 
@@ -83,7 +79,6 @@ set statusline=%([%-n]%y\ %f%M%R%)\ %#ErrorMsg#%{GitBranch()}%#StatusLine#\ %=\ 
 let git_diff_spawn_mode=1
 let g:NERDShutUp=42
 
-
 set ai
 filetype plugin indent on
 
@@ -130,6 +125,19 @@ map ,h :call PerlDoc()<C-M>:set nomod<C-M>
 
 noremap  ,pv  :!echo <cword> version `$HOME/bin/pversion '<cword>'`<cr>
 
+" git aliases
+nnoremap <Leader>gd :GitDiff<Enter>
+nnoremap <Leader>gdc :GitDiff --cached<Enter>
+nnoremap <Leader>gdh :GitDiff HEAD<Enter>
+nnoremap <Leader>gs :GitStatus<Enter>
+nnoremap <Leader>gl :GitLog<Enter>
+"nnoremap <Leader>gsl :GitShortLog<Enter>
+nnoremap <Leader>ga :GitAdd<Enter>
+nnoremap <Leader>gA :GitAdd <cfile><Enter>
+nnoremap <Leader>gc :GitCommit<Enter>
+nnoremap <Leader>gp :GitPullRebase<Enter>
+
+map  ,gsl   :!git shortlog -se %<cr>
 vmap ,lc          :perldo s/(.*)/lc $1/e<cr>
  map ,lc       viw:perldo s/(.*)/lc $1/e<cr>
 map! ,lc  <esc>viw:perldo s/(.*)/lc $1/e<cr>

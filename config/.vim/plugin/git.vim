@@ -18,15 +18,6 @@ if !exists('g:git_highlight_blame')
     let g:git_highlight_blame = 0
 endif
 
-nnoremap <Leader>gd :GitDiff<Enter>
-nnoremap <Leader>gD :GitDiff --cached<Enter>
-nnoremap <Leader>gs :GitStatus<Enter>
-nnoremap <Leader>gl :GitLog<Enter>
-nnoremap <Leader>ga :GitAdd<Enter>
-nnoremap <Leader>gA :GitAdd <cfile><Enter>
-nnoremap <Leader>gc :GitCommit<Enter>
-nnoremap <Leader>gp :GitPullRebase<Enter>
-
 " Ensure b:git_dir exists.
 function! s:GetGitDir()
     if !exists('b:git_dir')
@@ -108,12 +99,19 @@ function! s:RefreshGitStatus()
     call setpos('.', pos_save)
 endfunction
 
+function! GitShortLog(args)
+    let git_output = s:SystemGit('shortlog -se ' . a:args . ' -- ' . s:Expand('%'))
+    call <SID>OpenGitBuffer(git_output)
+    setlocal filetype=git-short-log
+endfunction
+
 " Show Log.
 function! GitLog(args)
     let git_output = s:SystemGit('log ' . a:args . ' -- ' . s:Expand('%'))
     call <SID>OpenGitBuffer(git_output)
     setlocal filetype=git-log
 endfunction
+
 
 " Add file to index.
 function! GitAdd(expr)
