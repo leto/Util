@@ -1,3 +1,6 @@
+function git-spread () {
+    git push origin $1; git push github $1
+}
 function dl () {
     colordiff -u $1 $2 |less -R
 }
