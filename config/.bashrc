@@ -12,6 +12,8 @@ export TERMINFO=/usr/share/terminfo
 export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 shopt -s checkwinsize
+export GIT_PS1_SHOWDIRTYSTATE=42
+export GIT_PS1_SHOWSTASHSTATE=42
 
 export LD_LIBRARY_PATH="/opt/local/lib"
 export HARNESS_OPTIONS="j"
