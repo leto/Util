@@ -4,9 +4,10 @@ export DYLD_LIBRARY_PATH=/usr/local/lib
 # This is ... madness.
 #export PERL5LIB="/opt/local/lib/perl5/5.10.0/darwin-2level/:
 #export PERL5LIB="/opt/local/lib/perl5/site_perl/5.8.8:/Library/Perl/5.8.8"
+export PERL5LIB=/opt/local/lib/perl5/site_perl/5.10.0:/opt/local/lib/perl5/site_perl/5.8.8:/Library/Perl/5.8.8
+#export PERL5LIB=/opt/local/lib/perl5/site_perl/5.10.0:/opt/local/lib/perl5/site_perl/5.8.8
 export PERL_MM_USE_DEFAULT=1
 export TEST_JOBS=9
-export PERL5LIB=/opt/local/lib/perl5/site_perl/5.10.0:/opt/local/lib/perl5/site_perl/5.8.8:/Library/Perl/5.8.8
 export JSLIB=~/js
 export TERMINFO=/usr/share/terminfo
 export HISTCONTROL=ignoredups
