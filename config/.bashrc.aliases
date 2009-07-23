@@ -1,3 +1,6 @@
+function git-spread () {
+    git push origin $1; git push github $1
+}
 function dl () {
     colordiff -u $1 $2 |less -R
 }
@@ -34,7 +37,7 @@ function t () {
     ./Build test --verbose 1 --test_files $1 |colortest
 }
 function modversion () {
-    perl -M$1 -le "print $1->VERSION"
+    perl5.10 -M$1 -le "print $1->VERSION"
 }
 
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
