@@ -40,12 +40,12 @@ syn match pirDirective  /\.\(pcc_sub\|emit\|eom\)/
 syn match pirDirective  /\.\(local\|sym\|const\|lex\|global\|globalconst\)/
 syn match pirDirective  /\.\(endnamespace\|namespace\)/
 syn match pirDirective  /\.\(param\|arg\|return\|yield\)/
-syn match pirDirective  /\.\(pragma\|HLL_map\|HLL\|include\|loadlib\)/
+syn match pirDirective  /\.\(pragma\|HLL\|include\|loadlib\)/
 syn match pirDirective  /\.\(pcc_begin\|pcc_call\|pcc_end\|invocant\|meth_call\|nci_call\)/
 syn match pirDirective  /\.\(pcc_begin_return\|pcc_end_return\)/
 syn match pirDirective  /\.\(pcc_begin_yield\|pcc_end_yield\)/
 
-syn match pirDirective  /:\(main\|method\|load\|init\|anon\|multi\|immediate\|outer\|lex\|vtable|lexid\)/
+syn match pirDirective  /:\(main\|method\|load\|init\|anon\|multi\|immediate\|outer\|lex\|vtable|nsentry\|subid\)/
 syn match pirDirective  /:\(flat\|slurpy\|optional\|opt_flag\|named\)/
 
 " Macro invocation
@@ -105,22 +105,22 @@ let b:current_syntax = "pir"
 
 " Folding rules
 syn region foldManual  start=/^\s*#.*{{{/ end=/^\s*#.*}}}/ contains=ALL keepend fold
-syn region foldMakro   start=/\.macro/ end=/\.endm/ contains=ALLBUT,pirDirectiveMacro keepend fold
-syn region foldSub     start=/\.sub/ end=/\.end/ contains=ALLBUT,pirDirectiveSub,pirDirectiveMacro keepend fold
+syn region foldMakro   start=/\.macro/ end=/^\s*\.endm/ contains=ALLBUT,pirDirectiveMacro keepend fold
+syn region foldSub     start=/\.sub/ end=/^\s*\.end/ contains=ALLBUT,pirDirectiveSub,pirDirectiveMacro keepend fold
 syn region foldIf      start=/^\s*if.*goto\s*\z(\I\i*\)\s*$/ end=/^\s*\z1:\s*$/ contains=ALLBUT,pirDirectiveSub,pirDirectiveMacro keepend fold
 syn region foldUnless  start=/^\s*unless.*goto\s*\z(\I\i*\)\s*$/ end=/^\s*\z1:\s*$/ contains=ALLBUT,pirDirectiveSub,pirDirectiveMacro keepend fold
 
 " Ops -- dynamically generated from ops2vim.pl
-syn keyword pirOp band bands bnot n_bnot bnots n_bnots bor bors shl shr
-syn keyword pirOp lsr rot bxor bxors eq eq_str eq_num eq_addr ne ne_str
-syn keyword pirOp ne_num ne_addr lt lt_str lt_num le le_str le_num gt
-syn keyword pirOp gt_str gt_num ge ge_str ge_num if_null unless_null cmp
-syn keyword pirOp cmp_str cmp_num issame isntsame istrue isfalse isnull
-syn keyword pirOp isgt isge isle islt iseq isne and not n_not or xor end
-syn keyword pirOp noop cpu_ret check_events check_events__ wrapper__
-syn keyword pirOp prederef__ reserved load_bytecode branch branch_cs bsr
-syn keyword pirOp ret local_branch local_return jsr jump enternative if
-syn keyword pirOp unless invokecc invoke yield tailcall returncc
+syn keyword pirOp band bands bnot bnots bor bors shl shr lsr rot bxor
+syn keyword pirOp bxors eq eq_str eq_num eq_addr ne ne_str ne_num ne_addr
+syn keyword pirOp lt lt_str lt_num le le_str le_num gt gt_str gt_num ge
+syn keyword pirOp ge_str ge_num if_null unless_null cmp cmp_str cmp_num
+syn keyword pirOp cmp_pmc issame isntsame istrue isfalse isnull isgt isge
+syn keyword pirOp isle islt iseq isne and not or xor end noop cpu_ret
+syn keyword pirOp check_events check_events__ wrapper__ prederef__
+syn keyword pirOp reserved load_bytecode load_language branch branch_cs
+syn keyword pirOp local_branch local_return jump enternative if unless
+syn keyword pirOp invokecc invoke yield tailcall returncc capture_lex
 syn keyword pirOp newclosure set_args get_results get_params set_returns
 syn keyword pirOp result_info set_addr get_addr schedule addhandler
 syn keyword pirOp push_eh pop_eh throw rethrow count_eh die exit pushmark
@@ -128,38 +128,33 @@ syn keyword pirOp popmark pushaction debug bounds profile trace gc_debug
 syn keyword pirOp interpinfo warningson warningsoff errorson errorsoff
 syn keyword pirOp runinterp getinterp sweep collect sweepoff sweepon
 syn keyword pirOp collectoff collecton needs_destroy loadlib dlfunc dlvar
-syn keyword pirOp compreg new_callback debug_init debug_load debug_break
-syn keyword pirOp debug_print backtrace getline getfile gcd splice slice
-syn keyword pirOp iter morph exec classname trap pow new add_io_event
-syn keyword pirOp need_finalize setstdout setstderr substr_r
-syn keyword pirOp find_sub_not_null close fdopen getstdin getstdout
-syn keyword pirOp getstderr pioctl open print say printerr read readline
-syn keyword pirOp peek stat seek tell socket sockaddr connect recv send
-syn keyword pirOp poll bind listen accept infix n_infix abs n_abs add
-syn keyword pirOp cmod dec div fdiv ceil floor inc mod mul neg n_neg sub
-syn keyword pirOp sqrt acos asec asin atan cos cosh exp ln log10 log2 sec
-syn keyword pirOp sech sin sinh tan tanh lcm fact callmethodcc callmethod
+syn keyword pirOp compreg new_callback annotations debug_init debug_load
+syn keyword pirOp debug_break debug_print backtrace getline getfile trap
+syn keyword pirOp set_label get_label close fdopen getstdin getstdout
+syn keyword pirOp getstderr setstdin setstdout setstderr open print say
+syn keyword pirOp printerr read readline peek stat seek tell abs add cmod
+syn keyword pirOp dec div fdiv ceil floor inc mod mul neg pow sub sqrt
+syn keyword pirOp acos asec asin atan cos cosh exp ln log10 log2 sec sech
+syn keyword pirOp sin sinh tan tanh gcd lcm fact callmethodcc callmethod
 syn keyword pirOp tailcallmethod addmethod can does isa newclass subclass
 syn keyword pirOp get_class class addparent removeparent addrole
 syn keyword pirOp addattribute removeattribute getattribute setattribute
-syn keyword pirOp inspect covers exsec hav vers pic_infix__
-syn keyword pirOp pic_inline_sub__ pic_get_params__ pic_set_returns__
-syn keyword pirOp pic_callr__ typeof find_type valid_type get_repr
-syn keyword pirOp find_method defined exists delete elements push pop
-syn keyword pirOp unshift shift setprop getprop delprop prophash freeze
-syn keyword pirOp thaw add_multi find_multi register unregister get_mro
-syn keyword pirOp clone exchange set assign setref deref setp_ind
-syn keyword pirOp setn_ind sets_ind seti_ind copy null cleari clearn
-syn keyword pirOp clears clearp stm_start stm_validate stm_commit
-syn keyword pirOp stm_wait stm_abort stm_depth ord chr chopn concat
+syn keyword pirOp inspect pic_infix__ pic_inline_sub__ pic_get_params__
+syn keyword pirOp pic_set_returns__ pic_callr__ new root_new typeof
+syn keyword pirOp get_repr find_method defined exists delete elements
+syn keyword pirOp push pop unshift shift splice setprop getprop delprop
+syn keyword pirOp prophash freeze thaw add_multi find_multi register
+syn keyword pirOp unregister box iter morph clone exchange set assign
+syn keyword pirOp setref deref setp_ind setn_ind sets_ind seti_ind copy
+syn keyword pirOp null cleari clearn clears clearp ord chr chopn concat
 syn keyword pirOp repeat length bytelength pin unpin substr index sprintf
 syn keyword pirOp stringinfo upcase downcase titlecase join split charset
 syn keyword pirOp charsetname find_charset trans_charset encoding
 syn keyword pirOp encodingname find_encoding trans_encoding is_cclass
 syn keyword pirOp find_cclass find_not_cclass escape compose spawnw err
 syn keyword pirOp time gmtime localtime decodetime decodelocaltime
-syn keyword pirOp sysinfo sleep sizeof store_lex find_lex get_namespace
-syn keyword pirOp get_hll_namespace get_root_namespace get_global
-syn keyword pirOp get_hll_global get_root_global set_global
-syn keyword pirOp set_hll_global set_root_global store_global find_global
-syn keyword pirOp find_name
+syn keyword pirOp sysinfo sleep sizeof store_lex find_lex find_caller_lex
+syn keyword pirOp get_namespace get_hll_namespace get_root_namespace
+syn keyword pirOp get_global get_hll_global get_root_global set_global
+syn keyword pirOp set_hll_global set_root_global find_name
+syn keyword pirOp find_sub_not_null

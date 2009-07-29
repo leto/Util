@@ -68,6 +68,8 @@ alias gpm="git pull origin master"
 alias gPb="git push origin bleed"
 alias gPm="git push origin master"
 ### bash aliases
+
+alias prove="prove-5.10"
 alias p6topir="~/git/rakudo/perl6 --target=pir"
 alias p="perl5.10 -d -e0"
 alias perl=perl5.10
@@ -121,7 +123,7 @@ alias clean_build_check="tlikenew && ./Build dist && check_dist"
 alias perlconfig="perl -e 'use Config;use Data::Dumper;print Dumper \%Config;'"
 ####### svn aliases
 alias colorsvn=svn
-alias sdl="svn diff| colordiff"
+alias sdl="svn diff| colordiff|less -R"
 alias sup='colorsvn up'
 alias ssa="colorsvn status"
 alias ss="svn status |grep -v '\.swp$'|grep -v '\.swo$' |grep -v '~$' |grep -v '\._'"
