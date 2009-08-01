@@ -23,7 +23,7 @@
     whitespace = strip
 
 [diff]
-    rename = copy 
+    rename = copy
 
 [status]
     color = auto
@@ -54,9 +54,9 @@
     editor = vim
     pager = less -FXRS
     filemode = true
-    bare = false
     logallrefupdates = true
     autocrlf = false
     whitespace = trailing-space,space-before-tab,cr-at-eol
-    preloadindex = true
+    # enable if you are on NFS
+    #preloadindex = true
 
