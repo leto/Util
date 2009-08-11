@@ -139,3 +139,6 @@ alias svn_delete_unknown="svn stat | grep '^?' | sed -e 's/^\? *//' | xargs svn 
 alias svn_delete_nonexistent="svn stat | grep '^!' | sed -e 's/^\! *//' | xargs svn --force del"
 alias scot_mmr="svn co svn+ssh://leto@leto.net/usr/local/svn/Math-MatrixReal/trunk"
 
+# parrot stuff
+alias new_parrot="make realclean; perl Configure.pl && nice -n20 make -j4"
+
