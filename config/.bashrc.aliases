@@ -23,6 +23,12 @@ umount_iso() {
 	mdconfig -d -u 1
 }
 
+parrot_svn_ps() {
+    svn ps svn:mime-type 'text/plain' $1
+    svn ps svn:keywords "Author Date Id Revision" $1
+    svn ps svn:eol-style native $1
+}
+
 # by Aaron "H-Bomb" Harsh
 ..to () {
    cd `pwd | perl -pe "s[(.*/[^/]*$1[^/]*/).*][\\1/]"`
