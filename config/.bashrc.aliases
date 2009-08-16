@@ -111,6 +111,7 @@ alias screenshot="xwd -display :0 -root > screenshot.dmp"
 alias h="history|tail -n 25"
 alias hg="history|grep "
 alias m=make
+alias mj="nice -n20 make -j"
 alias l=less
 alias sx="ssh -XA"
 alias ..='cd ..'
