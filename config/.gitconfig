@@ -34,15 +34,10 @@
     whitespace = strip
 
 [diff]
-    rename = copy
-
-[status]
-    color = auto
+   rename = copy
 
 [color]
-  branch = auto
-  diff = auto
-  status = auto
+  ui = auto
 
 [color "branch"]
   current = yellow reverse
@@ -58,5 +53,5 @@
 [color "status"]
   added = yellow
   changed = green
-  untracked = cyan 
+  untracked = cyan
 

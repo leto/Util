@@ -23,6 +23,12 @@ umount_iso() {
 	mdconfig -d -u 1
 }
 
+parrot_svn_ps() {
+    svn ps svn:mime-type 'text/plain' $1
+    svn ps svn:keywords "Author Date Id Revision" $1
+    svn ps svn:eol-style native $1
+}
+
 # by Aaron "H-Bomb" Harsh
 ..to () {
    cd `pwd | perl -pe "s[(.*/[^/]*$1[^/]*/).*][\\1/]"`
@@ -105,6 +111,7 @@ alias screenshot="xwd -display :0 -root > screenshot.dmp"
 alias h="history|tail -n 25"
 alias hg="history|grep "
 alias m=make
+alias mj="nice -n20 make -j"
 alias l=less
 alias sx="ssh -XA"
 alias ..='cd ..'
