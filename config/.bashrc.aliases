@@ -23,6 +23,12 @@ umount_iso() {
 	mdconfig -d -u 1
 }
 
+parrot_svn_ps() {
+    svn ps svn:mime-type 'text/plain' $1
+    svn ps svn:keywords "Author Date Id Revision" $1
+    svn ps svn:eol-style native $1
+}
+
 # by Aaron "H-Bomb" Harsh
 ..to () {
    cd `pwd | perl -pe "s[(.*/[^/]*$1[^/]*/).*][\\1/]"`
@@ -40,6 +46,7 @@ function modversion () {
     perl5.10 -M$1 -le "print $1->VERSION"
 }
 
+alias nopaste="nopaste.pl -u dukeleto"
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
 alias ls='ls --color=auto'
 ####### git aliases
@@ -51,6 +58,7 @@ alias githist="git log -p"
 alias undo="git reset HEAD^"
 alias gd="git diff --cached -a --diff-filter=ACDTMR"
 alias gdc="git diff --diff-filter=ACDTMR"
+alias gdh="git diff --diff-filter=ACDTMR HEAD"
 alias gca="git commit -a"
 alias gsa="git status -a"
 alias gco="git checkout"
@@ -97,13 +105,14 @@ alias tz="tar zxvvpf"
 alias lg="ls -al | grep"
 alias vi=vim
 alias v=vim
-alias vb="vim ~/.bashrc; source ~/.bashrc"
+alias vb="vim -O ~/.bashrc ~/.bashrc.aliases; source ~/.bashrc"
 alias vv="vim ~/.vimrc"
 alias tdump="tcpdump -nnXSs 0"
 alias screenshot="xwd -display :0 -root > screenshot.dmp"
 alias h="history|tail -n 25"
 alias hg="history|grep "
 alias m=make
+alias mj="nice -n20 make -j"
 alias l=less
 alias sx="ssh -XA"
 alias ..='cd ..'
@@ -137,4 +146,7 @@ alias sv=svnversion
 alias svn_delete_unknown="svn stat | grep '^?' | sed -e 's/^\? *//' | xargs svn --force del"
 alias svn_delete_nonexistent="svn stat | grep '^!' | sed -e 's/^\! *//' | xargs svn --force del"
 alias scot_mmr="svn co svn+ssh://leto@leto.net/usr/local/svn/Math-MatrixReal/trunk"
+
+# parrot stuff
+alias new_parrot="make realclean; perl Configure.pl && nice -n20 make -j4"
 
