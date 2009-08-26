@@ -15,6 +15,7 @@
     faster = repack -a -d -f --window=200 --window-memory=1g
     detach = checkout @{0}
     back   = checkout -
+    flog   = reflog
 
 [core]
     excludesfile = ~/.gitignore
