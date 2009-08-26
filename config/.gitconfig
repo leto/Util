@@ -10,7 +10,7 @@
     last   = cat-file commit HEAD
     v      = !git --version
     plog   = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
-    spread = !git push origin master && git push github master
+    spread = !git push --tags origin master && git push --tags github master
     who    = shortlog -se --
     faster = repack -a -d -f --window=200 --window-memory=1g
     detach = checkout @{0}
