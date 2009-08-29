@@ -118,7 +118,7 @@ syn keyword pirOp ge_str ge_num if_null unless_null cmp cmp_str cmp_num
 syn keyword pirOp cmp_pmc issame isntsame istrue isfalse isnull isgt isge
 syn keyword pirOp isle islt iseq isne and not or xor end noop cpu_ret
 syn keyword pirOp check_events check_events__ wrapper__ prederef__
-syn keyword pirOp reserved load_bytecode load_language branch branch_cs
+syn keyword pirOp reserved load_bytecode load_language branch
 syn keyword pirOp local_branch local_return jump enternative if unless
 syn keyword pirOp invokecc invoke yield tailcall returncc capture_lex
 syn keyword pirOp newclosure set_args get_results get_params set_returns
