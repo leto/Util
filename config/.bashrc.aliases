@@ -46,7 +46,6 @@ function modversion () {
     perl5.10 -M$1 -le "print $1->VERSION"
 }
 
-alias nopaste="nopaste.pl -u dukeleto"
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
 alias ls='ls --color=auto'
 ####### git aliases
