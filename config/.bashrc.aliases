@@ -29,6 +29,13 @@ parrot_svn_ps() {
     svn ps svn:eol-style native $1
 }
 
+parrot_git_svn_ps() {
+    git svn ps svn:mime-type 'text/plain' $1
+    git svn ps svn:keywords "Author Date Id Revision" $1
+    git svn ps svn:eol-style native $1
+}
+
+
 # by Aaron "H-Bomb" Harsh
 ..to () {
    cd `pwd | perl -pe "s[(.*/[^/]*$1[^/]*/).*][\\1/]"`
@@ -43,7 +50,11 @@ function t () {
     ./Build test --verbose 1 --test_files $1 |colortest
 }
 function modversion () {
-    perl5.10 -M$1 -le "print $1->VERSION"
+    perl -M$1 -le "print $1->VERSION"
+}
+
+function grh () {
+    git rebase -i head~$1
 }
 
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
@@ -54,6 +65,7 @@ alias glg="git log --graph --pretty=oneline"
 alias grc="git rebase --continue"
 alias glp="git log -p"
 alias githist="git log -p"
+
 alias undo="git reset HEAD^"
 alias gd="git diff --cached -a --diff-filter=ACDTMR"
 alias gdc="git diff --diff-filter=ACDTMR"
@@ -79,8 +91,8 @@ alias gPm="git push origin master"
 alias prove="prove-5.10"
 alias p6topir="~/git/rakudo/perl6 --target=pir"
 alias p="perl5.10 -d -e0"
-alias perl=perl5.10
-alias perldoc=perldoc-5.10
+#alias perl=perl5.10
+#alias perldoc=perldoc-5.10
 alias perl_list_modules="perl -MCPAN -e 'CPAN::Shell->r'"
 alias pdF="perldoc -F"
 alias jpg_resize_all='for i in `ls`; do jpg_resize $i; done'
