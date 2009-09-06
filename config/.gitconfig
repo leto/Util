@@ -56,3 +56,5 @@
   changed = green
   untracked = cyan
 
+[push]
+	default = current
