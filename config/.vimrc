@@ -176,6 +176,8 @@ map ,pe :!perl -e '
 "map ,t  :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest<cr>
 map ,tl :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest\|less -R<cr>
 map ,T  :!DEBUG=1 ./Build test --verbose 1 --test_files   \|colortest<cr>
+map ,p :!./parrot %<cr>
+map ,P :!pasm2pir<cr>
 
 iab slef self
 iab icnlude include

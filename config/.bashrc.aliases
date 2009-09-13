@@ -88,9 +88,9 @@ alias gPb="git push origin bleed"
 alias gPm="git push origin master"
 ### bash aliases
 
-alias prove="prove-5.10"
+#alias prove="prove-5.10"
 alias p6topir="~/git/rakudo/perl6 --target=pir"
-alias p="perl5.10 -d -e0"
+alias p="perl -d -e0"
 #alias perl=perl5.10
 #alias perldoc=perldoc-5.10
 alias perl_list_modules="perl -MCPAN -e 'CPAN::Shell->r'"
@@ -139,6 +139,7 @@ alias xt="t xt/*"
 alias tcover="./Build testcover --verbose 1 |colortest"
 alias pb="perl Build.PL"
 alias tlikenew="pb && ./Build clean && pb && t"
+alias mtlikenew="make clean; perl Makefile.PL && make && make test"
 alias clean_build_check="tlikenew && ./Build dist && check_dist"
 alias perlconfig="perl -e 'use Config;use Data::Dumper;print Dumper \%Config;'"
 ####### svn aliases
