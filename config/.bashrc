@@ -45,7 +45,10 @@ xterm*|rxvt*)
     ;;
 esac
 
-[ -x "/usr/bin/dircolors" ] && eval "`dircolors -b`"
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+fi
 
 # should only do this on OS X
 export LSCOLORS=Dxfxcxdxbxegedabagacad

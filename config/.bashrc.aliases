@@ -58,7 +58,7 @@ function grh () {
 }
 
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
-alias ls='ls --color=auto'
+#alias ls='ls --color=auto'
 ####### git aliases
 alias git=~/bin/git
 alias glg="git log --graph --pretty=oneline"
@@ -105,7 +105,7 @@ alias cdt="cdc;cd trunk"
 alias sb="sudo bash"
 alias cdw="cd ~/work"
 alias dh="df -h"
-alias ls='ls -G'
+#alias ls='ls -G'
 alias lt="ls -latr"
 alias lsd="ls -lad"
 alias rf="rm -rf "
