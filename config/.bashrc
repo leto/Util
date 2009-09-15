@@ -82,5 +82,5 @@ export up8='../../../../../../../..'
 source ~/.bash/git-completion.bash
 source ~/.bashrc.aliases
 
-[ -x ~/.bashrc.feather.perl6.nl ] && source ~/.bashrc.feather.perl6.nl
-[ -x ~/.bash/hosts ] && source ~/.bash/hosts
+[ -e ~/.bashrc.feather.perl6.nl ] && source ~/.bashrc.feather.perl6.nl
+[ -e ~/.bash/hosts ] && source ~/.bash/hosts
