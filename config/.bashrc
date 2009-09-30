@@ -1,6 +1,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
-export DYLD_LIBRARY_PATH=/usr/local/lib
+export DYLD_LIBRARY_PATH=/opt/subversion/lib:/usr/local/lib:/usr/local/lib
+export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib
 # This is ... madness.
 #export PERL5LIB="/opt/local/lib/perl5/5.10.0/darwin-2level/:
 #export PERL5LIB="/opt/local/lib/perl5/site_perl/5.8.8:/Library/Perl/5.8.8"
@@ -16,7 +17,6 @@ shopt -s checkwinsize
 export GIT_PS1_SHOWDIRTYSTATE=42
 export GIT_PS1_SHOWSTASHSTATE=42
 
-export LD_LIBRARY_PATH="/opt/local/lib"
 export HARNESS_OPTIONS="j"
 #export HARNESS_TIMER=0
 #export HARNESS_VERBOSE=0
@@ -56,7 +56,7 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export PATH=/usr/local/bin:/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/opt/local/bin:/usr/local/sbin:~/bin:/usr/X11R6/bin:/opt/local/lib/postgresql83/bin/
+export PATH=/opt/subversion/bin:~/bin:/usr/local/bin:/opt/local/bin:/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/usr/local/sbin:~/bin:/usr/X11R6/bin:/opt/local/lib/postgresql83/bin/
 export bgcolor=black
 export C1='[0;32m'
 export C2='[0;37m'

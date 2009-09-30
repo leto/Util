@@ -57,6 +57,7 @@ function grh () {
     git rebase -i head~$1
 }
 
+alias cg='time valgrind --tool=callgrind --dsymutil=yes --dump-instr=yes --trace-jump=yes'
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
 alias ls='ls --color=auto'
 ####### git aliases
@@ -91,7 +92,7 @@ alias gPm="git push origin master"
 #alias prove="prove-5.10"
 alias p6topir="~/git/rakudo/perl6 --target=pir"
 alias p="perl -d -e0"
-#alias perl=perl5.10
+alias perl=/usr/local/bin/perl
 #alias perldoc=perldoc-5.10
 alias perl_list_modules="perl -MCPAN -e 'CPAN::Shell->r'"
 alias pdF="perldoc -F"
@@ -134,6 +135,9 @@ alias 5..='cd $up5'
 alias 6..='cd $up6'
 alias 7..='cd $up7'
 alias 8..='cd $up8'
+
+alias parrotsh="perl ~/svn/parrot/tools/dev/parrot_shell.pl"
+
 ### testing aliases
 alias xt="t xt/*"
 alias tcover="./Build testcover --verbose 1 |colortest"
@@ -160,5 +164,5 @@ alias svn_delete_nonexistent="svn stat | grep '^!' | sed -e 's/^\! *//' | xargs 
 alias scot_mmr="svn co svn+ssh://leto@leto.net/usr/local/svn/Math-MatrixReal/trunk"
 
 # parrot stuff
-alias new_parrot="make realclean; perl Configure.pl && nice -n20 make -j4"
+alias new_parrot="make realclean; perl Configure.pl --optimize && nice -n20 make -j4"
 
