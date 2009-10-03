@@ -1,0 +1,22 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+my $cmd;
+my %all_branches = map { $_ =~ s!\.git/svn/svn/!!; $_ => 1 } glob ".git/svn/svn/*";
+my %svn_branches = map { chomp; $_ =~ s!/!!g; $_ => 1 } qx( svn ls http://partcl.googlecode.com/svn/branches );
+
+# update all current svn branches
+# error checking!
+print "Found ".scalar(keys %svn_branches). " current svn branches on server\n";
+print "Found ".scalar(keys %all_branches). " historical svn branches in git svn metadata\n";
+
+print "Fetching other branches\n";
+system "git svn fetch";
+
+print "Pushing other branches to remote\n";
+for my $branch (sort keys %svn_branches) {
+    $cmd = "git push origin remotes/$branch:refs/heads/$branch";
+    print "$cmd\n";
+    system $cmd;
+}
