@@ -26,7 +26,19 @@ servers = (
   { address = "irc.webchat.org"; chatnet = "WebChat"; port = "6667"; },
   { address = "irc.rizon.net"; chatnet = "Rizon"; port = "6667"; },
   { address = "irc.link-net.org"; chatnet = "LinkNet"; port = "6667"; },
-  { address = "silc.silcnet.org"; chatnet = "SILC"; port = "706"; }
+  { address = "silc.silcnet.org"; chatnet = "SILC"; port = "706"; },
+  {
+    address = "irc.perl.org";
+    chatnet = "perl";
+    port = "6667";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.freenode.net";
+    chatnet = "freenode";
+    port = "6667";
+    autoconnect = "yes";
+  }
 );
 
 chatnets = {
@@ -92,6 +104,8 @@ chatnets = {
     max_whois = "30";
   };
   SILC = { type = "SILC"; };
+  perl = { type = "IRC"; };
+  freenode = { type = "IRC"; };
 };
 
 channels = (
@@ -263,7 +277,7 @@ settings = {
   core = {
     real_name = "Jonathan Leto";
     user_name = "leto";
-    nick = "leto";
+    nick = "dukeleto";
     timestamp_format = "%H:%M:%S";
     quit_message = "Use The Source, Duke (http://leto.net)";
   };
@@ -271,8 +285,7 @@ settings = {
   "fe-common/core" = { term_charset = "utf-8"; };
   "irc/core" = { ctcp_version_reply = "F.U."; };
 };
-completions = { 
-    anywya = { value = "anyway"; auto = "yes"; }; 
-    rakduo = { value = "rakudo"; auto = "yes"; }; 
-    Rakduo = { value = "Rakudo"; auto = "yes"; }; 
+completions = {
+  anywya = { value = "anyway"; auto = "yes"; };
+  rakduo = { value = "Rakudo"; auto = "yes"; };
 };
