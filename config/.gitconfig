@@ -4,31 +4,41 @@
     editor = vim
 
 [alias]
-    ci = commit -a
-    co = checkout
-    st = status -a
+    co     = checkout
     praise = blame
-    up = !git stash && git pull origin master && git stash apply
-    last  = cat-file commit HEAD
-    v   = !git --version
-    plog = !git log --pretty=format:'%C(yellow)%h%Creset %s %Cblue%d%Creset' --graph --all
-    spread = !git push origin master && git push github master
-    who   = shortlog -se --
+    up     = !git stash && git pull origin master && git stash pop
+    last   = cat-file commit HEAD
+    v      = !git --version
+    plog   = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
+    spread = !git push --tags origin master && git push --tags github master
+    who    = shortlog -se --
     faster = repack -a -d -f --window=200 --window-memory=1g
+    detach = checkout @{0}
+    back   = checkout -
+    flog   = reflog
+
+[core]
+    excludesfile = ~/.gitignore
+    editor = vim
+    pager = less -FXRS
+    filemode = true
+    logallrefupdates = true
+    autocrlf = false
+    whitespace = trailing-space,space-before-tab,cr-at-eol
+    # enable if you are on NFS
+    #preloadindex = true
+
+[log]
+    date = local
 
 [apply]
     whitespace = strip
 
 [diff]
-    rename = copy 
-
-[status]
-    color = auto
+   rename = copy
 
 [color]
-  branch = auto
-  diff = auto
-  status = auto
+  ui = auto
 
 [color "branch"]
   current = yellow reverse
@@ -44,16 +54,7 @@
 [color "status"]
   added = yellow
   changed = green
-  untracked = cyan 
+  untracked = cyan
 
-[core]
-    excludesfile = ~/.gitignore
-    editor = vim
-    pager = less -FXRS
-    filemode = true
-    bare = false
-    logallrefupdates = true
-    autocrlf = false
-    whitespace = trailing-space,space-before-tab,cr-at-eol
-    preloadindex = true
-
+[push]
+	default = current

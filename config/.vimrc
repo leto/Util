@@ -216,7 +216,8 @@ function! RunTest()
         let stuff   = matchlist( file, '.*/\(.*\)/Test\.pm')
         execute ":!DEBUG=1 ./Build test --verbose 1 --test_files t/" . stuff[1] . ".t \| colortest"
     elseif match(file, '\.t') > -1
-        execute ":!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest"
+        "execute ":!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest"
+        execute ":!./Build test --verbose 1 --test_files % \|colortest"
     elseif match(file, swig_ext ) > -1
         let stuff = substitute( file, swig_ext, "", "g")
         let stuff = substitute( stuff, 'swig/', "", 'g')

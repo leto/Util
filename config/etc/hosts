@@ -11,22 +11,30 @@ fe80::1%lo0	localhost
 69.55.236.53 leto.net
 192.168.0.42 ulthar
 
-# fuck facebook
+# fuck facebook. again, FUCK YOU FACEBOOK
 127.0.0.1 creative.ak.facebook.com
 
 # begin fascism
+
+127.0.0.1 d1.openx.org
+
+# fuck google analytics
+127.0.0.1 ssl.google-analytics.com
+127.0.0.1 google-analytics.com
 
 127.0.0.1 ads234.com
 127.0.0.1 ads345.com
 127.0.0.1 www.ads234.com
 127.0.0.1 www.ads345.com
 
+127.0.0.1 clickbangpop.com
 127.0.0.1 content.yieldmanager.edgesuite.net
 
 127.0.0.1 auto.search.msn.com
 127.0.0.1 sitefinder.Verisign.com       # Verisign has joined the game 
 127.0.0.1 sitefinder-idn.Verisign.com   # of trying to hijack mistyped
 
+127.0.0.1 ad.adperium.com
 127.0.0.1 ad.doubleclick.net    # This may interefere with www.sears.com
 127.0.0.1 media.fastclick.net   # Likewise, this may interfere with some
 127.0.0.1 cdn.fastclick.net 
