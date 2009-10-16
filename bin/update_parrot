@@ -3,6 +3,9 @@
 use strict;
 use warnings;
 my $cmd;
+
+chdir '/Users/leto/git/parrot' or die $!;
+
 my %all_branches = map { $_ =~ s!\.git/svn/svn/!!; $_ => 1 } glob ".git/svn/svn/*";
 my %svn_branches = map { chomp; $_ =~ s!/!!g; $_ => 1 } qx( svn ls https://svn.parrot.org/parrot/branches );
 
@@ -11,9 +14,14 @@ my %svn_branches = map { chomp; $_ =~ s!/!!g; $_ => 1 } qx( svn ls https://svn.p
 print "Found ".scalar(keys %svn_branches). " current svn branches on server\n";
 print "Found ".scalar(keys %all_branches). " historical svn branches in git svn metadata\n";
 
+
 print "Updating upstream mirror\n";
 system "git checkout upstream && git svn rebase";
 system "git push github upstream";
+
+print "Updating master\n";
+system "git checkout master && git merge upstream";
+system "git push github master";
 
 print "Fetching other branches\n";
 system "git svn fetch";
