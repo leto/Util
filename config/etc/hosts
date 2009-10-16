@@ -18,10 +18,14 @@ fe80::1%lo0	localhost
 
 127.0.0.1 d1.openx.org
 
+127.0.0.1 ads.eastbayexpress.com
+
 # fuck google analytics
 127.0.0.1 ssl.google-analytics.com
 127.0.0.1 google-analytics.com
 
+
+127.0.0.1 ads.stackoverflow.com
 127.0.0.1 ads234.com
 127.0.0.1 ads345.com
 127.0.0.1 www.ads234.com

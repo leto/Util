@@ -137,6 +137,7 @@ nnoremap <Leader>gA :GitAdd <cfile><Enter>
 nnoremap <Leader>gc :GitCommit<Enter>
 nnoremap <Leader>gp :GitPullRebase<Enter>
 
+map <Leader>tp  :set filetype=perl<cr>
 map  ,gsl   :!git shortlog -se %<cr>
 vmap ,lc          :perldo s/(.*)/lc $1/e<cr>
  map ,lc       viw:perldo s/(.*)/lc $1/e<cr>

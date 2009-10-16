@@ -57,6 +57,11 @@ function grh () {
     git rebase -i head~$1
 }
 
+alias nqp="parrot_nqp"
+alias new_plumage="make realclean; parrot_nqp Configure.nqp; make"
+alias pp0="patch -p0"
+alias pp1="patch -p1"
+
 alias cg='time valgrind --tool=callgrind --dsymutil=yes --dump-instr=yes --trace-jump=yes'
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
 alias ls='ls --color=auto'
@@ -137,6 +142,7 @@ alias 7..='cd $up7'
 alias 8..='cd $up8'
 
 alias parrotsh="perl ~/svn/parrot/tools/dev/parrot_shell.pl"
+alias feather="ssh feather.perl6.nl"
 
 ### testing aliases
 alias xt="t xt/*"
