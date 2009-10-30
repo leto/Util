@@ -1,2 +1,2 @@
 $DB::alias{'quit'} = 's/^quit(\s*)/exit/';
-parse_options("NonStop=1");
+#parse_options("NonStop=1");

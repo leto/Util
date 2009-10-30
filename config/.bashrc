@@ -45,7 +45,10 @@ xterm*|rxvt*)
     ;;
 esac
 
-[ -x "/usr/bin/dircolors" ] && eval "`dircolors -b`"
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+fi
 
 # should only do this on OS X
 export LSCOLORS=Dxfxcxdxbxegedabagacad
@@ -56,7 +59,11 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+<<<<<<< HEAD
 export PATH=/opt/subversion/bin:~/bin:/usr/local/bin:/opt/local/bin:/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/usr/local/sbin:~/bin:/usr/X11R6/bin:/opt/local/lib/postgresql83/bin/
+=======
+export PATH=~/bin:/usr/local/bin:/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/opt/local/bin:/usr/local/sbin:/usr/X11R6/bin:/opt/local/lib/postgresql83/bin/
+>>>>>>> c5a2aea3f9b1035f0bd9a0f64eee9418d4ec62d3
 export bgcolor=black
 export C1='[0;32m'
 export C2='[0;37m'
@@ -77,5 +84,7 @@ export up7='../../../../../../..'
 export up8='../../../../../../../..'
 
 source ~/.bash/git-completion.bash
-source ~/.bash/hosts
 source ~/.bashrc.aliases
+
+[ -e ~/.bashrc.feather.perl6.nl ] && source ~/.bashrc.feather.perl6.nl
+[ -e ~/.bash/hosts ] && source ~/.bash/hosts
