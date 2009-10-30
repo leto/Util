@@ -1,5 +1,6 @@
 let $PAGER = 'less'
 let $LESS = 'dQFe'
+set spell spelllang=en
 
 autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=gitcommit
 
