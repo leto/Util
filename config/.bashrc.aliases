@@ -58,11 +58,12 @@ function grh () {
 }
 
 alias nqp="parrot_nqp"
-alias new_plumage="make realclean; parrot_nqp Configure.nqp; make"
 alias pp0="patch -p0"
 alias pp1="patch -p1"
+alias new_plumage="make realclean; parrot_nqp Configure.nqp; make"
+alias test_new_plumage="new_plumage && make test"
 
-alias cg='time valgrind --tool=callgrind --dsymutil=yes --dump-instr=yes --trace-jump=yes'
+alias cg='valgrind --dsymutil=yes --dump-instr=yes --trace-jump=yes'
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
 alias ls='ls --color=auto'
 ####### git aliases
@@ -133,7 +134,7 @@ alias mj="nice -n20 make -j"
 alias l=less
 alias sx="ssh -XA"
 alias ..='cd ..'
-alias 2..='cd $up2' 
+alias 2..='cd $up2'
 alias 3..='cd $up3'
 alias 4..='cd $up4'
 alias 5..='cd $up5'
