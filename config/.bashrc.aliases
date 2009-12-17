@@ -57,11 +57,14 @@ function grh () {
     git rebase -i head~$1
 }
 
-alias nqp="parrot_nqp"
+alias tapir="parrot t/harness.pir t/*.t"
+alias pg="psql85"
 alias pp0="patch -p0"
 alias pp1="patch -p1"
 alias new_plumage="make realclean; parrot_nqp Configure.nqp; make"
 alias test_new_plumage="new_plumage && make test"
+alias nqp=~/git/nqp-rx/parrot_install/bin/nqp
+alias smolder_parrot="sup && new_parrot && make smolder_test"
 
 alias cg='valgrind --dsymutil=yes --dump-instr=yes --trace-jump=yes'
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
@@ -72,6 +75,7 @@ alias glg="git log --graph --pretty=oneline"
 alias grc="git rebase --continue"
 alias glp="git log -p"
 alias githist="git log -p"
+alias gs="git status"
 
 alias undo="git reset HEAD^"
 alias gd="git diff --cached -a --diff-filter=ACDTMR"
@@ -158,7 +162,7 @@ alias colorsvn=svn
 alias sdl="svn diff| colordiff|less -R"
 alias sup='colorsvn up'
 alias ssa="colorsvn status"
-alias ss="svn status |grep -v '\.swp$'|grep -v '\.swo$' |grep -v '~$' |grep -v '\._'"
+alias ss="svn status |grep -v ^?| grep -v '\.swp$'|grep -v '\.swo$' |grep -v '~$' |grep -v '\._'"
 alias ssc="svn status |grep -v '\.swp$' |grep -v '~$' |grep -v '\._' |grep '^C'"
 alias sa="colorsvn add"
 alias si="colorsvn info"

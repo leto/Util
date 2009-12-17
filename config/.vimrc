@@ -1,6 +1,7 @@
 let $PAGER = 'less'
 let $LESS = 'dQFe'
 set spell spelllang=en
+set nospell
 
 autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=gitcommit
 
@@ -178,7 +179,7 @@ map ,pe :!perl -e '
 "map ,t  :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest<cr>
 map ,tl :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest\|less -R<cr>
 map ,T  :!DEBUG=1 ./Build test --verbose 1 --test_files   \|colortest<cr>
-map ,p :!./parrot %<cr>
+map ,p :!prove -v %<cr>
 map ,P :!pasm2pir<cr>
 
 iab slef self
@@ -189,6 +190,9 @@ iab charcter character
 iab charcters characters
 iab exmaple example
 iab shoudl should
+iab slef self
+iab flaot float
+iab Float Float
 iab seperate separate
 iab teh the
 iab Yjl Jonathan Leto
