@@ -2,7 +2,7 @@
 [ -z "$PS1" ] && return
 export PATH=/opt/subversion/bin:~/bin:/usr/local/bin:/opt/local/bin:/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/usr/local/sbin:~/bin:/usr/X11R6/bin:/opt/local/lib/postgresql83/bin:~/svn/parrot
 export PERL_MM_USE_DEFAULT=1
-export TEST_JOBS=9
+export TEST_JOBS=3
 export JSLIB=~/js
 export TERMINFO=/usr/share/terminfo
 export HISTCONTROL=ignoredups

@@ -6,11 +6,12 @@
 [alias]
     co     = checkout
     praise = blame
+    ru     = remote update
     up     = !git stash && git pull origin master && git stash pop
     last   = cat-file commit HEAD
     v      = !git --version
     plog   = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
-    pl     = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
+    lg     = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
     lp     = log -p
     spread = !git push --tags origin master && git push --tags github master
     who    = shortlog -se --

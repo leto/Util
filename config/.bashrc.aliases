@@ -64,7 +64,7 @@ alias pp1="patch -p1"
 alias new_plumage="make realclean; parrot_nqp Configure.nqp; make"
 alias test_new_plumage="new_plumage && make test"
 alias nqp=~/git/nqp-rx/parrot_install/bin/nqp
-alias smolder_parrot="sup && new_parrot && make smolder_test"
+alias smolder_parrot="sup && new_parrot && make -j 3 smolder_test"
 
 alias cg='valgrind --dsymutil=yes --dump-instr=yes --trace-jump=yes'
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
@@ -175,5 +175,5 @@ alias svn_delete_nonexistent="svn stat | grep '^!' | sed -e 's/^\! *//' | xargs 
 alias scot_mmr="svn co svn+ssh://leto@leto.net/usr/local/svn/Math-MatrixReal/trunk"
 
 # parrot stuff
-alias new_parrot="make realclean; perl Configure.pl --optimize && nice -n20 make -j4"
+alias new_parrot="make realclean; perl Configure.pl --optimize --prefix=/Users/leto/svn/parrot/installed_parrot && nice -n20 make -j4"
 
