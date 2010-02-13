@@ -1,0 +1,31 @@
+#!/usr/bin/env perl
+
+use strict;
+use 5.010;
+use Cwd;
+
+my $cwd = getcwd;
+my @repos;
+
+for my $dir (<*/>) {
+    push @repos, $dir if -e "$dir/.git";
+}
+
+my $version = qx(git --version);
+
+# what should we do about submodules?
+
+for my $repo (@repos) {
+    chdir $repo;
+    say "Updating remotes for: $repo";
+    # this should detect if fetch --all works instead of version # bad juju
+    if ($version =~ /^(1\.6\.[6789]|[2-9]\.)/ ) {
+        system("git fetch --all");
+    } else {
+        system("git remote update");
+    }
+
+    chdir $cwd;
+}
+
+say "No git repos found" unless @repos;
