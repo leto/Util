@@ -69,34 +69,25 @@ alias smolder_parrot="sup && new_parrot && make -j 3 smolder_test"
 alias cg='valgrind --dsymutil=yes --dump-instr=yes --trace-jump=yes'
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
 #alias ls='ls --color=auto'
+
 ####### git aliases
-alias git=~/bin/git
-alias glg="git log --graph --pretty=oneline"
 alias grc="git rebase --continue"
 alias glp="git log -p"
-alias githist="git log -p"
 alias gs="git status"
-
 alias undo="git reset HEAD^"
 alias gd="git diff --cached -a --diff-filter=ACDTMR"
-alias gdc="git diff --diff-filter=ACDTMR"
+alias gdc="git diff --cached"
 alias gdh="git diff --diff-filter=ACDTMR HEAD"
 alias gca="git commit -a"
-alias gsa="git status -a"
+alias gsa="git status -u"
 alias gco="git checkout"
 alias gcom="git checkout master"
 alias gcob="git checkout bleed"
-alias gpull="git pull"
-alias gpush="git push"
 alias ga="git add"
 alias gc="git clone"
 alias gb="git branch"
 alias gba="git branch -a"
 alias gcb="git checkout -b "
-alias gpb="git pull origin bleed"
-alias gpm="git pull origin master"
-alias gPb="git push origin bleed"
-alias gPm="git push origin master"
 ### bash aliases
 
 #alias prove="prove-5.10"
@@ -172,7 +163,6 @@ alias svn_newdirs="svn mkdir tags trunk branches"
 alias sv=svnversion
 alias svn_delete_unknown="svn stat | grep '^?' | sed -e 's/^\? *//' | xargs svn --force del"
 alias svn_delete_nonexistent="svn stat | grep '^!' | sed -e 's/^\! *//' | xargs svn --force del"
-alias scot_mmr="svn co svn+ssh://leto@leto.net/usr/local/svn/Math-MatrixReal/trunk"
 
 # parrot stuff
 alias new_parrot="make realclean; perl Configure.pl --optimize --prefix=/Users/leto/svn/parrot/installed_parrot && nice -n20 make -j4"
