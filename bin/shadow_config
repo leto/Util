@@ -1,7 +1,6 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
-use 5.010;
 
 my @configs = qw/
     .bashrc
@@ -21,6 +20,6 @@ die "$dir does not exist!" unless -e $dir;
 
 for my $config (@configs) {
     my $cmd = "ln -s $dir/config/$config";
-    say $cmd;
+    print "$cmd\n";
     system $cmd;
 }
