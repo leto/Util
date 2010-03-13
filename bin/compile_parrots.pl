@@ -1,6 +1,7 @@
-#!/usr/bin/perl -w
+#!/usr/bin/env perl
 
 use strict;
+use warnings;
 use File::Spec::Functions;
 use Data::Dumper;
 use Cwd;
@@ -15,16 +16,18 @@ my @parrot_dirs = grep { -d $_ } glob catdir($src_dir,'parrot*');
 #warn Dumper [ @parrot_dirs ];
 
 for my $parrot_dir (@parrot_dirs) {
+    say "Compiling $parrot_dir";
     chdir $parrot_dir;
-    trace_cmd("make realclean",0);
-    trace_cmd("$^X Configure.pl --optimize",1);
+    trace_cmd("make realclean",0); # maybe make this a cmd line flag?
+    trace_cmd("$^X Configure.pl --optimize --prefix=$parrot_dir/installed_parrot",1);
     trace_cmd("make -j2",1);
+    trace_cmd("make install",1);
 }
 
 sub trace_cmd {
     my ($cmd,$handle_errors) = @_;
     say $cmd;
-    `$cmd`;
+    system "$cmd &>/dev/null";
     handle_errors($?) if $handle_errors && $?;
 }
 
