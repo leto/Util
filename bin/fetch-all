@@ -1,7 +1,6 @@
 #!/usr/bin/env perl
 
 use strict;
-use 5.010;
 use Cwd;
 
 my $cwd = getcwd;
@@ -17,7 +16,7 @@ my $version = qx(git --version);
 
 for my $repo (@repos) {
     chdir $repo;
-    say "Updating remotes for: $repo";
+    print "Updating remotes for: $repo\n";
     # this should detect if fetch --all works instead of version # bad juju
     if ($version =~ /^(1\.6\.[6789]|[2-9]\.)/ ) {
         system("git fetch --all");
@@ -28,4 +27,4 @@ for my $repo (@repos) {
     chdir $cwd;
 }
 
-say "No git repos found" unless @repos;
+print "No git repos found\n" unless @repos;

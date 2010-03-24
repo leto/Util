@@ -66,8 +66,13 @@ alias test_new_plumage="new_plumage && make test"
 alias nqp=~/git/nqp-rx/parrot_install/bin/nqp
 alias smolder_parrot="sup && new_parrot && make -j 3 smolder_test"
 
+function  sco_parrot_branch () {
+    svn checkout https://svn.parrot.org/parrot/branches/$1 parrot-$1
+}
+
 alias cg='valgrind --dsymutil=yes --dump-instr=yes --trace-jump=yes'
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
+alias perl=perl5.10
 #alias ls='ls --color=auto'
 
 ####### git aliases
@@ -93,7 +98,7 @@ alias gcb="git checkout -b "
 #alias prove="prove-5.10"
 alias p6topir="~/git/rakudo/perl6 --target=pir"
 alias p="perl -d -e0"
-alias perl=/usr/local/bin/perl
+#alias perl=/usr/local/bin/perl
 #alias perldoc=perldoc-5.10
 alias perl_list_modules="perl -MCPAN -e 'CPAN::Shell->r'"
 alias pdF="perldoc -F"
@@ -164,6 +169,7 @@ alias sv=svnversion
 alias svn_delete_unknown="svn stat | grep '^?' | sed -e 's/^\? *//' | xargs svn --force del"
 alias svn_delete_nonexistent="svn stat | grep '^!' | sed -e 's/^\! *//' | xargs svn --force del"
 
+alias new_pg="make clean; ./configure --prefix=$HOME --with-perl --enable-debug --enable-cassert --with-libxml"
 # parrot stuff
 alias new_parrot="make realclean; perl Configure.pl --optimize --prefix=/Users/leto/svn/parrot/installed_parrot && nice -n20 make -j4"
 
