@@ -201,7 +201,7 @@ iab Ydate <C-R>=strftime("%a %b %d %T %Z %Y")<CR>
 iab udd {use Data::Dumper; print Dumper [ ];}<esc>ei
 
 set background=dark
-syntax on
+syntax off
 
 let FILE="/home/leto/.vimrc.wordlist"
 if filereadable(FILE)
