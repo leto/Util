@@ -17,12 +17,17 @@ fe80::1%lo0	localhost
 127.0.0.1 crowdgravity.com
 127.0.0.1 www.crowdgravity.com
 
+127.0.0.1 webtrends.chase.com
+
 # begin fascism
 
 127.0.0.1 d1.openx.org
 
+127.0.0.1 cbanners.virtuagirlhd.com
 127.0.0.1 ads.eastbayexpress.com
 127.0.0.1 ads.seedpeer.com
+
+127.0.0.1 d3.zedo.com
 
 
 # fuck google analytics
