@@ -3,11 +3,6 @@
 export PATH=/opt/subversion/bin:~/bin:/usr/local/bin:/opt/local/bin:/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/usr/local/sbin:~/bin:/usr/X11R6/bin:/opt/local/lib/postgresql83/bin:~/svn/llvm/Debug/bin:/Users/leto/svn/parrot/installed_parrot/bin
 PAGER="less -FXRS"
 export DYLD_LIBRARY_PATH=/usr/local/lib
-# This is ... madness.
-#export PERL5LIB="/opt/local/lib/perl5/5.10.0/darwin-2level/:
-#export PERL5LIB="/opt/local/lib/perl5/site_perl/5.8.8:/Library/Perl/5.8.8"
-#export PERL5LIB=/opt/local/lib/perl5/site_perl/5.10.0:/opt/local/lib/perl5/site_perl/5.8.8:/Library/Perl/5.8.8
-#export PERL5LIB=/opt/local/lib/perl5/site_perl/5.10.0:/opt/local/lib/perl5/site_perl/5.8.8
 export PERL_MM_USE_DEFAULT=1
 export TEST_JOBS=3
 export JSLIB=~/js
