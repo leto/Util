@@ -1,9 +1,11 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
-export PATH=/opt/subversion/bin:~/bin:/usr/local/bin:/opt/local/bin:/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/usr/local/sbin:~/bin:/usr/X11R6/bin:/opt/local/lib/postgresql83/bin:~/svn/llvm/Debug/bin:/Users/leto/svn/parrot/installed_parrot/bin
-PAGER="less -FXRS"
-export DYLD_LIBRARY_PATH=/usr/local/lib
 export PERL_MM_USE_DEFAULT=1
+export PG_PREFIX=$HOME
+export PGDATA=$PG_PREFIX/data
+export PATH=/opt/subversion/bin:~/bin:/usr/local/bin:/opt/local/bin:/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/usr/local/sbin:~/bin:/usr/X11R6/bin:$PGPREFIX/bin:~/svn/llvm/Debug/bin:/Users/leto/svn/parrot/installed_parrot/bin
+
+PAGER="less -FXRS"
 export TEST_JOBS=3
 export JSLIB=~/js
 export TERMINFO=/usr/share/terminfo
@@ -12,7 +14,7 @@ export HISTCONTROL=ignoreboth
 shopt -s checkwinsize
 export GIT_PS1_SHOWDIRTYSTATE=42
 export GIT_PS1_SHOWSTASHSTATE=42
-export HARNESS_OPTIONS="j"
+#export HARNESS_OPTIONS="j"
 #export HARNESS_TIMER=0
 #export HARNESS_VERBOSE=0
 # bus error central

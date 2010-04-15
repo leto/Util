@@ -2,26 +2,25 @@
 
 use strict;
 use autodie;
-use 5.010;
 use Data::Dumper;
 my ($find,$replace,@files) = @ARGV;
 
 usage() unless $find && defined $replace;
 unless( @files ) {
-    say "No files to replace stuff!";
+    printf "No files to replace stuff!";
     exit 0;
 }
 
 my $fh;
-say "Going to replace $find with $replace in " . scalar(@files) . " files";
+print "Going to replace $find with $replace in " . scalar(@files) . " files\n";
 
 for my $file (@files) {
     if (-d $file) {
-        say "Skipping directory $file";
+        printf "Skipping directory $file\n";
         next;
     }
     unless ( -e $file ) {
-        say "$file does not exist!";
+        printf "$file does not exist!\n";
         next;
     }
     open $fh, '<', $file;
