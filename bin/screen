@@ -1,0 +1,9 @@
+#!/bin/bash
+# Wrapper script to set SSH env vars so agent forwarding works when
+# resuming screen sessions. Place at ~/bin/screen and make sure
+# your personal bin directory has priority in your PATH
+
+for SSHVAR in SSH_CLIENT SSH_TTY SSH_AUTH_SOCK SSH_CONNECTION DISPLAY; do
+    echo "export ${SSHVAR}=\"${!SSHVAR}\""
+done > ~/.sshvars
+/usr/bin/screen $*

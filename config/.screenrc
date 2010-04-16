@@ -1,7 +1,7 @@
  startup_message off                  # default: on
 
 # Change the number of scrollback lines
-  defscrollback 1000                   # default: 100
+  defscrollback 2000                   # default: 100
 
 # Ensure the default shell is the same as the $SHELL environment variable
   shell -$SHELL
