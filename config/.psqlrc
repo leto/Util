@@ -3,3 +3,5 @@
 \timing
 \set PROMPT1 '(%n@%M:%>) %`date +%H:%M:%S` [%/] \n%x%# '
 \set PROMPT2 ''
+\set ON_ERROR_STOP on
+\set ON_ERROR_ROLLBACK on
