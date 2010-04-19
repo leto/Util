@@ -1,0 +1,5 @@
+\set AUTOCOMMIT off
+\pset null 'NULL'
+\timing
+\set PROMPT1 '(%n@%M:%>) %`date +%H:%M:%S` [%/] \n%x%# '
+\set PROMPT2 ''
