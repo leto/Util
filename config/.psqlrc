@@ -19,6 +19,11 @@
 -- If a statement in a transaction block generates an error, the error is ignored and the transaction continues.
 \set ON_ERROR_ROLLBACK on
 
+-- history files for each database
+\set HISTFILE ~/.psql_history- :HOST - :DBNAME
+
+-- Save 5000 lines of history
+\set HISTSIZE 5000
 
 -- Aliases to print table sizes:
 -- Example: :tsize limit 5;
