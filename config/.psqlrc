@@ -1,7 +1,27 @@
+-- use transactions by default. You must type "commit;" or  "end;" to commit a transaction or "ROLLBACK;" to abort
 \set AUTOCOMMIT off
+
+-- print nulls as NULL instead of an empty string
 \pset null 'NULL'
+
+-- Add timing info to queries
 \timing
+
+-- Make a pretty prompt with user@host:port and database name
 \set PROMPT1 '(%n@%M:%>) %`date +%H:%M:%S` [%/] \n%x%# '
+-- Keep the 2nd line of our prompt empty
+
 \set PROMPT2 ''
+
+-- If a non-interactive scripts encounter an error, script processing will immediately terminate
 \set ON_ERROR_STOP on
+
+-- If a statement in a transaction block generates an error, the error is ignored and the transaction continues.
 \set ON_ERROR_ROLLBACK on
+
+
+-- Aliases to print table sizes:
+-- Example: :tsize limit 5;
+
+\set rtsize '(select table_schema, table_name, pg_relation_size( quote_ident( table_schema ) || \'.\' || quote_ident( table_name ) ) as size, pg_total_relation_size( quote_ident( table_schema ) || \'.\' || quote_ident( table_name ) ) as total_size  from information_schema.tables where table_type = \'BASE TABLE\' and table_schema not in (\'information_schema\', \'pg_catalog\') order by pg_relation_size( quote_ident( table_schema ) || \'.\' || quote_ident( table_name ) ) desc, table_schema, table_name)'
+\set tsize '(select table_schema, table_name, pg_size_pretty(size) as size, pg_size_pretty(total_size) as total_size from (:rtsize) x order by x.size desc, x.total_size desc, table_schema, table_name)'
