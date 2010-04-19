@@ -1,4 +1,7 @@
 # If not running interactively, don't do anything
+
+ulimit -c unlimited
+
 [ -z "$PS1" ] && return
 export PERL_MM_USE_DEFAULT=1
 export PG_PREFIX=$HOME
