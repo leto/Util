@@ -108,7 +108,7 @@ nmap :X :x
 nmap :xx :x!
 nmap :Q :q
 nmap :qq :q!
-"map :syn :syntax on
+map :syn :syntax on
 
 
 nmap <f5> :make<CR>
@@ -177,6 +177,7 @@ map ,pd :!perldoc -F %\|less <cr>
 map ,pe :!perl -e ' 
 
 "map ,t  :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest<cr>
+map ,ts :!perl -MCarp::Always % \| colortest<cr>
 map ,tl :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest\|less -R<cr>
 map ,T  :!DEBUG=1 ./Build test --verbose 1 --test_files   \|colortest<cr>
 map ,p :!prove -v %<cr>
@@ -201,7 +202,7 @@ iab Ydate <C-R>=strftime("%a %b %d %T %Z %Y")<CR>
 iab udd {use Data::Dumper; print Dumper [ ];}<esc>ei
 
 set background=dark
-syntax off
+syntax on
 
 let FILE="/home/leto/.vimrc.wordlist"
 if filereadable(FILE)
