@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="disable_xmm_and_xkb_warning" mtime="1271811193" type="bool" value="true"/>
+	<entry name="rate" mtime="1271808112" type="int" value="24"/>
+	<entry name="delay" mtime="1271808110" type="int" value="354"/>
+</gconf>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="layouts" mtime="1271806524" type="list" ltype="string">
+		<li type="string">
+			<stringvalue>us</stringvalue>
+		</li>
+	</entry>
+</gconf>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="nautilus-window-scroll-position" mtime="1271816429" type="string">
+		<stringvalue>file:///home/leto/Desktop/gnome-terminal.desktop</stringvalue>
+	</entry>
+	<entry name="nautilus-icon-view-layout-timestamp" mtime="1271817185" type="string">
+		<stringvalue>1271817185</stringvalue>
+	</entry>
+	<entry name="nautilus-icon-view-keep-aligned" mtime="1271817184" type="string">
+		<stringvalue>true</stringvalue>
+	</entry>
+</gconf>

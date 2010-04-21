@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="desktop_font" mtime="1271816358" type="string">
+		<stringvalue>Sans 12</stringvalue>
+	</entry>
+</gconf>

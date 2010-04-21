@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="timestamp" mtime="1271873281" type="string">
+		<stringvalue>1271873281</stringvalue>
+	</entry>
+	<entry name="type" mtime="1271873281" type="string">
+		<stringvalue>802-11-wireless</stringvalue>
+	</entry>
+	<entry name="uuid" mtime="1271873281" type="string">
+		<stringvalue>aeaa609c-13a4-41f8-83b4-70de99b37945</stringvalue>
+	</entry>
+	<entry name="id" mtime="1271873281" type="string">
+		<stringvalue>Auto myqwest2861</stringvalue>
+	</entry>
+	<entry name="name" mtime="1271873281" type="string">
+		<stringvalue>connection</stringvalue>
+	</entry>
+</gconf>

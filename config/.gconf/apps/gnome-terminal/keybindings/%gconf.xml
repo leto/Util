@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="help" mtime="1271872015" type="string">
+		<stringvalue>disabled</stringvalue>
+	</entry>
+	<entry name="prev_tab" mtime="1271871851" type="string">
+		<stringvalue>&lt;Control&gt;braceleft</stringvalue>
+	</entry>
+	<entry name="next_tab" mtime="1271871847" type="string">
+		<stringvalue>&lt;Control&gt;braceright</stringvalue>
+	</entry>
+	<entry name="move_tab_right" mtime="1271871832" type="string">
+		<stringvalue>&lt;Shift&gt;&lt;Control&gt;Page_Down</stringvalue>
+	</entry>
+	<entry name="move_tab_left" mtime="1271871840" type="string">
+		<stringvalue>&lt;Shift&gt;&lt;Control&gt;Page_Up</stringvalue>
+	</entry>
+</gconf>

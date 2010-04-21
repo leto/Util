@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="allow_postpone" mtime="1271808169" type="bool" value="true"/>
+	<entry name="break_time" mtime="1271808166" type="int" value="1"/>
+	<entry name="enabled" mtime="1271808163" type="bool" value="true"/>
+</gconf>

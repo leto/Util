@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="sleep_display_battery" mtime="1271873174" type="int" value="300"/>
+</gconf>

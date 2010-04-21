@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="critical_battery" mtime="1271873161" type="string">
+		<stringvalue>hibernate</stringvalue>
+	</entry>
+</gconf>

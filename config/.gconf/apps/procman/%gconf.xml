@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="current_tab" mtime="1271810886" type="int" value="1"/>
+	<entry name="height" mtime="1271810886" type="int" value="495"/>
+	<entry name="width" mtime="1271810886" type="int" value="610"/>
+</gconf>

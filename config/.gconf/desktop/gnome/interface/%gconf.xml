@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="menus_have_icons" mtime="1271816376" type="bool" value="false"/>
+	<entry name="font_name" mtime="1271816366" type="string">
+		<stringvalue>Sans 12</stringvalue>
+	</entry>
+	<entry name="document_font_name" mtime="1271816363" type="string">
+		<stringvalue>Sans 12</stringvalue>
+	</entry>
+	<entry name="monospace_font_name" mtime="1271816349" type="string">
+		<stringvalue>Monospace 12</stringvalue>
+	</entry>
+	<entry name="cursor_blink_time" mtime="1271808118" type="int" value="1600"/>
+</gconf>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="suspend" mtime="1271873161" type="string">
+		<stringvalue>suspend</stringvalue>
+	</entry>
+	<entry name="power" mtime="1271873161" type="string">
+		<stringvalue>interactive</stringvalue>
+	</entry>
+	<entry name="lid_battery" mtime="1271873161" type="string">
+		<stringvalue>suspend</stringvalue>
+	</entry>
+	<entry name="lid_ac" mtime="1271873161" type="string">
+		<stringvalue>suspend</stringvalue>
+	</entry>
+</gconf>
