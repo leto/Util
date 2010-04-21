@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="wep-key-type" mtime="1271873281" type="int" value="1"/>
-	<entry name="auth-alg" mtime="1271873281" type="string">
+	<entry name="wep-key-type" mtime="1271875681" type="int" value="1"/>
+	<entry name="auth-alg" mtime="1271875681" type="string">
 		<stringvalue>open</stringvalue>
 	</entry>
-	<entry name="key-mgmt" mtime="1271873281" type="string">
+	<entry name="key-mgmt" mtime="1271875681" type="string">
 		<stringvalue>none</stringvalue>
 	</entry>
-	<entry name="name" mtime="1271873281" type="string">
+	<entry name="name" mtime="1271875681" type="string">
 		<stringvalue>802-11-wireless-security</stringvalue>
 	</entry>
 </gconf>

@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="seen-bssids" mtime="1271873281" type="list" ltype="string">
+	<entry name="seen-bssids" mtime="1271875681" type="list" ltype="string">
 		<li type="string">
 			<stringvalue>00:15:05:91:9c:cc</stringvalue>
 		</li>
 	</entry>
-	<entry name="security" mtime="1271873281" type="string">
+	<entry name="security" mtime="1271875681" type="string">
 		<stringvalue>802-11-wireless-security</stringvalue>
 	</entry>
-	<entry name="mode" mtime="1271873281" type="string">
+	<entry name="mode" mtime="1271875681" type="string">
 		<stringvalue>infrastructure</stringvalue>
 	</entry>
-	<entry name="ssid" mtime="1271873281" type="list" ltype="int">
+	<entry name="ssid" mtime="1271875681" type="list" ltype="int">
 		<li type="int" value="109"/>
 		<li type="int" value="121"/>
 		<li type="int" value="113"/>
@@ -24,7 +24,7 @@
 		<li type="int" value="54"/>
 		<li type="int" value="49"/>
 	</entry>
-	<entry name="name" mtime="1271873281" type="string">
+	<entry name="name" mtime="1271875681" type="string">
 		<stringvalue>802-11-wireless</stringvalue>
 	</entry>
 </gconf>
