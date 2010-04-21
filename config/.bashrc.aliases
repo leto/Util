@@ -72,7 +72,6 @@ function  sco_parrot_branch () {
 
 alias cg='valgrind --dsymutil=yes --dump-instr=yes --trace-jump=yes'
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
-alias perl=perl5.10
 #alias ls='ls --color=auto'
 
 ####### git aliases
