@@ -175,6 +175,6 @@ alias svn_delete_nonexistent="svn stat | grep '^!' | sed -e 's/^\! *//' | xargs 
 
 alias new_pg="make clean; ./configure --prefix=$HOME --with-perl --enable-debug --enable-cassert --with-libxml"
 # parrot stuff
-alias new_parrot="make realclean; perl Configure.pl --ccflags=-g --optimize --prefix=/Users/leto/svn/parrot/installed_parrot && nice -n20 make -j4"
+alias new_parrot="make realclean; perl Configure.pl --ccflags=-g --optimize --prefix=$HOME/parrot/installed_parrot && nice -n20 make -j4"
 
 alias psh="perl tools/dev/parrot_shell.pl"
