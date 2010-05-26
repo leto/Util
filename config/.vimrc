@@ -127,6 +127,9 @@ map ,h :call PerlDoc()<C-M>:set nomod<C-M>
 
 noremap  ,pv  :!echo <cword> version `$HOME/bin/pversion '<cword>'`<cr>
 
+" Make comments and smart indenting play nice
+:inoremap # X#
+
 " git aliases
 nnoremap <Leader>gd :GitDiff<Enter>
 nnoremap <Leader>gdc :GitDiff --cached<Enter>

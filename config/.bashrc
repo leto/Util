@@ -7,6 +7,8 @@ export PERL_MM_USE_DEFAULT=1
 export PG_PREFIX=$HOME
 export PGDATA=$PG_PREFIX/data
 export PATH=/opt/subversion/bin:~/bin:/usr/local/bin:/opt/local/bin:/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/usr/local/sbin:~/bin:/usr/X11R6/bin:$PGPREFIX/bin:~/svn/llvm/Debug/bin:$HOME/svn/parrot/installed_parrot/bin
+=======
+export LD_LIBRARY_PATH=$HOME/lib:$HOME/svn/parrot/installed_parrot/lib
 
 PAGER="less -FXRS"
 export TEST_JOBS=3
