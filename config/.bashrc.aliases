@@ -57,7 +57,7 @@ function grh () {
     git rebase -i head~$1
 }
 
-alias convert_to_utf8="perl -MEncode -ne 'print encode_utf8(encode_utf8(eval { decode_utf8($_) } || decode(q{cp-1252}, $_)))'"
+alias convert_to_utf8="perl -MEncode -ne 'print encode_utf8(encode_utf8(eval { decode_utf8(\$_) } || decode(q{cp-1252}, \$_)))'"
 
 alias tapir="parrot t/harness.pir t/*.t"
 alias pg="psql85"
@@ -96,11 +96,8 @@ alias gba="git branch -a"
 alias gcb="git checkout -b "
 ### bash aliases
 
-#alias prove="prove-5.10"
 alias p6topir="~/git/rakudo/perl6 --target=pir"
 alias p="perl -d -e0"
-#alias perl=/usr/local/bin/perl
-#alias perldoc=perldoc-5.10
 alias perl_list_modules="perl -MCPAN -e 'CPAN::Shell->r'"
 alias pdF="perldoc -F"
 alias jpg_resize_all='for i in `ls`; do jpg_resize $i; done'
