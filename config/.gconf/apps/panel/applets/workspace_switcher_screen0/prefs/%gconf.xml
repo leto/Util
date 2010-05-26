@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<gconf>
-	<entry name="display_workspace_names" mtime="1271830191" schema="/schemas/apps/workspace_switcher_applet/prefs/display_workspace_names" type="bool" value="false"/>
-	<entry name="num_rows" mtime="1271830184" schema="/schemas/apps/workspace_switcher_applet/prefs/num_rows" type="int" value="3"/>
-	<entry name="display_all_workspaces" mtime="1271830167" schema="/schemas/apps/workspace_switcher_applet/prefs/display_all_workspaces" type="bool" value="true"/>
-</gconf>

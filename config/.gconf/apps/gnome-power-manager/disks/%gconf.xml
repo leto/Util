@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<gconf>
-	<entry name="spindown_enable_battery" mtime="1271875471" type="bool" value="true"/>
-	<entry name="spindown_enable_ac" mtime="1271875471" type="bool" value="false"/>
-</gconf>
