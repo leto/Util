@@ -1,5 +1,6 @@
-#!/usr/bin/perl5.10 -w
+#!/usr/bin/perl -w
 use strict;
+use warnings;
 $|++;
 
 my @dists = shift || glob("*.tar.gz");
@@ -12,7 +13,7 @@ for my $dist ( @dists ){
 
     system qq{
         DEBUG=1 tar zxpf ${dist}.tar.gz && \
-        cd $dist && perl5.10 Build.PL && \
+        cd $dist && perl Build.PL && \
         ./Build --verbose 1 test && echo ALL TESTS PASS
     };
     print $@ if $@;
