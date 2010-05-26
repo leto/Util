@@ -3,6 +3,7 @@ use strict;
 use warnings;
 
 my @configs = qw/
+    .vimperatorrc
     .bashrc
     .bashrc.aliases
     .gitconfig
