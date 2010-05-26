@@ -282,10 +282,105 @@ settings = {
     quit_message = "Use The Source, Duke (http://leto.net)";
   };
   "fe-text" = { actlist_sort = "refnum"; scrollback_time = "3days"; };
-  "fe-common/core" = { term_charset = "utf-8"; };
+  "fe-common/core" = { term_charset = "utf-8"; autolog = "yes"; };
   "irc/core" = { ctcp_version_reply = "F.U."; };
 };
 completions = {
   anywya = { value = "anyway"; auto = "yes"; };
   rakduo = { value = "Rakudo"; auto = "yes"; };
 };
+logs = { };
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#parrot";
+        tag = "perl";
+      }
+    );
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#soc-help";
+        tag = "perl";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#cxgn";
+        tag = "perl";
+      }
+    );
+  };
+  5 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#plparrot";
+        tag = "freenode";
+      }
+    );
+  };
+  6 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#drizzle";
+        tag = "freenode";
+      }
+    );
+  };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#rtems";
+        tag = "freenode";
+      }
+    );
+  };
+  8 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#bioperl";
+        tag = "freenode";
+      }
+    );
+  };
+  9 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#pdx.pm";
+        tag = "perl";
+      }
+    );
+  };
+  10 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#parrotsketch";
+        tag = "perl";
+      }
+    );
+  };
+};
+mainwindows = { 4 = { first_line = "1"; lines = "36"; }; };

@@ -6,21 +6,24 @@ my @configs = qw/
     .vimperatorrc
     .bashrc
     .bashrc.aliases
+    .bash
     .gitconfig
     .vimrc
     .vim
     .perldb
     .irssi
-    .bash
     .screenrc
+    .psqlrc
     .proverc
+    .vimperatorrc
+    .Xmodmap
     .dir_colors
 /;
 my $dir = shift || '/home/leto/git/util';
 die "$dir does not exist!" unless -e $dir;
 
 for my $config (@configs) {
-    my $cmd = "ln -s $dir/config/$config";
+    my $cmd = "ln -fs $dir/config/$config";
     print "$cmd\n";
     system $cmd;
 }
