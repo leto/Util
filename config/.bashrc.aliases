@@ -73,6 +73,11 @@ function  sco_parrot_branch () {
     svn checkout https://svn.parrot.org/parrot/branches/$1 parrot-$1
 }
 
+function  sco_parrot_trunk () {
+    [ -z "$1" ] && echo "Must give a dir name!" && return
+    svn checkout https://svn.parrot.org/parrot/trunk $1
+}
+
 alias cg='valgrind --dsymutil=yes --dump-instr=yes --trace-jump=yes'
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
 #alias ls='ls --color=auto'
