@@ -1,3 +1,4 @@
 *~
 *.sw?
 ._*
+config/.vim/.netrwhist

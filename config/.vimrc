@@ -183,7 +183,7 @@ map ,pe :!perl -e '
 map ,ts :!perl -MCarp::Always % \| colortest<cr>
 map ,tl :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest\|less -R<cr>
 map ,T  :!DEBUG=1 ./Build test --verbose 1 --test_files   \|colortest<cr>
-map ,p :!prove -v %<cr>
+map ,p :!prove -Ilib -Iblib/{lib,arch} -v %<cr>
 map ,P :!pasm2pir<cr>
 
 iab slef self
