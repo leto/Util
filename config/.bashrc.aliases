@@ -67,6 +67,7 @@ alias new_plumage="make realclean; parrot_nqp Configure.nqp; make"
 alias test_new_plumage="new_plumage && make test"
 alias nqp=~/git/nqp-rx/parrot_install/bin/nqp
 alias smolder_parrot="sup && new_parrot && make -j 3 smolder_test"
+alias smolder_parrot_optimize="sup && new_parrot_optimize && make -j 3 smolder_test"
 
 function  sco_parrot_branch () {
     svn checkout https://svn.parrot.org/parrot/branches/$1 parrot-$1
@@ -173,6 +174,7 @@ alias svn_delete_nonexistent="svn stat | grep '^!' | sed -e 's/^\! *//' | xargs 
 
 alias new_pg="make clean; ./configure --prefix=$HOME --with-perl --enable-debug --enable-cassert --with-libxml"
 # parrot stuff
-alias new_parrot="make realclean; perl Configure.pl --ccflags=-g --optimize --prefix=$HOME/svn/parrot/installed_parrot && nice -n20 make -j4"
+alias new_parrot="make realclean; perl Configure.pl --ccflags=-g --prefix=$HOME/svn/parrot/installed_parrot && nice -n20 make -j4 && make install"
 
+alias new_parrot_optimize="make realclean; perl Configure.pl --ccflags=-g --optimize --prefix=$HOME/svn/parrot/installed_parrot && nice -n20 make -j4 && make instal"
 alias psh="perl tools/dev/parrot_shell.pl"
