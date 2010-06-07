@@ -2,3 +2,5 @@
 *.sw?
 ._*
 config/.vim/.netrwhist
+config/etc/hosts.datura
+config/etc/hosts.kadath
