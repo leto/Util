@@ -1,13 +1,12 @@
 # The net is better without these entities
 # begin fascism
 
-# fuck facebook. again, FUCK YOU FACEBOOK
 127.0.0.1 creative.ak.facebook.com
+127.0.0.1 creative.ak.fbcdn.net
 127.0.0.1 crowdgravity.com
 127.0.0.1 www.crowdgravity.com
 
 127.0.0.1 webtrends.chase.com
-
 
 127.0.0.1 d1.openx.org
 
@@ -16,7 +15,6 @@
 127.0.0.1 ads.seedpeer.com
 
 127.0.0.1 d3.zedo.com
-
 
 # fuck google analytics
 127.0.0.1 ssl.google-analytics.com
