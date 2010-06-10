@@ -6,6 +6,9 @@ my @files = @ARGV;
 my $params = {
     -theme => 'security',
 };
+
+usage() unless @files;
+
 for my $file (@files) {
     next unless -f $file;
     my @critique = critique($params, $file);
@@ -14,4 +17,8 @@ for my $file (@files) {
         print "\t", join "\t",@critique;
         print "\n";
     }
+}
+
+sub usage {
+    say "$0 file1 file2 ...";
 }
