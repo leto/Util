@@ -1,0 +1,17 @@
+#!/usr/bin/env perl
+
+use Modern::Perl;
+use Perl::Critic qw/critique/;
+my @files = @ARGV;
+my $params = {
+    -theme => 'security',
+};
+for my $file (@files) {
+    next unless -f $file;
+    my @critique = critique($params, $file);
+    if (@critique) {
+        say "$file: ";
+        print "\t", join "\t",@critique;
+        print "\n";
+    }
+}
