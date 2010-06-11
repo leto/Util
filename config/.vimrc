@@ -133,6 +133,7 @@ noremap  ,pv  :!echo <cword> version `$HOME/bin/pversion '<cword>'`<cr>
 
 " git aliases
 nnoremap <Leader>gd :GitDiff<Enter>
+nnoremap <Leader>gb :GitBlame<Enter>
 nnoremap <Leader>gdc :GitDiff --cached<Enter>
 nnoremap <Leader>gdh :GitDiff HEAD<Enter>
 nnoremap <Leader>gs :GitStatus<Enter>
