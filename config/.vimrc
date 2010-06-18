@@ -2,10 +2,18 @@ let $PAGER = 'less'
 let $LESS = 'dQFe'
 set spell spelllang=en
 set nospell
+set hidden
+set scrolloff=3
+set title
+set backspace=indent,eol,start
 
 autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=gitcommit
 
 set list listchars=tab:\|_,trail:.
+set listchars=tab:>-,trail:-
+nmap <silent> <leader>s :set nolist!<CR>
+set shortmess=atI
+
 highlight SpecialKey ctermfg=DarkRed
 
 au BufNewFile,BufRead *.pl,*.pm,*.t,*.pod     setf perl
@@ -44,7 +52,6 @@ let Tlist_Inc_Winwidth=0
 
 set mouse=a
 set whichwrap=b,s,<,>
-set listchars=tab:>-,trail:-
 set ignorecase smartcase
 set bs=2
 set showcmd             " Show (partial) command in status line.
@@ -68,7 +75,6 @@ set shiftround
 set expandtab		" soft tabs
 set ruler
 set wildchar=<TAB>
-set incsearch
 set hlsearch
 set history=500
 set undolevels=1000
