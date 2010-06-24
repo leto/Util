@@ -1,3 +1,7 @@
+function screenssh () {
+    ssh -xtA $1 "/home/leto/bin/screen -D -R"
+}
+
 function git-spread () {
     git push origin $1; git push github $1
 }

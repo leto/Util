@@ -1,17 +1,18 @@
+
 # If not running interactively, don't do anything
+[ -z "$PS1" ] && return
 
 ulimit -c unlimited
 
-[ -z "$PS1" ] && return
 export PERL_MM_USE_DEFAULT=1
 export PG_PREFIX=$HOME
 export PGDATA=$PG_PREFIX/data
-export PATH=$HOME/svn/parrot/installed_parrot/bin
+export PATH=$HOME/git/rakudo/parrot_install/bin:$HOME/svn/parrot/installed_parrot/bin
 export PATH=$PATH:~/bin:/usr/local/bin:/opt/local/bin:/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/usr/local/sbin
 export PATH=$PATH:/usr/X11R6/bin:$PGPREFIX/bin:~/svn/llvm/Debug/bin
 export PATH="$HOME/pg/bin:/home/leto/local-lib/bin:$PATH"
 
-export LD_LIBRARY_PATH=$HOME/pg/lib:$HOME/lib:$HOME/svn/parrot/installed_parrot/lib
+export LD_LIBRARY_PATH=$HOME/pg/lib:$HOME/lib:$HOME/git/rakudo/parrot_install/bin:$HOME/svn/parrot/installed_parrot/lib
 
 PAGER="less -FXRS"
 export TEST_JOBS=3
@@ -86,4 +87,5 @@ export up8='../../../../../../../..'
 [ -e ~/.bashrc.aliases ] && source ~/.bashrc.aliases
 [ -e ~/.bashrc.feather.perl6.nl ] && source ~/.bashrc.feather.perl6.nl
 [ -e ~/.bash/hosts ] && source ~/.bash/hosts
+[ -e ~/.bashrc.work ] && source ~/.bashrc.work
 [ -e ~/.bashrc.local ] && source ~/.bashrc.local
