@@ -189,3 +189,4 @@ alias new_parrot_optimize="make realclean; perl Configure.pl --ccflags=-g --opti
 alias new_system_parrot="make realclean; perl Configure.pl --ccflags=-g --optimize && nice -n20 make -j4"
 
 alias psh="perl tools/dev/parrot_shell.pl"
+alias j=jobs

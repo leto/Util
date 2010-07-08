@@ -37,7 +37,7 @@
     date = local
 
 [apply]
-    whitespace = strip
+    # whitespace = strip
 
 [diff]
    rename = copy
