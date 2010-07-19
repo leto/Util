@@ -65,3 +65,10 @@
 	default = current
 [rerere]
 	enabled = 1
+
+[sendemail]
+    smtpserver = smtp.gmail.com
+    smtpuser = jaleto@gmail.com
+    smtpssl = true
+
+
