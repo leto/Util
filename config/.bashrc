@@ -14,6 +14,12 @@ export PATH="$HOME/pg/bin:/home/leto/local-lib/bin:$PATH"
 
 export LD_LIBRARY_PATH=$HOME/pg/lib:$HOME/lib:$HOME/git/rakudo/parrot_install/bin:$HOME/svn/parrot/installed_parrot/lib
 
+
+export GIT_COMMITTER_EMAIL=jonathan@leto.net
+export GIT_COMMITTER_NAME='Jonathan "Duke" Leto'
+export GIT_AUTHOR_EMAIL=jonathan@leto.net
+export GIT_AUTHOR_NAME='Jonathan "Duke" Leto'
+
 PAGER="less -FXRS"
 export TEST_JOBS=3
 export JSLIB=~/js
