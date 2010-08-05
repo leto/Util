@@ -18,6 +18,9 @@ largest () {
     du $1 |sort -rn |head
 }
 
+bcsdoc () {
+    perldoc Bio::Chado::Schema::$1
+}
 mount_iso () {
 	mdconfig -a -t vnode -f $1 -u 1
 	mount -t cd9660 /dev/md1 /mnt/iso
