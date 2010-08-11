@@ -193,3 +193,4 @@ alias new_system_parrot="make realclean; perl Configure.pl --ccflags=-g --optimi
 
 alias psh="perl tools/dev/parrot_shell.pl"
 alias j=jobs
+alias f=fg

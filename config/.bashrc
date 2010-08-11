@@ -13,6 +13,7 @@ export PATH=$PATH:$HOME/svn/parrot/installed_parrot/bin:/opt/local/bin
 export PATH=$PATH:~/bin:/usr/local/bin:/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/usr/local/sbin
 export PATH=$PATH:/usr/X11R6/bin:$PGPREFIX/bin:~/svn/llvm/Debug/bin
 export PATH=$HOME/pg/bin:/home/leto/local-lib/bin:$PATH
+export PATH=$PATH:$HOME/.gem/ruby/1.8/bin
 
 export LD_LIBRARY_PATH=$HOME/pg/lib:$HOME/lib:$HOME/git/rakudo/parrot_install/lib:$HOME/svn/parrot/installed_parrot/lib
 
