@@ -18,6 +18,10 @@ largest () {
     du $1 |sort -rn |head
 }
 
+k9 () {
+    # this kills the most recent process if given no argument, be careful!
+    kill -9 %$1
+}
 bcsdoc () {
     perldoc Bio::Chado::Schema::$1
 }
@@ -90,6 +94,7 @@ alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
 #alias ls='ls --color=auto'
 
 ####### git aliases
+alias git=hub
 alias grc="git rebase --continue"
 alias glp="git log -p"
 alias gs="git status"
