@@ -13,10 +13,12 @@ my $builder = Module::Build->new(
         'Test::Exception' => 0,
     },
     requires => {
-        'perl'        => '5.10.0',
-        'Moose'       => 0,
-        'Set::Object' => 0,
-        'autodie'     => 0,
+        'perl'             => '5.10.0',
+        'Moose'            => 0,
+        'MooseX::Runnable' => 0,
+        'MooseX::Getopt'   => 0,
+        'Set::Object'      => 0,
+        'autodie'          => 0,
     },
     create_makefile_pl  => 'traditional',
     meta_merge     => {
