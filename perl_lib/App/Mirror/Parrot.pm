@@ -42,6 +42,11 @@ has remove_local => (
     default => 0,
     isa     => 'Bool',
 );
+has branches => (
+    is      => 'ro',
+    default => 0,
+    isa     => 'Bool',
+);
 
 sub BUILDARGS {
     my $class = shift;
@@ -60,11 +65,11 @@ sub run {
     say "Finding local branches...";
     my (@local_branches) = map { $_ =~ s!\.git/svn/refs/remotes/svn/!!; $_ } glob ".git/svn/refs/remotes/svn/*";
 
-    say "Finding local tags...";
-    my (@local_tags)    = grep { m!tags/! } qx( git branch -r );
-
     say "Finding svn tags...";
-    my (@tags)          = map { chomp; $_ =~ s%/$%%g; $_ } qx( svn ls https://svn.parrot.org/parrot/tags );
+    # this will find RELEASE_*, REL_* and PRE_REL_*
+    my (@svn_tags)      = grep { m!REL! } map { chomp; $_ =~ s%/$%%g; $_ } qx( svn ls https://svn.parrot.org/parrot/tags );
+
+    # need to look at difference of github tags and svn tags and only push those
 
     say "Finding svn branches...";
     my (@svn_branches)  = map { chomp; $_ =~ s%/$%%g; $_ } qx( svn ls https://svn.parrot.org/parrot/branches );
@@ -76,13 +81,17 @@ sub run {
     say "Found " . scalar(@local_branches) . " historical svn branches in git svn metadata";
     say "Local subversion branches: @svn_branches" if $self->verbose;
 
-    say "Going to delete: @goners";
+
+    # need to look at difference of github branches and svn branches and
+    # delete github branches that no longer exist in svn
+    say "Going to delete " . scalar(@goners);
+    say "Goners: @goners" if $self->remove_remote or $self->remove_local;
 
     $self->update_master();
-    $self->update_branches(@svn_branches);
+    $self->update_branches(@svn_branches)  if $self->branches;
     $self->remove_remote_branches(@goners) if $self->remove_remote;
-    $self->remove_local_branches(@goners) if $self->remove_local;
-    $self->push_tags() if $self->tags;
+    $self->remove_local_branches(@goners)  if $self->remove_local;
+    $self->push_tags(@svn_tags) if $self->tags;
     return 0;
 }
 sub push_tags {
@@ -90,8 +99,15 @@ sub push_tags {
     say "Pushing " . scalar(@tags) . " tags";
     say "Tags : @tags" if $self->verbose;
     for my $tag (@tags) {
-        $self->run_command("git push " . $self->remote . " $tag");
+        chomp( my $commit    = qx(git rev-parse refs/remotes/svn/tags/$tag) );
+        chomp( my $mergebase = qx(git merge-base refs/remotes/svn/trunk $commit | head -n1) );
+        chomp( my $name      = qx(git show --pretty='format:%an' $commit | head -n1 ) );
+        chomp( my $date      = qx(git show --pretty='format:%ad' $commit | head -n1 ) );
+        my $env       = "GIT_COMMITTER_NAME='$name' GIT_COMMITTER_DATE='$date'";
+        # say "$tag -> $commit ( merge base = $mergebase )";
+        $self->run_command("$env git tag $tag $mergebase");
     }
+    $self->run_command("git push --tags");
 }
 
 sub remove_remote_branches {
