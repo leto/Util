@@ -4,3 +4,6 @@
 config/.vim/.netrwhist
 config/etc/hosts.datura
 config/etc/hosts.kadath
+perl_lib/_build
+perl_lib/Build
+perl_lib/MYMETA.yml
