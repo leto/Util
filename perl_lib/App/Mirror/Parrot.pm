@@ -1,11 +1,14 @@
 package App::Mirror::Parrot;
 use Moose;
+use JSON::Any;
+use LWP::Simple;
 with 'MooseX::Runnable';
 with 'MooseX::Getopt';
 use autodie qw(:all);
 use 5.010;
 use Set::Object qw/set/;
-$|++;
+local $| = 1;
+use Data::Dumper;
 
 has logfile => (
     is      => 'ro',
@@ -24,6 +27,11 @@ has dryrun => (
 );
 has tags => (
     is      => 'ro',
+    default => 0,
+    isa     => 'Bool',
+);
+has new_tags => (
+    is      => 'rw',
     default => 0,
     isa     => 'Bool',
 );
@@ -48,6 +56,12 @@ has branches => (
     isa     => 'Bool',
 );
 
+has github_url => (
+    is      => 'ro',
+    default => 'http://github.com/api/v2/json/repos/show/parrot/parrot/',
+    isa     => 'Str',
+);
+
 sub BUILDARGS {
     my $class = shift;
     my %args = @_;
@@ -65,39 +79,39 @@ sub run {
     say "Finding local branches...";
     my (@local_branches) = map { $_ =~ s!\.git/svn/refs/remotes/svn/!!; $_ } glob ".git/svn/refs/remotes/svn/*";
 
-    say "Finding svn tags...";
-    # this will find RELEASE_*, REL_* and PRE_REL_*
-    my (@svn_tags)      = grep { m!REL! } map { chomp; $_ =~ s%/$%%g; $_ } qx( svn ls https://svn.parrot.org/parrot/tags );
+    my $j = JSON::Any->new;
+    my $github_branches = $j->decode( get($self->github_url . "branches") )->{branches};
+    my $github_tags     = $j->decode( get($self->github_url . "tags") )->{tags};
 
-    # need to look at difference of github tags and svn tags and only push those
+    say "Finding svn tags...";
+    # this will find RELEASE_*, REL_* and PRE_REL_*, and V1, the initial svn commit
+    my (@svn_tags)      = grep { m!(^V1)|(REL)! } map { chomp; $_ =~ s%/$%%g; $_ } qx( svn ls https://svn.parrot.org/parrot/tags );
 
     say "Finding svn branches...";
-    my (@svn_branches)  = map { chomp; $_ =~ s%/$%%g; $_ } qx( svn ls https://svn.parrot.org/parrot/branches );
+    my (@svn_branches)    = map { chomp; $_ =~ s%/$%%g; $_ } qx( svn ls https://svn.parrot.org/parrot/branches );
+    my (@zombie_branches) = grep { $_ !~ m/^master$/ } (set(keys %$github_branches) - set(@svn_branches))->members;
+    my (@new_tags)        = (set(@svn_tags) - set(keys %$github_tags))->members;
 
-    my (@goners)       = (set(@local_branches) - set(@svn_branches))->members;
+    $self->new_tags(1) if @new_tags;
 
     say "Found " . scalar(@svn_branches) . " current svn branches on server";
     say "Subversion branches: @svn_branches" if $self->verbose;
     say "Found " . scalar(@local_branches) . " historical svn branches in git svn metadata";
     say "Local subversion branches: @svn_branches" if $self->verbose;
-
-
-    # need to look at difference of github branches and svn branches and
-    # delete github branches that no longer exist in svn
-    say "Going to delete " . scalar(@goners);
-    say "Goners: @goners" if $self->remove_remote or $self->remove_local;
+    say "Going to delete " . scalar(@zombie_branches) . " zombie branches";
+    say "Zombie branches: @zombie_branches" if @zombie_branches and ($self->remove_remote or $self->remove_local);
 
     $self->update_master();
     $self->update_branches(@svn_branches)  if $self->branches;
-    $self->remove_remote_branches(@goners) if $self->remove_remote;
-    $self->remove_local_branches(@goners)  if $self->remove_local;
-    $self->push_tags(@svn_tags) if $self->tags;
+    $self->remove_remote_branches(@zombie_branches) if $self->remove_remote;
+    $self->remove_local_branches(@zombie_branches)  if $self->remove_local;
+    $self->push_tags(@new_tags) if $self->tags;
     return 0;
 }
 sub push_tags {
     my ($self, @tags) = @_;
     say "Pushing " . scalar(@tags) . " tags";
-    say "Tags : @tags" if $self->verbose;
+    say "Tags : @tags" if $self->verbose and @tags;
     for my $tag (@tags) {
         chomp( my $commit    = qx(git rev-parse refs/remotes/svn/tags/$tag) );
         chomp( my $mergebase = qx(git merge-base refs/remotes/svn/trunk $commit | head -n1) );
@@ -107,19 +121,19 @@ sub push_tags {
         # say "$tag -> $commit ( merge base = $mergebase )";
         $self->run_command("$env git tag $tag $mergebase");
     }
-    $self->run_command("git push --tags");
+    $self->run_command("git push --tags") if $self->new_tags;
 }
 
 sub remove_remote_branches {
     my ($self, @goners) = @_;
-    say "Removing old branches from remote";
+    say "Removing old branches from remote" if @goners;
     for my $branch (sort @goners) {
         $self->run_command("git push " . $self->remote . " :$branch");
     }
 }
 sub remove_local_branches {
     my ($self, @goners) = @_;
-    say "Removing old branches locally";
+    say "Removing old branches locally" if @goners;
     for my $branch (sort @goners) {
         $self->run_command("git branch -d svn/$branch");
     }
