@@ -79,6 +79,8 @@ alias test_new_plumage="new_plumage && make test"
 alias nqp=~/git/nqp-rx/parrot_install/bin/nqp
 alias smolder_parrot="sup && new_parrot && make -j 3 smolder_test"
 alias smolder_parrot_optimize="sup && new_parrot_optimize && make -j 3 smolder_test"
+alias new_rakudo="git fetch --all; git rebase origin/master ; perl Configure.pl --gen-parrot; make install"
+
 
 function  sco_parrot_branch () {
     svn checkout https://svn.parrot.org/parrot/branches/$1 parrot-$1
