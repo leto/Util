@@ -89,7 +89,9 @@ sub run {
 
     say "Finding svn branches...";
     my (@svn_branches)    = map { chomp; $_ =~ s%/$%%g; $_ } qx( svn ls https://svn.parrot.org/parrot/branches );
-    my (@zombie_branches) = grep { $_ !~ m/^master$/ } (set(keys %$github_branches) - set(@svn_branches))->members;
+
+    # Branches with /'s are new github branches, they should not be deleted
+    my (@zombie_branches) = grep { $_ !~ m!(^master$|/)! } (set(keys %$github_branches) - set(@svn_branches))->members;
     my (@new_tags)        = (set(@svn_tags) - set(keys %$github_tags))->members;
 
     $self->new_tags(1) if @new_tags;
