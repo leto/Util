@@ -27,7 +27,7 @@ sub run {
 sub git_exec {
     my $start_branch = qx/git rev-parse --symbolic-full-name HEAD/;
     my $tmp_branch   = "_git_exec_$$";
-    $start_branch =~ s!refs/heads!!;
+    $start_branch    =~ s!refs/heads/!!;
     run("git checkout -b $tmp_branch");
 
     my @ids = split /\n/,qx{git rev-list --reverse $commitish};
