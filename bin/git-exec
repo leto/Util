@@ -1,0 +1,40 @@
+#!/usr/bin/env perl
+# Run a command on a commitish
+# Doesn't care about exit code of command
+# Inspired by git-test-sequence by Dustin Sallings
+# http://github.com/dustin/bindir/blob/master/git-test-sequence
+use strict;
+use warnings;
+my ($commitish,$command) = @ARGV;
+usage() unless $commitish && $command;
+
+sub usage {
+    print "Usage: git exec tag1..tag2 'make && make data'\n";
+    exit(1);
+}
+sub cleanup {
+    my ($start_branch, $tmp_branch) = @_;
+    run("git checkout $start_branch");
+    run("git branch -D $tmp_branch");
+}
+
+sub run {
+    my ($cmd) = @_;
+    print "$cmd\n";
+    system $cmd;
+}
+
+sub git_exec {
+    my $start_branch = qx/git rev-parse --symbolic-full-name HEAD/;
+    my $tmp_branch   = "_git_exec_$$";
+    $start_branch =~ s!refs/heads!!;
+    run("git checkout -b $tmp_branch");
+
+    my @ids = split /\n/,qx{git rev-list --reverse $commitish};
+    for my $id (@ids) {
+        run(qq{git reset --hard $id && eval "$command"});
+    }
+    cleanup($start_branch, $tmp_branch);
+}
+
+git_exec();
