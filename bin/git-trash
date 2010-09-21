@@ -1,0 +1,4 @@
+#!/bin/sh
+# from github.com/dustin/bindir
+git commit -n -a -m "Throwing away..." && git reset --hard HEAD^
+
