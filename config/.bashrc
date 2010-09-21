@@ -16,7 +16,7 @@ export PATH=$HOME/pg/bin:/home/leto/local-lib/bin:$PATH
 export PATH=$PATH:$HOME/.gem/ruby/1.8/bin
 
 export LD_LIBRARY_PATH=$HOME/pg/lib:$HOME/lib:$HOME/git/rakudo/parrot_install/lib:$HOME/svn/parrot/installed_parrot/lib
-export PERL5LIB="$HOME/git/util/perl_lib"
+export PERL5LIB="$HOME/git/util/perl_lib:$HOME/perl5/lib/perl5"
 
 export GIT_COMMITTER_EMAIL=jonathan@leto.net
 export GIT_COMMITTER_NAME='Jonathan "Duke" Leto'
