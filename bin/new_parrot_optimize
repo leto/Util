@@ -1,0 +1,6 @@
+#!/bin/sh
+
+make realclean
+perl Configure.pl --ccflags=-g --optimize --prefix=$PWD/installed_parrot && \
+nice -n20 make -j$TEST_JOBS && \
+make install

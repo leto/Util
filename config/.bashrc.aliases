@@ -93,7 +93,6 @@ function  sco_parrot_trunk () {
 
 alias cg='valgrind --dsymutil=yes --dump-instr=yes --trace-jump=yes'
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
-#alias ls='ls --color=auto'
 
 ###### git aliases
 
@@ -132,7 +131,6 @@ alias cdt="cdc;cd trunk"
 alias sb="sudo bash"
 alias cdw="cd ~/work"
 alias dh="df -h"
-#alias ls='ls -G'
 alias lt="ls -latr"
 alias lsd="ls -lad"
 alias rf="rm -rf "
@@ -195,9 +193,7 @@ alias svn_delete_nonexistent="svn stat | grep '^!' | sed -e 's/^\! *//' | xargs 
 
 alias new_pg="make clean; ./configure --prefix=$HOME --with-perl --enable-debug --enable-cassert --with-libxml"
 # parrot stuff
-alias new_parrot="make realclean; perl Configure.pl --ccflags=-g --prefix=$PWD/installed_parrot && nice -n20 make -j$TEST_JOBS && make install"
 
-alias new_parrot_optimize="make realclean; perl Configure.pl --ccflags=-g --optimize --prefix=$PWD/installed_parrot && nice -n20 make -j$TEST_JOBS && make install"
 alias new_system_parrot="make realclean; perl Configure.pl --ccflags=-g --optimize && nice -n20 make -j$TEST_JOBS"
 
 alias psh="perl tools/dev/parrot_shell.pl"
