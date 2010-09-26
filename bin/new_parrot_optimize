@@ -1,6 +1,15 @@
 #!/bin/sh
 
+ccache --version
+if $? -eq 0 then
+CC="ccache cc"
+else
+CC=$CC || "cc"
+fi
+
 make realclean
-perl Configure.pl --ccflags=-g --optimize --prefix=$PWD/installed_parrot && \
+perl Configure.pl --cc="$CC" \
+    --ccflags=-g --optimize \
+    --prefix=$PWD/installed_parrot && \
 nice -n20 make -j$TEST_JOBS && \
 make install
