@@ -1,5 +1,10 @@
 "===[ Settings ]========================================================
 
+" Make duckduckgo the default search engine
+" This requires the DDG search engine to already be installed
+" in your browser
+set defsearch="duck"
+
 " Autocomplete using Firefox Awesomebar subsystem
 set complete=l
 
