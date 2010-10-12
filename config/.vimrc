@@ -13,6 +13,8 @@ set list listchars=tab:\|_,trail:.
 set listchars=tab:>-,trail:-
 nmap <silent> <leader>s :set nolist!<CR>
 set shortmess=atI
+vmap ,aa :Align<space>=><CR>
+vmap ,ac :Align<space>,<CR>
 
 highlight SpecialKey ctermfg=DarkRed
 
@@ -212,7 +214,6 @@ iab teh the
 iab Yjl Jonathan Leto
 iab Yjle jonathan@leto.net
 iab Ydate <C-R>=strftime("%a %b %d %T %Z %Y")<CR>
-iab udd {use Data::Dumper; print Dumper [ ];}<esc>ei
 
 set background=dark
 syntax on
