@@ -109,12 +109,12 @@ alias gca="git commit -a"
 alias gsa="git status -u"
 alias gco="git checkout"
 alias gcom="git checkout master"
-alias gcob="git checkout bleed"
 alias ga="git add"
 alias gc="git clone"
 alias gb="git branch"
 alias gba="git branch -a"
 alias gcb="git checkout -b "
+alias gpb="git pull --rebase"
 ### bash aliases
 
 alias p6topir="~/git/rakudo/perl6 --target=pir"

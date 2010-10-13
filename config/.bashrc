@@ -5,7 +5,7 @@
 ulimit -c unlimited
 
 export PERL_MM_USE_DEFAULT=1
-export PG_PREFIX=$HOME
+export PG_PREFIX=$HOME/pg
 export PGDATA=$PG_PREFIX/data
 export PATH=
 export PATH=/home/leto/git/rakudo/parrot_install/bin:$PATH
