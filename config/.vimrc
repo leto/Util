@@ -16,7 +16,7 @@ set shortmess=atI
 vmap ,aa :Align<space>=><CR>
 vmap ,ae :Align<space>=<CR>
 vmap ,ac :Align<space>,<CR>
-vmap ,ap :Align<space>|<CR>
+vmap ,ap :Align<space>\|<CR>
 
 highlight SpecialKey ctermfg=DarkRed
 
