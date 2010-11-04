@@ -15,8 +15,10 @@ PREQUEL
 
 while( my $line = <> ){
     my @f = split /\s+=/, $line;
-    if( $f[1] =~ m/(.*)\s+<([^<]+)>/) {
+    if( $f[1] =~ m/\s+(.*)\s+<([^<]+)>/) {
         my ($name,$email) = ($1,$2);
+        # Escape double quotes in names. I brought this upon myself.
+        $name =~ s/"/\\"/g;
         say sprintf '"%s") n="%s" ; m="%s" ;;', $f[0], $name, $email;
     }
 }
