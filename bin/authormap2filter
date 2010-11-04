@@ -1,0 +1,32 @@
+#!/usr/bin/env perl
+
+use Modern::Perl;
+
+print <<'PREQUEL';
+#!/bin/sh
+
+git filter-branch --env-filter '
+
+n=$GIT_AUTHOR_NAME
+m=$GIT_AUTHOR_EMAIL
+
+case ${GIT_AUTHOR_NAME} in
+PREQUEL
+
+while( my $line = <> ){
+    my @f = split /\s+=/, $line;
+    if( $f[1] =~ m/(.*)\s+<([^<]+)>/) {
+        my ($name,$email) = ($1,$2);
+        say sprintf '"%s") n="%s" ; m="%s" ;;', $f[0], $name, $email;
+    }
+}
+
+print <<'AFTERWORD';
+esac
+
+export GIT_AUTHOR_NAME="$n"
+export GIT_AUTHOR_EMAIL="$m"
+export GIT_COMMITTER_NAME="$n"
+export GIT_COMMITTER_EMAIL="$m"
+'
+AFTERWORD
