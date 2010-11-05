@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/bin/gnome-terminal -x vim $@
