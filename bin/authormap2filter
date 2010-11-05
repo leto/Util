@@ -20,6 +20,8 @@ while( my $line = <> ){
         # Escape double quotes in names. I brought this upon myself.
         $name =~ s/"/\\"/g;
         say sprintf '"%s") n="%s" ; m="%s" ;;', $f[0], $name, $email;
+    } else {
+        say sprintf '"%s") n="%s" ; m="%s" ;;', $f[0], $f[0], 'none@none';
     }
 }
 
