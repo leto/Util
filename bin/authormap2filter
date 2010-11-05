@@ -1,11 +1,11 @@
 #!/usr/bin/env perl
 
 use Modern::Perl;
+# The output of this should be sourced 
+# Ex. git filter-branch --env-filter 'source foo.sh'
 
 print <<'PREQUEL';
 #!/bin/sh
-
-git filter-branch --env-filter '
 
 n=$GIT_AUTHOR_NAME
 m=$GIT_AUTHOR_EMAIL
@@ -17,9 +17,12 @@ while( my $line = <> ){
     my @f = split /\s+=/, $line;
     if( $f[1] =~ m/\s+(.*)\s+<([^<]+)>/) {
         my ($name,$email) = ($1,$2);
-        # Escape double quotes in names. I brought this upon myself.
-        $name =~ s/"/\\"/g;
-        say sprintf '"%s") n="%s" ; m="%s" ;;', $f[0], $name, $email;
+        # We have to by sly about quoting
+        if ( $name =~ /'/ ) {
+            say sprintf '"%s") n="%s" ; m="%s" ;;', $f[0], $name, $email;
+        } else {
+            say sprintf '"%s") n=\'%s\' ; m="%s" ;;', $f[0], $name, $email;
+        }
     } else {
         say sprintf '"%s") n="%s" ; m="%s" ;;', $f[0], $f[0], 'none@none';
     }
@@ -32,5 +35,5 @@ export GIT_AUTHOR_NAME="$n"
 export GIT_AUTHOR_EMAIL="$m"
 export GIT_COMMITTER_NAME="$n"
 export GIT_COMMITTER_EMAIL="$m"
-'
+
 AFTERWORD
