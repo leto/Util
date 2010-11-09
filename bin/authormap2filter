@@ -2,7 +2,7 @@
 
 use Modern::Perl;
 # The output of this should be sourced 
-# Ex. git filter-branch --env-filter 'source foo.sh'
+# Ex. git filter-branch --env-filter 'source foo.sh' HEAD
 
 print <<'PREQUEL';
 #!/bin/sh
