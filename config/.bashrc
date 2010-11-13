@@ -9,13 +9,13 @@ export PG_PREFIX=$HOME/pg
 export PGDATA=$PG_PREFIX/data
 export PATH=
 export PATH=/home/leto/git/rakudo/parrot_install/bin:$PATH
-export PATH=$PATH:$HOME/svn/parrot/installed_parrot/bin:/opt/local/bin
+export PATH=$PATH:$HOME/git/parrot/installed_parrot/bin:/opt/local/bin
 export PATH=$PATH:~/bin:/usr/local/bin:/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/usr/local/sbin
 export PATH=$PATH:/usr/X11R6/bin:$PGPREFIX/bin:~/svn/llvm/Debug/bin
 export PATH=$HOME/pg/bin:/home/leto/local-lib/bin:$PATH
 export PATH=$PATH:$HOME/.gem/ruby/1.8/bin
 
-export LD_LIBRARY_PATH=$HOME/pg/lib:$HOME/lib:$HOME/git/rakudo/parrot_install/lib:$HOME/svn/parrot/installed_parrot/lib
+export LD_LIBRARY_PATH=$HOME/pg/lib:$HOME/lib:$HOME/git/rakudo/parrot_install/lib:$HOME/git/parrot/installed_parrot/lib
 export PERL5LIB="$HOME/git/util/perl_lib:$HOME/perl5/lib/perl5"
 
 export GIT_COMMITTER_EMAIL=jonathan@leto.net

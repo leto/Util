@@ -6,7 +6,6 @@
 [alias]
     co     = checkout
     praise = blame
-    ru     = remote update
     up     = !git stash && git pull origin master && git stash pop
     sup    = !git stash && git svn rebase && git stash pop
     last   = cat-file commit HEAD

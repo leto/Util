@@ -1,3 +1,16 @@
+ignores = (
+{
+    level = "JOINS PARTS QUITS MODES";
+    channels = ( "#parrot", "#cxgn", "#moose", "#pdx.pm", "#parrotsketch", "#catalyst", "#toolchain");
+    network  = "perl";
+},
+{
+    level = "JOINS PARTS QUITS MODES";
+    channels = ( "#perl6", "#plparrot" );
+    network  = "freenode";
+}
+);
+
 servers = (
   { address = "eu.irc6.net"; chatnet = "IRCnet"; port = "6667"; },
   { 
@@ -28,16 +41,18 @@ servers = (
   { address = "irc.link-net.org"; chatnet = "LinkNet"; port = "6667"; },
   { address = "silc.silcnet.org"; chatnet = "SILC"; port = "706"; },
   {
-    address = "irc.perl.org";
+    address = "turkeyberry.sgn.cornell.edu";
     chatnet = "perl";
-    port = "6667";
+    port = "21217";
     autoconnect = "yes";
+    password = "perl42";
   },
   {
-    address = "irc.freenode.net";
+    address = "132.236.81.245";
     chatnet = "freenode";
-    port = "6667";
+    port = "21217";
     autoconnect = "yes";
+    password = "freenode42";
   }
 );
 
@@ -109,8 +124,18 @@ chatnets = {
 };
 
 channels = (
-  { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
-  { name = "silc"; chatnet = "silc"; autojoin = "No"; }
+  { name = "#parrot"; chatnet = "perl"; autojoin = "Yes"; },
+  { name = "#cxgn"; chatnet = "perl"; autojoin = "Yes"; },
+  { name = "#moose"; chatnet = "perl"; autojoin = "Yes"; },
+  { name = "#catalyst"; chatnet = "perl"; autojoin = "Yes"; },
+  { name = "#toolchain"; chatnet = "perl"; autojoin = "Yes"; },
+  { name = "#pdx.pm"; chatnet = "perl"; autojoin = "Yes"; },
+
+  { name = "#perl6"; chatnet = "freenode"; autojoin = "Yes"; }
+  { name = "#plparrot"; chatnet = "freenode"; autojoin = "Yes"; }
+  { name = "#osuosl"; chatnet = "freenode"; autojoin = "Yes"; }
+  { name = "#bioperl"; chatnet = "freenode"; autojoin = "Yes"; }
+  { name = "#gmod"; chatnet = "freenode"; autojoin = "Yes"; }
 );
 
 aliases = {
@@ -299,6 +324,7 @@ windows = {
         chat_type = "IRC";
         name = "#parrot";
         tag = "perl";
+        autojoin = "yes";
       }
     );
   };
@@ -307,8 +333,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#soc-help";
-        tag = "perl";
+        name = "#perl6";
+        tag = "freenode";
       }
     );
   };
@@ -319,10 +345,11 @@ windows = {
         chat_type = "IRC";
         name = "#cxgn";
         tag = "perl";
+        autojoin = "yes";
       }
     );
   };
-  5 = {
+  6 = {
     items = (
       {
         type = "CHANNEL";
@@ -332,27 +359,7 @@ windows = {
       }
     );
   };
-  6 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#drizzle";
-        tag = "freenode";
-      }
-    );
-  };
-  7 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#rtems";
-        tag = "freenode";
-      }
-    );
-  };
-  8 = {
+  5 = {
     items = (
       {
         type = "CHANNEL";
@@ -362,23 +369,14 @@ windows = {
       }
     );
   };
-  9 = {
+  7 = {
     items = (
       {
         type = "CHANNEL";
         chat_type = "IRC";
         name = "#pdx.pm";
         tag = "perl";
-      }
-    );
-  };
-  10 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#parrotsketch";
-        tag = "perl";
+        autojoin = "yes";
       }
     );
   };
