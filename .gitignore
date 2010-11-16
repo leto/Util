@@ -7,3 +7,4 @@ config/etc/hosts.kadath
 perl_lib/_build
 perl_lib/Build
 perl_lib/MYMETA.yml
+config/.irssi/away.log
