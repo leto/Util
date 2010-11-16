@@ -19,6 +19,7 @@
     detach = checkout @{0}
     back   = checkout -
     flog   = reflog
+    sha1   = rev-parse
 
 
 [core]

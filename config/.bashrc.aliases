@@ -96,8 +96,14 @@ alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
 
 ###### git aliases
 
-# requires ruby
 alias git=hub
+
+function sha1 () {
+    [ -z "$1" ] && SHA=HEAD
+    git rev-parse $SHA
+}
+
+# requires ruby
 alias grc="git rebase --continue"
 alias glp="git log -p"
 alias gs="git status"
