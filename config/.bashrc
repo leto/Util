@@ -93,6 +93,11 @@ export up6='../../../../../..'
 export up7='../../../../../../..'
 export up8='../../../../../../../..'
 
+# node.js version manager
+NVM_DIR=$HOME/git/nvm
+. $NVM_DIR/nvm.sh
+nvm use
+
 [ -e ~/.bash/git-completion.bash ] && source ~/.bash/git-completion.bash
 [ -e ~/.bashrc.aliases ] && source ~/.bashrc.aliases
 [ -e ~/.bashrc.feather.perl6.nl ] && source ~/.bashrc.feather.perl6.nl
