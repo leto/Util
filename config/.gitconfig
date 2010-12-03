@@ -20,6 +20,8 @@
     back   = checkout -
     flog   = reflog
     sha1   = rev-parse
+    pr     = pull --rebase
+    r      = remote
 
 
 [core]
