@@ -97,6 +97,7 @@ alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
 ###### git aliases
 
 alias git=hub
+alias g=git
 
 function sha1 () {
     [ -z "$1" ] && SHA=HEAD
