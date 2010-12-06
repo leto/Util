@@ -154,7 +154,6 @@ alias tdump="tcpdump -nnXSs 0"
 alias screenshot="xwd -display :0 -root > screenshot.dmp"
 alias h="history|tail -n 25"
 #alias hg="history|grep "
-unalias hg
 alias m=make
 alias mt="make test"
 alias mit="make install test"
