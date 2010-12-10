@@ -170,7 +170,7 @@ alias 6..='cd $up6'
 alias 7..='cd $up7'
 alias 8..='cd $up8'
 
-alias parrotsh="perl ~/svn/parrot/tools/dev/parrot_shell.pl"
+alias parrotsh="perl ~/git/parrot/tools/dev/parrot_shell.pl"
 alias feather="ssh feather.perl6.nl"
 
 alias gdb_latest="run_match_latest.pl gdb"
