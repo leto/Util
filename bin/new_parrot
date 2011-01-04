@@ -17,5 +17,5 @@ perl Configure.pl \
     --ccflags=-g  \
     $1            \
     --prefix="$PWD/installed_parrot" && \
-nice -n20 make TEST_JOBS=$TEST_JOBS && \
+nice -n20 make -j $TEST_JOBS && \
 make install
