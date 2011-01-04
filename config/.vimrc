@@ -124,15 +124,15 @@ map :syn :syntax on
 
 nmap <f5> :make<CR>
 nmap <f4> :!bash<cr>
-function Fxxd()
-  let c=getline(".")
-    if c =~ '^[0-9a-f]\{7}:'
-        :%!xxd -r
-    else
-        :%!xxd -g4
-    endif
-endfunction
-map <F6> :call Fxxd()<cr>
+"function Fxxd()
+"  let c=getline(".")
+"    if c =~ '^[0-9a-f]\{7}:'
+"        :%!xxd -r
+"    else
+"        :%!xxd -g4
+"    endif
+"endfunction
+"map! <F6> :call Fxxd()<cr>
 
 map ,h :call PerlDoc()<C-M>:set nomod<C-M>
 
