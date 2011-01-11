@@ -1,0 +1,4 @@
+#!/bin/sh
+
+new_parrot_plain --optimize $@
+
