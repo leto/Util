@@ -11,7 +11,7 @@ if [ $? -eq 0 ]; then
     CC="ccache $CC"
 fi
 
-m -rf "$PWD/installed_parrot"
+rm -rf "$PWD/installed_parrot"
 
 make realclean
 perl Configure.pl \

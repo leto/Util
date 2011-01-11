@@ -1,0 +1,4 @@
+#!/bin/sh
+
+new_parrot --without-gettext  --without-gmp      --without-libffi   --without-opengl   --without-readline --without-pcre --without-zlib
+
