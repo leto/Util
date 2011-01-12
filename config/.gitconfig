@@ -23,6 +23,7 @@
     pr     = pull --rebase
     r      = remote
     pus    = push
+    lazyrebase = !git stash && git pull --rebase && git stash pop
 
 
 [core]
