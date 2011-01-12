@@ -1,0 +1,9 @@
+#!/bin/sh
+
+for np in ~/bin/new_parrot_*; do
+    $np
+    make smoke
+done
+
+# This will be run in a loop, so we sleep to be nice
+sleep 1800
