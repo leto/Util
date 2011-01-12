@@ -3,7 +3,7 @@
 # Update the repo we are hopefully in
 git pull --rebase
 
-for np in ~/bin/new_parrot_*; do
+for np in ~/bin/new_parrot*; do
     $np
     make smoke
 done
