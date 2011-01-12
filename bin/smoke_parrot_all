@@ -4,7 +4,12 @@
 git pull --rebase
 
 for np in ~/bin/new_parrot*; do
+    # First compile with gcc
     $np
+    make smoke
+
+    # Now with g++
+    $np --cc=g++ --cxx=g++ --link=g++ --ld=g++
     make smoke
 done
 
