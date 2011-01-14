@@ -1,7 +1,7 @@
 #!/bin/sh
 
 new_parrot --without-gettext  --without-gmp --without-libffi \
-           --without-core-nci-thunks --without-extra-nci-thunks \
+            --without-extra-nci-thunks \
            --without-opengl --without-readline               \
            --without-pcre --without-zlib                     \
            --without-threads --without-icu $@
