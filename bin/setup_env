@@ -1,0 +1,12 @@
+#!/bin/sh
+# Setup a Duke Leto approved work environment
+
+cd $HOME
+mkdir git
+cd git
+echo "Cloning Util.git"
+git clone git://github.com/leto/Util.git
+mv Util util
+cd $HOME
+echo "Symlinking config files and ~/bin"
+$HOME/git/util/bin/shadow_conf
