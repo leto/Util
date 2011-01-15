@@ -9,4 +9,4 @@ git clone git://github.com/leto/Util.git
 mv Util util
 cd $HOME
 echo "Symlinking config files and ~/bin"
-$HOME/git/util/bin/shadow_conf
+$HOME/git/util/bin/shadow_config
