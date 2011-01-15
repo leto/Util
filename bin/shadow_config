@@ -2,31 +2,48 @@
 use strict;
 use warnings;
 
-my @configs = qw/
-    .vimperatorrc
+my @config_files = qw/
     .bashrc
     .bashrc.aliases
-    .bash
-    .gitconfig
-    .vimrc
-    .vim
-    .perldb
-    .irssi
-    .screenrc
-    .psqlrc
-    .proverc
-    .vimperatorrc
-    .Xmodmap
     .dir_colors
+    .gitconfig
+    .irssi
+    .perldb
+    .proverc
+    .psqlrc
+    .screenrc
+    .vimperatorrc
+    .vimrc
+    .Xmodmap
+/;
+my @config_dirs = qw/
+    .bash
+    .ssh
+    .vim
 /;
 my $dir = shift || '/home/leto/git/util';
 die "$dir does not exist!" unless -e $dir;
 
-for my $config (@configs) {
+sub run {
+    print "$_\n";
+    system $_;
+}
+
+for my $config (@config_files) {
+    my $cmd = "ln -sf $dir/config/$config";
+    # If the config file already exists, backer up
+    if( -e $config){
+        rename $config, "$config.bak.$$";
+    }
+    run($cmd);
+}
+
+# We don't clobber already existing directories
+for my $config (@config_dirs) {
     my $cmd = "ln -s $dir/config/$config";
-    print "$cmd\n";
-    system $cmd;
+    run($cmd);
 }
 # crappy
-echo "ln -s $dir/bin";
-system "ln -s $dir/bin";
+run("ln -s $dir/bin");
+
+print "Duke Leto environment deployed\n";
