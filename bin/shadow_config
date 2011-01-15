@@ -18,12 +18,13 @@ my @configs = qw/
     .vimperatorrc
     .Xmodmap
     .dir_colors
+    bin
 /;
 my $dir = shift || '/home/leto/git/util';
 die "$dir does not exist!" unless -e $dir;
 
 for my $config (@configs) {
-    my $cmd = "ln -fs $dir/config/$config";
+    my $cmd = "ln -s $dir/config/$config";
     print "$cmd\n";
     system $cmd;
 }
