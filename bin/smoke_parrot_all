@@ -1,15 +1,21 @@
 #!/bin/sh
 
 # Update the repo we are hopefully in
+# TODO: bail out if we are in a git repo, or if there are modifiications
+
 git pull --rebase
 
 for np in `dirname $0`/new_parrot*; do
     # First compile with gcc
-    $np
+    echo $np
+
+    # Always run configure tests
+    $np --test
     make smoke
 
-    # Now with g++
-    $np --cc=g++ --cxx=g++ --link=g++ --ld=g++
+    # Now with g++ , including configure tests
+    echo "$np --cc=g++ --cxx=g++ --link=g++ --ld=g++ --test"
+    $np --cc=g++ --cxx=g++ --link=g++ --ld=g++ --test
     make smoke
 
     # This will be run in a loop, so we sleep so we don't flood Smolder
