@@ -10,7 +10,9 @@ mv Util util
 cd $HOME
 echo "Symlinking config files and ~/bin"
 $HOME/git/util/bin/shadow_config
-cpanm local::lib
+
+$HOME/git/util/bin/cpanm local::lib
+
 perl -Mlocal::lib >> ~/.bashrc.local
 source .bashrc
 cpanm LWP::UserAgent
