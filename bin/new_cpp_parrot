@@ -1,0 +1,3 @@
+#!/bin/sh
+
+new_parrot --cc=g++ --cxx=g++ --link=g++ --ld=g++ $@
