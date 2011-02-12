@@ -39,7 +39,7 @@ sub handle_errors {
         printf "Error: child died with signal %d, %s coredump\n",
             ($exit_code & 127),  ($exit_code & 128) ? 'with' : 'without';
     } else {
-        printf "Error: child exited with value %d\n", $? >> 8;
+        printf "Error: child exited with value %d\n", $exit_code >> 8;
     }
 }
 
