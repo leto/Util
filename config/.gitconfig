@@ -24,6 +24,7 @@
     r      = remote
     pus    = push
     lazyrebase = !git stash && git pull --rebase && git stash pop
+    unmerged = branch --no-merged
 
 
 [core]
