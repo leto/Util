@@ -1,17 +1,17 @@
 #!/bin/sh
 # Setup a Duke Leto approved work environment
 
-GITGZ = http://kernel.org/pub/software/scm/git/git-1.7.4.1.tar.gz
+GITGZ=http://kernel.org/pub/software/scm/git/git-1.7.4.1.tar.gz
 
 cd $HOME
 mkdir git
 cd git
 
-type -P wget || { echo "no wget, bailing"; exit 1; }
+wget 2>&1 || { echo "no wget, bailing"; exit 1; }
 
-type -P git || { wget $GITGZ; tar zxvpf $GITGZ; cd git-1.7.4.1; make prefix=$HOME NO_CURL=1 install; }
+git 2>&1 || { wget $GITGZ; tar zxvpf $GITGZ; cd git-1.7.4.1; make prefix=$HOME NO_CURL=1 install; }
 
-type -P git || { echo "Git could not be found"; exit 1; }
+git 2>&1 || { echo "Git could not be found"; exit 1; }
 
 echo "Cloning Util.git"
 git clone git://github.com/leto/Util.git
