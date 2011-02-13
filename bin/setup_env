@@ -4,8 +4,14 @@
 cd $HOME
 mkdir git
 cd git
+
+type -P git || { git clone git://git.kernel.org/pub/scm/git/git.git; cd git; make prefix=$HOME NO_CURL=1 install; }
+
+type -P git || { echo "Git could not be found"; exit 1; }
+
 echo "Cloning Util.git"
 git clone git://github.com/leto/Util.git
+
 mv Util util
 cd $HOME
 echo "Symlinking config files and ~/bin"
