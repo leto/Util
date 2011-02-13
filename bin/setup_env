@@ -9,7 +9,7 @@ cd git
 
 wget 2>&1 || { echo "no wget, bailing"; exit 1; }
 
-git 2>&1 || { wget $GITGZ; tar zxvpf $GITGZ; cd git-1.7.4.1; make prefix=$HOME NO_CURL=1 install; }
+git 2>&1 || { wget $GITGZ; tar zxvpf $GITGZ; cd git-1.7.4.1; gmake prefix=$HOME NO_CURL=1 install; }
 
 git 2>&1 || { echo "Git could not be found"; exit 1; }
 
