@@ -14,8 +14,8 @@ for np in `dirname $0`/new_parrot*; do
     make smoke
 
     # Now with g++ , including configure tests
-    echo "$np --cc=g++ --cxx=g++ --link=g++ --ld=g++ --test"
-    $np --cc=g++ --cxx=g++ --link=g++ --ld=g++ --test
+    echo "$np --cc=g++ --link=g++ --ld=g++"
+    $np --cc=g++ --link=g++ --ld=g++
     make smoke
 
     # This will be run in a loop, so we sleep so we don't flood Smolder
