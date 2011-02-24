@@ -1,5 +1,5 @@
 [user]
-    name = Duke Leto
+    name = Jonathan "Duke" Leto
     email = <jonathan@leto.net>
     editor = vim
 
@@ -10,8 +10,7 @@
     sup    = !git stash && git svn rebase && git stash pop
     last   = cat-file commit HEAD
     v      = !git --version
-    plog   = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
-    lg     = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
+    hist   = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
     lp     = log -p
     spread = !git push --tags origin master && git push --tags github master
     who    = shortlog -se --
@@ -41,6 +40,7 @@
 [log]
     date = local
 
+# This Does Bad Things
 [apply]
     # whitespace = strip
 
@@ -48,34 +48,34 @@
    rename = copy
 
 [color]
-  ui = auto
-
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
+  ui     = auto
+  diff   = auto
+  branch = auto
+  status = auto
 
 [color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
+    meta = yellow
+    frag = cyan
+    old = red bold
+    new = green bold
+    whitespace = red reverse
 
 [color "status"]
-  added = yellow
-  changed = green
+  added     = yellow
+  changed   = green
   untracked = cyan
 
+
 [push]
-	default = current
+    default = current
+
 [rerere]
-	enabled = 1
+    enabled = 1
 
 [sendemail]
     smtpserver = smtp.gmail.com
-    smtpuser = jaleto@gmail.com
-    smtpssl = true
-
+    smtpuser   = jaleto@gmail.com
+    smtpssl    = true
 
 [rebase]
-	stat = 1
+    stat = 1
