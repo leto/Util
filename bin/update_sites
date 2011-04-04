@@ -1,0 +1,9 @@
+#!/bin/sh
+
+PATH=/home/leto/bin:/bin:/usr/bin:/usr/local/bin
+DIR=/sites
+
+for i in `ls /sites/`; do
+    cd $DIR/$i/htdocs && git fetch --all --prune > /dev/null && git rebase origin/master > /dev/null
+done
+
