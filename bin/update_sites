@@ -4,6 +4,7 @@ PATH=/home/leto/bin:/bin:/usr/bin:/usr/local/bin
 DIR=/sites
 
 for i in `ls /sites/`; do
+    # we don't care about STDOUT, but let STDERR escape (which will generate email if used in cron)
     cd $DIR/$i/htdocs && git fetch --all --prune > /dev/null && git rebase origin/master > /dev/null
 done
 
