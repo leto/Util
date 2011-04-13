@@ -5,6 +5,8 @@
 " in your browser
 set defsearch="duckduckgo"
 
+"set toolbars=noaddons,nobookmarks,nomenu,navigation,tabs
+
 " Autocomplete using Firefox Awesomebar subsystem
 set complete=l
 
