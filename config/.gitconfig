@@ -20,6 +20,7 @@
     flog   = reflog
     sha1   = rev-parse
     pr     = pull --rebase
+    f      = fetch
     r      = remote
     pus    = push
     pu     = push
