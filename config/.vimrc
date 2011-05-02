@@ -263,7 +263,7 @@ set viminfo='5      " Use viminfo, remember marks for the last 5 files
 set guicursor=a:blinkon600-blinkoff400
 
 map _l a\usepackage{latexsym,amsmath,amssymb,fullpage,epsfig}<CR>\documentclass{article}<CR>\usepackage{}<CR><CR>\begin{document}<CR>\end{document}<Esc>ko
-map _ps a#!/usr/bin/perl -w<Esc>o<CR>use strict;<CR>$\|++;<CR><Esc>
+map _ps a#!/usr/bin/env perl<Esc>o<CR>use strict;<CR>use warnings;<CR><Esc>
 map _pm apackage Foo;<Esc>o <CR>use strict;<CR><CR>sub new {<CR>my $class = shift;<CR>my $self = {};<CR>bless $self, $class;<CR>}<CR>1;<Esc>
 
 " Set up assembly programming
