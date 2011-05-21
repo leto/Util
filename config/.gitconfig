@@ -20,11 +20,13 @@
     flog   = reflog
     sha1   = rev-parse
     pr     = pull --rebase
+    f      = fetch
     r      = remote
     pus    = push
+    pu     = push
+    p      = push
     lazyrebase = !git stash && git pull --rebase && git stash pop
     unmerged = branch --no-merged
-
 
 [core]
     excludesfile = ~/.gitignore
