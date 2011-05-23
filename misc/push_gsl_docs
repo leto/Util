@@ -1,0 +1,13 @@
+#!/usr/bin/perl5.10.0 -w
+
+use strict;
+use warnings;
+use 5.010;
+
+my $pod_dir  = q{blib/libhtml/site/lib};
+my $html_dir = q{/export/domains/leto.net/htdocs/code/Math-GSL/htmldocs};
+my $host     = shift || q{leto.net};
+my $cmd      = qq[./Build html && scp -prv $pod_dir/* ${host}:$html_dir];
+
+say " Running => $cmd" && qx{ $cmd };
+say "!!!";
