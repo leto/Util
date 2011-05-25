@@ -163,6 +163,8 @@ vmap ,uc          :perldo s/(.*)/uc $1/e<cr>
  map ,uc       viw:perldo s/(.*)/uc $1/e<cr>
 map! ,uc  <esc>viw:perldo s/(.*)/uc $1/e<cr>
 
+map! <Leader>cl :!perltidy -b %<cr>
+
 " replace hard tabs with soft tabs
 map  ,kt      :perldo s/^(\t+)/'    ' x length $1/e<cr>
 map! ,kt <esc>:perldo s/^(\t+)/'    ' x length $1/e<cr>i
@@ -265,6 +267,8 @@ set guicursor=a:blinkon600-blinkoff400
 map _l a\usepackage{latexsym,amsmath,amssymb,fullpage,epsfig}<CR>\documentclass{article}<CR>\usepackage{}<CR><CR>\begin{document}<CR>\end{document}<Esc>ko
 map _ps a#!/usr/bin/env perl<Esc>o<CR>use strict;<CR>use warnings;<CR><Esc>
 map _pm apackage Foo;<Esc>o <CR>use strict;<CR><CR>sub new {<CR>my $class = shift;<CR>my $self = {};<CR>bless $self, $class;<CR>}<CR>1;<Esc>
+
+map _mp ause Modern::Perl;<cr>
 
 " Set up assembly programming
 let asmsyntax = "nasm"

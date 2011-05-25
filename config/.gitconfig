@@ -12,7 +12,10 @@
     v      = !git --version
     hist   = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
     lp     = log -p
-    spread = !git push --tags origin master && git push --tags github master
+
+    # this assumes that we want to push HEAD to a remote called origin (usually an upstream repo)
+    # as well as a remote called "leto" (usually my fork of something)
+    spread = !git push --tags origin HEAD && git push --tags leto HEAD
     who    = shortlog -se --
     faster = repack -a -d -f --window=200 --window-memory=1g
     detach = checkout @{0}
@@ -81,3 +84,5 @@
 
 [rebase]
     stat = 1
+[github]
+	user = leto
