@@ -134,7 +134,7 @@ nmap <f4> :!bash<cr>
 "endfunction
 "map! <F6> :call Fxxd()<cr>
 
-map ,h :call PerlDoc()<C-M>:set nomod<C-M>
+map ,k :call PerlDoc()<C-M>:set nomod<C-M>
 
 noremap  ,pv  :!echo <cword> version `$HOME/bin/pversion '<cword>'`<cr>
 
@@ -197,7 +197,7 @@ map ,pe :!perl -e '
 map ,ts :!perl -MCarp::Always % \| colortest<cr>
 map ,tl :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest\|less -R<cr>
 map ,T  :!DEBUG=1 ./Build test --verbose 1 --test_files   \|colortest<cr>
-map ,p :!prove -Ilib -Iblib/{lib,arch} -v %<cr>
+map ,p :!prove -I{lib,t/lib} -Iblib/{lib,arch} -v %<cr>
 map ,P :!pasm2pir<cr>
 "noremap <buffer> <leader>tm ?^sub.*:.*Test<cr>w"zye:!TEST_METHOD='<c-r>z' prove -Ilib -Iblib/{lib,arch} -v %<cr>
 noremap ,tm ?^sub.*:.*Test<cr>w"zye:!TEST_METHOD='<c-r>z' prove -Ilib -Iblib/{lib,arch} -v %<cr>
