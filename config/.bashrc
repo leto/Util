@@ -8,14 +8,16 @@ ulimit -c unlimited
 export PERL_MM_USE_DEFAULT=1
 export PG_PREFIX=$HOME/pg
 export PGDATA=$PG_PREFIX/data
+export PARROT=$HOME/git/parrot
 export PATH=
 export PATH=/home/leto/git/rakudo/parrot_install/bin:$PATH
-export PATH=$PATH:$HOME/git/parrot/installed_parrot/bin:/opt/local/bin
+export PATH=$PATH:$PARROT/installed_parrot/bin:$PARROT/tools/dev:/opt/local/bin
 export PATH=$PATH:~/bin:/usr/local/bin:/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/usr/local/sbin
 export PATH=$PATH:/usr/X11R6/bin:$PGPREFIX/bin:~/svn/llvm/Debug/bin
 export PATH=$HOME/pg/bin:/home/leto/local-lib/bin:$PATH
 export PATH=$PATH:$HOME/.gem/ruby/1.8/bin
 export PATH=$PATH:$HOME/android/sdk/tools
+export PATH=$PATH:$HOME/.perl6/bin
 
 export LD_LIBRARY_PATH=$HOME/pg/lib:$HOME/lib:$HOME/git/rakudo/parrot_install/lib:$HOME/git/parrot/installed_parrot/lib
 export PERL5LIB="$HOME/git/util/perl_lib:$HOME/perl5/lib/perl5"

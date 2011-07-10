@@ -85,6 +85,8 @@ alias smolder_parrot="sup && new_parrot && make smolder_test"
 alias smolder_parrot_optimize="sup && new_parrot_optimize && make smolder_test"
 alias new_rakudo="git fetch --all; git rebase origin/master ; perl Configure.pl --gen-parrot; make install"
 
+alias plv="prove -lrv"
+
 
 function  sco_parrot_branch () {
     svn checkout https://svn.parrot.org/parrot/branches/$1 parrot-$1
