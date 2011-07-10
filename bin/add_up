@@ -1,0 +1,14 @@
+#!/usr/bin/env perl
+
+# Why do I have to write this?
+
+use strict;
+use warnings;
+my $sum;
+
+while (<>) {
+    chomp;
+    $sum += $_;
+}
+
+print "$sum\n";

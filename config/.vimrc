@@ -134,7 +134,7 @@ nmap <f4> :!bash<cr>
 "endfunction
 "map! <F6> :call Fxxd()<cr>
 
-map ,h :call PerlDoc()<C-M>:set nomod<C-M>
+map ,k :call PerlDoc()<C-M>:set nomod<C-M>
 
 noremap  ,pv  :!echo <cword> version `$HOME/bin/pversion '<cword>'`<cr>
 
@@ -162,6 +162,8 @@ map! ,lc  <esc>viw:perldo s/(.*)/lc $1/e<cr>
 vmap ,uc          :perldo s/(.*)/uc $1/e<cr>
  map ,uc       viw:perldo s/(.*)/uc $1/e<cr>
 map! ,uc  <esc>viw:perldo s/(.*)/uc $1/e<cr>
+
+map! <Leader>cl :!perltidy -b %<cr>
 
 " replace hard tabs with soft tabs
 map  ,kt      :perldo s/^(\t+)/'    ' x length $1/e<cr>
@@ -195,7 +197,7 @@ map ,pe :!perl -e '
 map ,ts :!perl -MCarp::Always % \| colortest<cr>
 map ,tl :!DEBUG=1 ./Build test --verbose 1 --test_files % \|colortest\|less -R<cr>
 map ,T  :!DEBUG=1 ./Build test --verbose 1 --test_files   \|colortest<cr>
-map ,p :!prove -Ilib -Iblib/{lib,arch} -v %<cr>
+map ,p :!prove -I{lib,t/lib} -Iblib/{lib,arch} -v %<cr>
 map ,P :!pasm2pir<cr>
 "noremap <buffer> <leader>tm ?^sub.*:.*Test<cr>w"zye:!TEST_METHOD='<c-r>z' prove -Ilib -Iblib/{lib,arch} -v %<cr>
 noremap ,tm ?^sub.*:.*Test<cr>w"zye:!TEST_METHOD='<c-r>z' prove -Ilib -Iblib/{lib,arch} -v %<cr>
@@ -265,6 +267,8 @@ set guicursor=a:blinkon600-blinkoff400
 map _l a\usepackage{latexsym,amsmath,amssymb,fullpage,epsfig}<CR>\documentclass{article}<CR>\usepackage{}<CR><CR>\begin{document}<CR>\end{document}<Esc>ko
 map _ps a#!/usr/bin/env perl<Esc>o<CR>use strict;<CR>use warnings;<CR><Esc>
 map _pm apackage Foo;<Esc>o <CR>use strict;<CR><CR>sub new {<CR>my $class = shift;<CR>my $self = {};<CR>bless $self, $class;<CR>}<CR>1;<Esc>
+
+map _mp ause Modern::Perl;<cr>
 
 " Set up assembly programming
 let asmsyntax = "nasm"
