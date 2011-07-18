@@ -1,3 +1,6 @@
+function hexless(){
+    hexdump -C $1 |less -R
+}
 function tmpify() {
     scp $1 leto@leto.net:~/public_html/tmp/
 }
