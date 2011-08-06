@@ -1,0 +1,14 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+my $count = 0;
+my $sum;
+
+while (<>) {
+    chomp;
+    $sum += $_;
+    $count++;
+}
+my $avg = $sum / $count;
+print "$avg\n";
