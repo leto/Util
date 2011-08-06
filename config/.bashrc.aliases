@@ -65,7 +65,7 @@ function bt () {
     ./Build test --verbose 1 --test_files $1 |colortest
 }
 function t () {
-    ./Build test --verbose 1 --test_files $1 |colortest
+    ./Build test --verbose 1 --test_files $@ |colortest
 }
 function modversion () {
     perl -M$1 -le "print $1->VERSION"
