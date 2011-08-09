@@ -11,3 +11,6 @@ hgext.mq =
 git = 1
 showfunc = 1
 unified = 8
+
+[alias]
+qedit = !$EDITOR $(hg root)/.hg/patches/series
