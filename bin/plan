@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+use Modern::Perl;
+
+my ($d,$m,$y) = (localtime)[3,4,5];
+$m++; $y+=1900;
+my $date = sprintf "%4d_%02d_%02d", $y, $m, $d;
+exec("$ENV{EDITOR} $date.md");
