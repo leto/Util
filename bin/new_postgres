@@ -1,0 +1,21 @@
+#!/bin/sh
+
+#--with-perl \
+#--with-libxml \
+
+if ["$CC" -eq ""]; then
+    CC=cc
+fi
+
+ccache --version
+
+if [ $? -eq 0 ]; then
+
+    CC="ccache $CC"
+fi
+
+./configure \
+--prefix=$PG_PREFIX \
+--with-pgport=$PGPORT \
+--enable-debug \
+--enable-cassert

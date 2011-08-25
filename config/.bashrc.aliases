@@ -1,3 +1,6 @@
+function hexless(){
+    hexdump -C $1 |less -R
+}
 function tmpify() {
     scp $1 leto@leto.net:~/public_html/tmp/
 }
@@ -62,7 +65,7 @@ function bt () {
     ./Build test --verbose 1 --test_files $1 |colortest
 }
 function t () {
-    ./Build test --verbose 1 --test_files $1 |colortest
+    ./Build test --verbose 1 --test_files $@ |colortest
 }
 function modversion () {
     perl -M$1 -le "print $1->VERSION"
@@ -205,6 +208,8 @@ alias sv=svnversion
 alias svn_delete_unknown="svn stat | grep '^?' | sed -e 's/^\? *//' | xargs svn --force del"
 alias svn_delete_nonexistent="svn stat | grep '^!' | sed -e 's/^\! *//' | xargs svn --force del"
 
+alias plv="prove -lrv"
+
 alias new_pg="make clean; ./configure --prefix=$HOME --with-perl --enable-debug --enable-cassert --with-libxml"
 # parrot stuff
 
@@ -214,3 +219,5 @@ alias psh="perl tools/dev/parrot_shell.pl"
 alias j=jobs
 alias f=fg
 alias ack=ack-grep
+
+alias new_libgit2="mkdir  build && cd build; cmake ..; cmake --build .; cmake --build . --target install"

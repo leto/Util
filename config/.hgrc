@@ -1,0 +1,16 @@
+[ui]
+username = Jonathan "Duke" Leto <jonathan@leto.net>
+
+[defaults]
+qnew = -Ue
+
+[extensions]
+hgext.mq =
+
+[diff]
+git = 1
+showfunc = 1
+unified = 8
+
+[alias]
+qedit = !$EDITOR $(hg root)/.hg/patches/series

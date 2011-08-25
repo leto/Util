@@ -7,6 +7,9 @@ set scrolloff=3
 set title
 set backspace=indent,eol,start
 
+" recurse upward, looking for tags
+set tags=./tags;/
+
 autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=gitcommit
 
 set list listchars=tab:\|_,trail:.
