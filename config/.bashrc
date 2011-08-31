@@ -5,6 +5,9 @@ export DEBEMAIL=jonathan@leto.net
 
 ulimit -c unlimited
 
+# don't clear the screen afterwards 'cause that is annoying
+export LESS="-X"
+
 export PERL_MM_USE_DEFAULT=1
 export PG_PREFIX=$HOME/pg
 export PGDATA=$PG_PREFIX/data
