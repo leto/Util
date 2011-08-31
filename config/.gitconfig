@@ -4,6 +4,7 @@
     editor = vim
 
 [alias]
+    cudgel = clean -fdx
     co     = checkout
     praise = blame
     up     = !git stash && git pull origin master && git stash pop
