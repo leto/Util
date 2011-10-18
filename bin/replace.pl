@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
 use strict;
+use warnings;
 use autodie;
 use Data::Dumper;
 my ($find,$replace,@files) = @ARGV;
