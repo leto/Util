@@ -2,7 +2,7 @@ function hexless(){
     hexdump -C $1 |less -R
 }
 function tmpify() {
-    scp $1 leto@leto.net:~/public_html/tmp/
+    scp $@ leto@leto.net:~/public_html/tmp/
 }
 
 function screenssh () {
@@ -40,19 +40,6 @@ umount_iso() {
 	mount -u $1
 	mdconfig -d -u 1
 }
-
-parrot_svn_ps() {
-    svn ps svn:mime-type 'text/plain' $1
-    svn ps svn:keywords "Author Date Id Revision" $1
-    svn ps svn:eol-style native $1
-}
-
-parrot_git_svn_ps() {
-    git svn ps svn:mime-type 'text/plain' $1
-    git svn ps svn:keywords "Author Date Id Revision" $1
-    git svn ps svn:eol-style native $1
-}
-
 
 # by Aaron "H-Bomb" Harsh
 ..to () {
@@ -108,6 +95,7 @@ alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
 
 alias git=hub
 alias g=git
+alias gp="git push"
 
 function sha1 () {
     [ -z "$1" ] && SHA=HEAD
@@ -132,6 +120,7 @@ alias gb="git branch"
 alias gba="git branch -a"
 alias gcb="git checkout -b "
 alias gpb="git pull --rebase"
+alias grl="git rev-list"
 ### bash aliases
 
 alias p6topir="~/git/rakudo/perl6 --target=pir"
