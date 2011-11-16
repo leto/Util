@@ -210,5 +210,5 @@ alias j=jobs
 alias f=fg
 alias ack=ack-grep
 
-alias new_libgit2="rm -rf build; mkdir build && cd build && cmake -DBUILD_CLAY=ON .. && cmake --build ."
+alias new_libgit2="rm -rf build; mkdir build && cd build && cmake -DBUILD_CLAY=ON .. && make -j3"
 alias install_libgit2="cd build && sudo cmake --build . --target install && cd .."
