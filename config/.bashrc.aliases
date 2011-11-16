@@ -63,8 +63,6 @@ function grh () {
     git rebase -i head~$1
 }
 
-alias new_ligit2="mkdir build && cd build && cmake .. && cmake --build ."
-
 alias convert_to_utf8="perl -MEncode -ne 'print encode_utf8(encode_utf8(eval { decode_utf8(\$_) } || decode(q{cp-1252}, \$_)))'"
 
 alias tapir="parrot t/harness.pir t/*.t"
@@ -212,4 +210,5 @@ alias j=jobs
 alias f=fg
 alias ack=ack-grep
 
-alias new_libgit2="mkdir  build && cd build; cmake ..; cmake --build .; cmake --build . --target install"
+alias new_libgit2="rm -rf build; mkdir build && cd build && cmake -DBUILD_CLAY=ON .. && cmake --build ."
+alias install_libgit2="cd build && sudo cmake --build . --target install && cd .."
