@@ -1,3 +1,6 @@
+function sgn_test() {
+    t/t_server.pl -- -j4 --state=save t/ &> sgn-test-$$.log &
+}
 function hexless(){
     hexdump -C $1 |less -R
 }
