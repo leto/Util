@@ -1,0 +1,20 @@
+#!/bin/sh
+
+
+if ["$CC" -eq ""]; then
+    CC=cc
+fi
+
+ccache --version
+
+if [ $? -eq 0 ]; then
+    CC="ccache $CC"
+fi
+
+make clean
+rm -rf build-debug
+mkdir build-debug
+cd build-debug
+
+time ../configure --enable-debug --disable-optimize && \
+nice -n20 make -j 3
