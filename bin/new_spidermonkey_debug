@@ -4,14 +4,17 @@
 if ["$CC" -eq ""]; then
     CC=cc
 fi
+if ["$CXX" -eq ""]; then
+    CXX=c++
+fi
 
 ccache --version
 
 if [ $? -eq 0 ]; then
     CC="ccache $CC"
+    CXX="ccache $CXX"
 fi
 
-make clean
 rm -rf build-debug
 mkdir build-debug
 cd build-debug
