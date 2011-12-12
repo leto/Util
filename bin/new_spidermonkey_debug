@@ -15,6 +15,7 @@ if [ $? -eq 0 ]; then
     CXX="ccache $CXX"
 fi
 
+autoconf2.13 # creates ./configure
 rm -rf build-debug
 mkdir build-debug
 cd build-debug
