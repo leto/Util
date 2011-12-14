@@ -1,0 +1,37 @@
+alignment                 top_middle
+background                no
+border_width              0
+cpu_avg_samples           5
+default_color             white
+default_outline_color     white
+draw_borders              no
+draw_graph_borders        no
+draw_outline              no
+draw_shades               no
+use_xft                   yes
+xftfont                   Terminus:size=14
+xftalpha                  1
+gap_x                     0
+gap_y                     0
+minimum_size              20 0
+maximum_width             1920
+net_avg_samples           2
+no_buffers                yes
+out_to_console            no
+own_window                yes
+own_window_class          Conky
+own_window_type           normal
+own_window_transparent    yes
+own_window_hints          undecorated,below,sticky,skip_taskbar,skip_pager
+update_interval           1
+uppercase                 no
+use_spacer                left
+use_spacer                right
+double_buffer             yes
+short_units               yes
+pad_percents              1
+text_buffer_size          512
+temperature_unit          fahrenheit
+
+TEXT
+${font OpenLogos:size=7}B${font}${voffset -2} ${time %I:%M:%S %p | %B %e, %Y} | ${kernel} | ${uptime} | ${texeci 30 aticonfig --odgt | grep Temp | cut -d- -f2}
