@@ -1,6 +1,7 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
+use File::Spec::Functions;
 
 my @config_files = qw/
     .bashrc
@@ -21,7 +22,8 @@ my @config_dirs = qw/
     .ssh
     .vim
 /;
-my $dir = shift || '/home/leto/git/util';
+my $dir = shift || catdir($ENV{HOME},qw/git util/);
+
 die "$dir does not exist!" unless -e $dir;
 
 sub run {
