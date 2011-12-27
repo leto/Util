@@ -211,7 +211,8 @@ alias new_system_parrot="make realclean; perl Configure.pl --ccflags=-g --optimi
 alias psh="perl tools/dev/parrot_shell.pl"
 alias j=jobs
 alias f=fg
-alias ack=ack-grep
+# this should only happen on debian-ish systems
+#alias ack=ack-grep
 
 alias new_libgit2="rm -rf build; mkdir build && cd build && cmake -DBUILD_CLAY=ON .. && make -j3"
 alias install_libgit2="cd build && sudo cmake --build . --target install && cd .."
