@@ -110,3 +110,6 @@ NVM_DIR=$HOME/git/nvm
 [ -e ~/.bash/hosts ] && source ~/.bash/hosts
 [ -e ~/.bashrc.work ] && source ~/.bashrc.work
 [ -e ~/.bashrc.local ] && source ~/.bashrc.local
+
+# perlbrew
+[ -e ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc

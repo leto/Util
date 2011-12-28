@@ -9,6 +9,7 @@ my @config_files = qw/
     .dir_colors
     .gitconfig
     .irssi
+    .profile
     .perldb
     .proverc
     .psqlrc
