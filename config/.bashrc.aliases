@@ -99,6 +99,7 @@ alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
 alias git=hub
 alias g=git
 alias gp="git push"
+alias vgc="vi .git/config"
 
 function sha1 () {
     [ -z "$1" ] && SHA=HEAD
