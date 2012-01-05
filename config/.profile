@@ -1,4 +1,4 @@
-source .bashrc
+source ~/.bashrc
 fortune
 
 ##

@@ -31,14 +31,14 @@ export GIT_AUTHOR_EMAIL=jonathan@leto.net
 export GIT_AUTHOR_NAME='Jonathan "Duke" Leto'
 
 PAGER="less -FXRS"
-export TEST_JOBS=3
+export TEST_JOBS=4
 export JSLIB=~/js
 export TERMINFO=/usr/share/terminfo
 export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 shopt -s checkwinsize
-export GIT_PS1_SHOWDIRTYSTATE=42
-export GIT_PS1_SHOWSTASHSTATE=42
+export GIT_PS1_SHOWDIRTYSTATE=0
+export GIT_PS1_SHOWSTASHSTATE=0
 #export HARNESS_OPTIONS="j"
 #export HARNESS_TIMER=0
 #export HARNESS_VERBOSE=0
@@ -87,7 +87,8 @@ export C3='[0m'
 export C4='^[[0;32m'
 export C5='[0;33m'
 export C6='[0;31m'
-export PS1='\[$C1\](\[$C2\]\h\[$C1\])(\[$C2\]\w\[$C1\]\[$C6\]$(__git_ps1 " %s "\[$C1\])\[$C3\]\[$C1\])\$\[$C3\] '
+#export PS1='\[$C1\](\[$C2\]\h\[$C1\])(\[$C2\]\w\[$C1\]\[$C6\]$(__git_ps1 " %s "\[$C1\])\[$C3\]\[$C1\])\$\[$C3\] '
+export PS1='\[$C1\](\[$C2\]\h\[$C1\])(\[$C2\]\w\[$C1\]\[$C6\]\[$C1\]\[$C3\]\[$C1\])\$\[$C3\] '
 export TERM=xterm-color
 export HISTFILESIZE=5000
 export HISTSIZE=5000
@@ -109,3 +110,6 @@ NVM_DIR=$HOME/git/nvm
 [ -e ~/.bash/hosts ] && source ~/.bash/hosts
 [ -e ~/.bashrc.work ] && source ~/.bashrc.work
 [ -e ~/.bashrc.local ] && source ~/.bashrc.local
+
+# perlbrew
+[ -e ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc
