@@ -37,8 +37,8 @@ export TERMINFO=/usr/share/terminfo
 export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 shopt -s checkwinsize
-export GIT_PS1_SHOWDIRTYSTATE=0
-export GIT_PS1_SHOWSTASHSTATE=0
+export GIT_PS1_SHOWDIRTYSTATE=42
+export GIT_PS1_SHOWSTASHSTATE=42
 #export HARNESS_OPTIONS="j"
 #export HARNESS_TIMER=0
 #export HARNESS_VERBOSE=0
