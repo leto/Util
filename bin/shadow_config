@@ -16,6 +16,7 @@ my @config_files = qw/
     .screenrc
     .vimperatorrc
     .vimrc
+    .vmc_target
     .Xmodmap
 /;
 my @config_dirs = qw/
