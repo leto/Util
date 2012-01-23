@@ -12,7 +12,9 @@
     last   = cat-file commit HEAD
     v      = !git --version
     hist   = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
+    h      = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
     lp     = log -p
+    pick   = cherry-pick
 
     # this assumes that we want to push HEAD to a remote called origin (usually an upstream repo)
     # as well as a remote called "leto" (usually my fork of something)
