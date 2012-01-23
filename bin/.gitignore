@@ -1,0 +1,7 @@
+git
+gitk
+git-shell
+git-cvsserver
+git-receive-pack
+git-upload-pack
+git-upload-archive
