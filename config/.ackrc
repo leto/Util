@@ -7,3 +7,5 @@
 --color
 
 --pager=less -r
+
+--type-set=winxed=.winxed
