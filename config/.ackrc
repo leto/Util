@@ -8,4 +8,11 @@
 
 --pager=less -r
 
+--type-set=perl6=.pl6,.pm6,.p6
+--type-set=nqp=.nqp
 --type-set=winxed=.winxed
+--type-set=parrot=.ops,.pir,.pasm
+--type-set=lex=.l
+--type-set=yacc=.y
+--type-set=json=.json
+--type-set=sml=.sml
