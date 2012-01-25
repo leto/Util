@@ -218,3 +218,5 @@ alias f=fg
 
 alias new_libgit2="rm -rf build; mkdir build && cd build && cmake -DBUILD_CLAY=ON .. && make -j3"
 alias install_libgit2="cd build && sudo cmake --build . --target install && cd .."
+
+alias be="bundle exec"
