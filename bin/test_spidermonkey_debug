@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd build-debug
+../jit-test/jit_test.py ./js
+../tests/jstests.py ./js
