@@ -1,13 +1,13 @@
 [user]
-    name = Jonathan "Duke" Leto
-    email = <jonathan@leto.net>
+    name   = Jonathan "Duke" Leto
+    email  = <jonathan@leto.net>
     editor = vim
 
 [alias]
     cudgel = clean -fdx
     co     = checkout
     praise = blame
-    up     = !git stash && git pull origin master && git stash pop
+    up     = !git stash && git pull --rebase origin master && git stash pop
     sup    = !git stash && git svn rebase && git stash pop
     last   = cat-file commit HEAD
     v      = !git --version
@@ -31,8 +31,10 @@
     pus    = push
     pu     = push
     p      = push
+    wip    = stash
+
     lazyrebase = !git stash && git pull --rebase && git stash pop
-    unmerged = branch --no-merged
+    unmerged   = branch --no-merged
 
 [core]
     excludesfile = ~/.gitignore
