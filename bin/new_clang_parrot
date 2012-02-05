@@ -1,0 +1,3 @@
+#!/bin/sh
+
+new_parrot --cc=clang --link=clang --ld=clang $@
