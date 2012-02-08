@@ -31,6 +31,8 @@
     pus    = push
     pu     = push
     p      = push
+    b      = branch
+    s      = status
     wip    = stash
 
     lazyrebase = !git stash && git pull --rebase && git stash pop
