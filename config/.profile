@@ -13,3 +13,5 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # MacPorts Installer addition on 2009-11-12_at_13:06:27: adding an appropriate MANPATH variable for use with MacPorts.
 export MANPATH=/opt/local/share/man:$MANPATH
 # Finished adapting your MANPATH environment variable for use with MacPorts.
+
+[[ -s "/Users/leto/.rvm/scripts/rvm" ]] && source "/Users/leto/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

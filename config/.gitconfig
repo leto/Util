@@ -34,6 +34,7 @@
     b      = branch
     s      = status
     wip    = stash
+    c      = commit
 
     lazyrebase = !git stash && git pull --rebase && git stash pop
     unmerged   = branch --no-merged
