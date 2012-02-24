@@ -2,6 +2,11 @@ function forever() {
     while true; do $@ ;done
 }
 
+function r() {
+    [ -z "$1" ] && rvm use 1.9.2-p290 && return
+    rvm use $1
+}
+
 function sgn_test() {
     t/t_server.pl -- -j4 --state=save t/ &> sgn-test-$$.log &
 }
