@@ -1,4 +1,5 @@
 export DEBEMAIL=jonathan@leto.net
+shopt -s cdspell # allow bad spelling with cd
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -34,8 +35,8 @@ PAGER="less -FXRS"
 export TEST_JOBS=4
 export JSLIB=~/js
 export TERMINFO=/usr/share/terminfo
-export HISTCONTROL=ignoredups
-export HISTCONTROL=ignoreboth
+
+
 shopt -s checkwinsize
 export GIT_PS1_SHOWDIRTYSTATE=42
 export GIT_PS1_SHOWSTASHSTATE=42
@@ -90,8 +91,19 @@ export C6='[0;31m'
 export PS1='\[$C1\](\[$C2\]\h\[$C1\])(\[$C2\]\w\[$C1\]\[$C6\]$(__git_ps1 " %s "\[$C1\])\[$C3\]\[$C1\])\$\[$C3\] '
 #export PS1='\[$C1\](\[$C2\]\h\[$C1\])(\[$C2\]\w\[$C1\]\[$C6\]\[$C1\]\[$C3\]\[$C1\])\$\[$C3\] '
 export TERM=xterm-color
-export HISTFILESIZE=5000
-export HISTSIZE=5000
+
+# Bash history options
+shopt -s histappend
+shopt -s cmdhist
+export HISTCONTROL=ignoreboth
+unset HISTFILESIZE
+export HISTSIZE=100000
+export HISTCONTROL=ignoreboth
+export HISTIGNORE='ls:bg:f:history'
+export HISTTIMEFORMAT='%F %T '
+# This makes bash write to .bash_history immediately instead of on exit
+export PROMPT_COMMAND='history -a; history -n'
+
 export up2='../..'
 export up3='../../..'
 export up4='../../../..'
