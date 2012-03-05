@@ -125,3 +125,5 @@ NVM_DIR=$HOME/git/nvm
 
 # perlbrew
 [ -e ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
