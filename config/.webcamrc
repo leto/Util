@@ -1,0 +1,42 @@
+[grab]
+device = /dev/video0
+text = "Unstable Mable TV %Y-%m-%d %H:%M:%S"
+fg_red = 255
+fg_green = 255
+fg_blue = 255
+width = 640
+height = 480
+delay = 5
+#delay = 30 
+wait = 0
+#norm = pal
+rotate = 0
+top = 0
+left = 0
+bottom = -1
+right = -1
+quality = 75
+trigger = 2
+once = 0
+
+[mabletv]
+host = new.leto.net
+user = mable
+dir  = /home/mable/public_html/images
+file = mable.jpg
+tmp  = uploading.jpeg
+passive = 0
+debug = 5
+auto = 0
+local = 1
+ssh = 1
+
+[mabletv_local]
+dir  = /home/leto/mable_tv
+file = mable.jpg
+tmp  = uploading.jpg
+archive = %Y/%m/%d-%H-%M-%S.jpg
+passive = 0
+debug   = 1
+auto    = 0
+local   = 1
