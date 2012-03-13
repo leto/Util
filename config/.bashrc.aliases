@@ -3,7 +3,7 @@ function forever() {
 }
 
 function r() {
-    [ -z "$1" ] && rvm use 1.9.2-p290 && return
+    [ -z "$1" ] && rvm use 1.9.3 && return
     rvm use $1
 }
 
