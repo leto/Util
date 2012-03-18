@@ -2,6 +2,12 @@ function forever() {
     while true; do $@ ;done
 }
 
+function fog() {
+   # push to origin and deploy to PHPfog
+   git push origin
+   git push phpfog $@
+}
+
 function r() {
     [ -z "$1" ] && rvm use 1.9.3 && return
     rvm use $1
