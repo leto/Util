@@ -1,3 +1,8 @@
+function new_git_io() {
+    [ -z "$1" ] && echo "new_git_io org/project/other urlslug" && return
+    [ -z "$2" ] && echo "new_git_io org/project/other urlslug" && return
+    curl -i http://git.io -F "url=https://github.com/$1" -F "code=$2"
+}
 function forever() {
     while true; do $@ ;done
 }
