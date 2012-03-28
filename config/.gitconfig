@@ -4,37 +4,38 @@
     editor = vim
 
 [alias]
-    cudgel = clean -fdx
-    co     = checkout
-    praise = blame
-    up     = !git stash && git pull --rebase origin master && git stash pop
-    sup    = !git stash && git svn rebase && git stash pop
-    last   = cat-file commit HEAD
-    v      = !git --version
-    hist   = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
-    h      = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
-    lp     = log -p
-    pick   = cherry-pick
-
     # this assumes that we want to push HEAD to a remote called origin (usually an upstream repo)
     # as well as a remote called "leto" (usually my fork of something)
     spread = !git push --tags origin HEAD && git push --tags leto HEAD
-    who    = shortlog -se --
-    faster = repack -a -d -f --window=200 --window-memory=1g
-    detach = checkout @{0}
+
+    a      = add
     back   = checkout -
-    flog   = reflog
-    sha1   = rev-parse
-    pr     = pull --rebase
-    f      = fetch
-    r      = remote
-    pus    = push
-    pu     = push
-    p      = push
     b      = branch
-    s      = status
-    wip    = stash
     c      = commit
+    co     = checkout
+    cudgel = clean -fdx
+    detach = checkout @{0}
+    faster = repack -a -d -f --window=200 --window-memory=1g
+    f      = fetch
+    flog   = reflog
+    hist   = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
+    h      = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
+    last   = cat-file commit HEAD
+    lp     = log -p
+    pick   = cherry-pick
+    p      = push
+    praise = blame
+    pr     = pull --rebase
+    pu     = push
+    pus    = push
+    r      = remote
+    sha1   = rev-parse
+    s      = status
+    sup    = !git stash && git svn rebase && git stash pop
+    up     = !git stash && git pull --rebase origin master && git stash pop
+    v      = !git --version
+    who    = shortlog -se --
+    wip    = stash
 
     lazyrebase = !git stash && git pull --rebase && git stash pop
     unmerged   = branch --no-merged
