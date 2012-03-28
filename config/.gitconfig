@@ -70,6 +70,9 @@
 [diff]
    rename = copy
 
+[diff "ruby"]
+  funcname="^ *\\(\\(class\\|module\\|def\\) .*\\)"
+
 [color]
   ui     = auto
   diff   = auto
@@ -99,6 +102,9 @@
     smtpserver = smtp.gmail.com
     smtpuser   = jaleto@gmail.com
     smtpssl    = true
+
+[help]
+    autocorrect = 1
 
 [rebase]
     stat = 1
