@@ -9,15 +9,20 @@
     spread = !git push --tags origin HEAD && git push --tags leto HEAD
 
     a      = add
+    addp   = add --patch
+    axe    = !sh -c 'git log -S"$0"'
     back   = checkout -
     b      = branch
     c      = commit
     co     = checkout
+    clone-shallow = clone -depth -5
     cudgel = clean -fdx
     detach = checkout @{0}
+    delete = delete = !sh -c 'git push "$0" :refs/heads/"$1"' # delete remote branch with git delete foo
     faster = repack -a -d -f --window=200 --window-memory=1g
     f      = fetch
     flog   = reflog
+    fold   = merge --no-ff
     hist   = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
     h      = log --pretty=format:'%C(yellow)%h%Creset %s %Cred%an%Creset %Cblue%d%Creset %Cgreen%cr%Creset %cd' --graph --all
     last   = cat-file commit HEAD
@@ -32,13 +37,17 @@
     sha1   = rev-parse
     s      = status
     sup    = !git stash && git svn rebase && git stash pop
+    staged = diff --cached
     up     = !git stash && git pull --rebase origin master && git stash pop
+    unstage= reset HEAD --
     v      = !git --version
     who    = shortlog -se --
     wip    = stash
 
     lazyrebase = !git stash && git pull --rebase && git stash pop
     unmerged   = branch --no-merged
+
+    pull-all-submodules = submodule foreach "git checkout master && git pull origin master"
 
 [core]
     excludesfile = ~/.gitignore
