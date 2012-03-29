@@ -10,7 +10,7 @@
 
     a      = add
     addp   = add --patch
-    axe    = !sh -c 'git log -S"$0"'
+    axe    = !sh -c 'git log -p -S"$0"'
     back   = checkout -
     b      = branch
     c      = commit
