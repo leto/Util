@@ -1,3 +1,7 @@
+function smart_shuttle() {
+    $HOME/git/sshuttle/sshuttle --dns -vvr $@ 0/0
+}
+
 function new_git_io() {
     [ -z "$1" ] && echo "new_git_io org/project/other urlslug" && return
     [ -z "$2" ] && echo "new_git_io org/project/other urlslug" && return
