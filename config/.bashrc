@@ -22,6 +22,7 @@ export PATH=$HOME/pg/bin:/home/leto/local-lib/bin:$PATH
 export PATH=$PATH:$HOME/.gem/ruby/1.8/bin
 export PATH=$PATH:$HOME/android/sdk/tools
 export PATH=$PATH:$HOME/.perl6/bin
+export PATH=$PATH:~/.cabal/bin
 
 export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:$HOME/pg/lib:$HOME/lib:$HOME/git/rakudo/parrot_install/lib:$HOME/git/parrot/installed_parrot/lib
 export PERL5LIB="$HOME/git/util/perl_lib:$HOME/perl5/lib/perl5"
