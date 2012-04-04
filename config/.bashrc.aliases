@@ -7,6 +7,10 @@ function new_git_io() {
     [ -z "$2" ] && echo "new_git_io org/project/other urlslug" && return
     curl -i http://git.io -F "url=https://github.com/$1" -F "code=$2"
 }
+function sagi() {
+    sudo apt-get install $@
+}
+
 function forever() {
     while true; do $@ ;done
 }
