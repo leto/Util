@@ -194,6 +194,7 @@ map ,d  :!perl -d -Ilib -Iblib %<cr>
 map ,dt :!perl -d:Trace -Ilib -Iblib %<cr>
 map ,c  :!perl -Ilib -wc %<cr>
 map ,rc :!ruby -c %<cr>
+map ,pc :!php -l %<cr>
 map ,pd :!perldoc -F %\|less <cr>
 map ,pe :!perl -e ' 
 
