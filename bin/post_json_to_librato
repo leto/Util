@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Simple bash wrapper around curl to submit a JSON file to Librato
+# Usage: ./post_json_to_librato foo.json
+
+# Advanced Usage: You can write a script which generates Librato JSON in any language and then
+# use bash process substitution with this script:
+# ./post_json_to_librato <(script_that_prints_json)
+
+LIBRATO_CREDS="$LIBRATO_USERNAME:$LIBRATO_API_KEY"
+
+LIBRATO_URL="https://metrics-api.librato.com/v1/metrics"
+
+JSON_FILE=`mktemp`
+cat $1 >> $JSON_FILE
+
+curl -s -H "Content-Type: application/json" -u $LIBRATO_CREDS -X POST $LIBRATO_URL --data @${JSON_FILE}
+
+rm ${JSON_FILE}
