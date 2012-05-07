@@ -1,3 +1,7 @@
+function git_smallerize() {
+    for i in *; do pushd $i; git gc; popd; done
+}
+
 function smart_shuttle() {
     $HOME/git/sshuttle/sshuttle --dns -vvr $@ 0/0
 }
