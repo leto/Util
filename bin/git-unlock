@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rm .git/index.lock && echo "git index unlocked"
