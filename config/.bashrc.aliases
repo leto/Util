@@ -1,3 +1,6 @@
+function perl_installed() {
+    perl -MExtUtils::Installed -E 'say for ExtUtils::Installed->new->modules'
+}
 function git_smallerize() {
     for i in *; do pushd $i; git gc; popd; done
 }
@@ -252,3 +255,4 @@ alias new_libgit2="rm -rf build; mkdir build && cd build && cmake -DBUILD_CLAY=O
 alias install_libgit2="cd build && sudo cmake --build . --target install && cd .."
 
 alias be="bundle exec"
+alias rspec="rspec --format=doc --color"
