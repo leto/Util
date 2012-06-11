@@ -1,3 +1,6 @@
+function dance() {
+    perl bin/app.pl $@
+}
 function resize_images() {
     [ -z "$1" ] && echo "Usage: resize_images 50% # resize all images in \$PWD by 50%" && return
     for i in *; do convert -resize $1 "$i" "$i"; done
