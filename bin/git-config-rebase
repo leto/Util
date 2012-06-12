@@ -1,0 +1,22 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use autodie;
+
+my ($remote, $branch) = @ARGV;
+open(my $fh, ">>.git/config");
+
+$remote ||= 'origin';
+$branch ||= 'master';
+
+my $config =<<CONFIG;
+[branch "$branch"]
+    remote = $remote
+    merge  = $branch
+    rebase = true
+CONFIG
+
+print $fh $config;
+close $fh;
+print "Added the following to .git/config:\n$config\n";
