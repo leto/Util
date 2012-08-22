@@ -1,3 +1,6 @@
+function ws() {
+    winxed setup.winxed $@
+}
 function dance() {
     perl bin/app.pl $@
 }
