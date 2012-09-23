@@ -8,3 +8,7 @@ perl_lib/_build
 perl_lib/Build
 perl_lib/MYMETA.yml
 config/.irssi/away.log
+_build/
+Build
+MYMETA.json
+MYMETA.yml
