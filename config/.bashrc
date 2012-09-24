@@ -37,7 +37,6 @@ export TEST_JOBS=4
 export JSLIB=~/js
 export TERMINFO=/usr/share/terminfo
 
-
 shopt -s checkwinsize
 export GIT_PS1_SHOWDIRTYSTATE=42
 export GIT_PS1_SHOWSTASHSTATE=42
@@ -117,12 +116,10 @@ export up8='../../../../../../../..'
 NVM_DIR=$HOME/git/nvm
 [ -e $NVM_DIR/nvm.sh ] && source $NVM_DIR/nvm.sh && nvm use
 
-[ -e ~/.bash/git-completion.bash ] && source ~/.bash/git-completion.bash
-[ -e ~/.bashrc.aliases ] && source ~/.bashrc.aliases
-[ -e ~/.bashrc.feather.perl6.nl ] && source ~/.bashrc.feather.perl6.nl
-[ -e ~/.bash/hosts ] && source ~/.bash/hosts
-[ -e ~/.bashrc.work ] && source ~/.bashrc.work
-[ -e ~/.bashrc.local ] && source ~/.bashrc.local
+# this will pickup *.sh and *.bash
+for f in ~/.bash/*sh; do
+    source $f
+done
 
 # perlbrew
 [ -e ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc
