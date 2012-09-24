@@ -40,6 +40,9 @@ export TERMINFO=/usr/share/terminfo
 shopt -s checkwinsize
 export GIT_PS1_SHOWDIRTYSTATE=42
 export GIT_PS1_SHOWSTASHSTATE=42
+export GIT_PS1_SHOWUNTRACKEDFILES=42
+export GIT_PS1_SHOWUPSTREAM="auto"
+
 #export HARNESS_OPTIONS="j"
 #export HARNESS_TIMER=0
 #export HARNESS_VERBOSE=0
