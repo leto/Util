@@ -99,9 +99,10 @@
     enabled = 1
 
 [sendemail]
-    smtpserver = smtp.gmail.com
-    smtpuser   = jaleto@gmail.com
-    smtpssl    = true
+    smtpserver     = smtp.gmail.com
+    smtpuser       = jaleto@gmail.com
+    smtpencryption = tls
+    smtpserverport = 587
 
 [help]
     autocorrect = 1
