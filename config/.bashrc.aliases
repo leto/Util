@@ -125,23 +125,12 @@ alias smolder_parrot_optimize="sup && new_parrot_optimize && make smolder_test"
 alias new_rakudo="git fetch --all; git rebase origin/master ; perl Configure.pl --gen-parrot; make install"
 
 alias plv="prove -lrv"
-
-
-function  sco_parrot_branch () {
-    svn checkout https://svn.parrot.org/parrot/branches/$1 parrot-$1
-}
-
-function  sco_parrot_trunk () {
-    [ -z "$1" ] && echo "Must give a dir name!" && return
-    svn checkout https://svn.parrot.org/parrot/trunk $1
-}
-
 alias cg='valgrind --dsymutil=yes --dump-instr=yes --trace-jump=yes'
 alias rot13="perl -pe 'y/a-zA-Z/n-za-mN-ZA-M/'"
 
 ###### git aliases
 
-alias git=hub
+#eval "$(hub alias -s)"
 alias g=git
 alias gp="git push"
 alias vgc="vi .git/config"
