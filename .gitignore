@@ -12,3 +12,4 @@ _build/
 Build
 MYMETA.json
 MYMETA.yml
+config/.bash/local.bash
