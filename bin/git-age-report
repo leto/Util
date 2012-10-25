@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ls -p | xargs -I {} git log -1 --format="%ai {}" "{}" | sort -r
