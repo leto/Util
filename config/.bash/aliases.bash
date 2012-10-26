@@ -43,9 +43,6 @@ function r() {
     rvm use $1
 }
 
-function sgn_test() {
-    t/t_server.pl -- -j4 --state=save t/ &> sgn-test-$$.log &
-}
 function hexless(){
     hexdump -C $1 |less -R
 }
@@ -76,9 +73,6 @@ largest () {
 k9 () {
     # this kills the most recent process if given no argument, be careful!
     kill -9 %$1
-}
-bcsdoc () {
-    perldoc Bio::Chado::Schema::$1
 }
 mount_iso () {
 	mdconfig -a -t vnode -f $1 -u 1
@@ -140,7 +134,6 @@ function sha1 () {
     git rev-parse $SHA
 }
 
-# requires ruby
 alias grc="git rebase --continue"
 alias glp="git log -p"
 alias gs="git status"
@@ -171,11 +164,7 @@ alias jpg_resize_all='for i in `ls`; do jpg_resize $i; done'
 alias wwwmech="perl -MWWW::Mechanize::Shell -eshell"
 alias update_minicpan="minicpan -r http://www.cpan.org -l /usr/minicpan"
 alias slist="screen -list"
-alias cdw="cd ~/work"
-alias cdc="cdw;cd current"
-alias cdt="cdc;cd trunk"
 alias sb="sudo bash"
-alias cdw="cd ~/work"
 alias dh="df -h"
 alias lt="ls -latr"
 alias lsd="ls -lad"
@@ -210,7 +199,6 @@ alias 7..='cd $up7'
 alias 8..='cd $up8'
 
 alias parrotsh="perl ~/git/parrot/tools/dev/parrot_shell.pl"
-alias feather="ssh feather.perl6.nl"
 
 alias gdb_latest="run_match_latest.pl gdb"
 ### testing aliases
@@ -240,8 +228,8 @@ alias svn_delete_nonexistent="svn stat | grep '^!' | sed -e 's/^\! *//' | xargs 
 alias plv="prove -lrv"
 
 alias new_pg="make clean; ./configure --prefix=$HOME --with-perl --enable-debug --enable-cassert --with-libxml"
-# parrot stuff
 
+# parrot stuff
 alias new_system_parrot="make realclean; perl Configure.pl --ccflags=-g --optimize && nice -n20 make -j$TEST_JOBS"
 
 alias psh="perl tools/dev/parrot_shell.pl"
