@@ -50,7 +50,7 @@
     pull-all-submodules = submodule foreach "git checkout master && git pull origin master"
 
 [core]
-    excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore_global
     editor = vim
     pager = less -FXRS
     filemode = true
@@ -91,7 +91,6 @@
   changed   = green
   untracked = cyan
 
-
 [push]
     default = current
 
@@ -111,3 +110,9 @@
     stat = 1
 [github]
 	user = leto
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
