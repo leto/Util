@@ -28,6 +28,7 @@ au BufNewFile,BufRead *.pmc,*.ops,*.i       setf c
 au BufNewFile,BufRead *.tt,*.ttml       setf tt2html
 au BufNewFile,BufRead *.tex,*.bib       setf tex
 au BufNewFile,BufRead *.js set ft=javascript.jquery
+au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
 
 autocmd FileType perl call PerlMode()
 autocmd FileType tex  call TexMode()
