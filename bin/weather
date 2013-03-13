@@ -1,0 +1,29 @@
+#!/usr/bin/env perl
+
+use warnings;
+use strict;
+use Yahoo::Weather;
+use Data::Dumper;
+
+my $default_zip = 97222;
+
+my $w = Yahoo::Weather->new;
+my $weather = $w->getWeatherByLocation(shift || $default_zip, 'f');
+my $city    = $weather->{LocationDetails}{city};
+my $region  = $weather->{LocationDetails}{region};
+my $current = $weather->{CurrentObservation};
+my $current_temp = $current->{temp};
+my $current_date = $current->{date};
+my $current_text = $current->{text};
+
+my ($sunrise, $sunset) = ($weather->{Astronomy}{sunrise},$weather->{Astronomy}{sunset});
+my ($day1,$day2) = @{ $weather->{TwoDayForecast} };
+
+printf "Weather for $city, $region\n";
+printf "${current_temp}F, $current_text at $current_date\n";
+printf "Sunrise: $sunrise\n";
+printf "Sunset : $sunset\n";
+
+printf "%s %s : %s-%sF %s\n%s %s : %s-%sF %s\n",
+    $day1->{day}, $day1->{date}, $day1->{low}, $day1->{high}, $day1->{text},
+    $day2->{day}, $day2->{date}, $day2->{low}, $day2->{high}, $day2->{text};
