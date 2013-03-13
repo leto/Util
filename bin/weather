@@ -24,6 +24,6 @@ printf "${current_temp}F, $current_text at $current_date\n";
 printf "Sunrise: $sunrise\n";
 printf "Sunset : $sunset\n";
 
-printf "%s %s : %s-%sF %s\n%s %s : %s-%sF %s\n",
-    $day1->{day}, $day1->{date}, $day1->{low}, $day1->{high}, $day1->{text},
-    $day2->{day}, $day2->{date}, $day2->{low}, $day2->{high}, $day2->{text};
+printf "%s : %s-%sF %s\n%s : %s-%sF %s\n",
+    $day1->{day}, $day1->{low}, $day1->{high}, $day1->{text},
+    $day2->{day}, $day2->{low}, $day2->{high}, $day2->{text};
