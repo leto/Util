@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Poor man's BTC price checker. Had problems with both CPAN and Ruby gems. This just works.
+
+echo -n "1 BTC = "
+file="/tmp/$$.btc"
+GET http://twitter.com/bitcoinprice > $file
+grep js-tweet-text $file | head -n1 | sed 's/<p class="js-tweet-text">The price of bitcoin is now //' | sed 's!</p>!!g'
