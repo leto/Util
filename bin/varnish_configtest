@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# from http://unix.stackexchange.com/questions/35863/varnish-configtest
+
+tmpfile=$(mktemp)
+trap 'rm -f $tmpfile' 0
+varnishd -C -f /etc/varnish/default.vcl > $tmpfile
+echo
+
+if [ ! -s $tmpfile ]; then
+    echo "ERROR: There are errors in the varnish configuration." >&2
+    exit 1
+fi
