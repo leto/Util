@@ -69,6 +69,7 @@
 
 [diff]
    rename = copy
+	algorithm = patience
 
 [diff "ruby"]
   funcname="^ *\\(\\(class\\|module\\|def\\) .*\\)"
