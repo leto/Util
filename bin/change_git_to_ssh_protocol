@@ -3,7 +3,8 @@
 # convert a git:// protocol string to an ssh protocol string
 # very useful in visual select mode from vim
 
-use Modern::Perl;
+use strict;
+use warnings;
 
 while(my $line = <>){
     $line =~ s!git://([^/]+)/!git\@$1:!g;
