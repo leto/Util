@@ -1,11 +1,12 @@
 #!/usr/bin/env perl
 
-# convert a git:// protocol string to an ssh protocol string
+# SQL describe a list of table names
 # very useful in visual select mode from vim
 
 use strict;
 use warnings;
 
 while(my $table = <>){
+    chomp $table;
     print "describe $table;\n";
 }
