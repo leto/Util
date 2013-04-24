@@ -1,0 +1,9 @@
+#!/usr/bin/env perl
+
+use warnings;
+use strict;
+use Finance::MtGox;
+
+my $btc   = Finance::MtGox->new({user => 'foo', password => 'asdf'});
+my $price = $btc->market_price;
+printf "$%.2f\n", $price;
