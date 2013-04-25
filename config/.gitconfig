@@ -105,7 +105,7 @@
     smtpserverport = 587
 
 [help]
-    autocorrect = 1
+    autocorrect = 10
 
 [rebase]
     stat = 1
