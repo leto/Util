@@ -15,7 +15,7 @@
     b      = branch
     c      = commit
     co     = checkout
-    clone-shallow = clone -depth -5
+    clone-shallow = clone --depth 5
     cudgel = clean -fdx
     detach = checkout @{0}
     delete = !sh -c 'git push "$0" :refs/heads/"$1"' # delete remote branch with git delete foo
