@@ -43,6 +43,7 @@
     v      = !git --version
     who    = shortlog -se --
     wip    = stash
+    sync   = commit -am "sync"
 
     lazyrebase = !git stash && git pull --rebase && git stash pop
     unmerged   = branch --no-merged
