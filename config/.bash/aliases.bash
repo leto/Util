@@ -243,3 +243,6 @@ alias install_libgit2="cd build && sudo cmake --build . --target install && cd .
 
 alias be="bundle exec"
 alias rspec="rspec --format=doc --color"
+
+alias fanslow='aticonfig --pplib-cmd "set fanspeed 0 50"'
+alias fanfast='aticonfig --pplib-cmd "set fanspeed 0 90"'
