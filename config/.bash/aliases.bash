@@ -246,3 +246,6 @@ alias rspec="rspec --format=doc --color"
 
 alias fanslow='aticonfig --pplib-cmd "set fanspeed 0 50"'
 alias fanfast='aticonfig --pplib-cmd "set fanspeed 0 90"'
+
+# DoD-compliant 7-pass secure deletion of files with a pass of zeros aferward
+alias erase="srm -rmfz"
