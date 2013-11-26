@@ -1,3 +1,7 @@
+function less_newest() {
+    less `ls -tr|tail -n 1`
+}
+
 function ws() {
     winxed setup.winxed $@
 }
