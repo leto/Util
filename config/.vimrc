@@ -284,6 +284,8 @@ let asmsyntax = "nasm"
 " "au! BufRead,BufNewFile   *.asm
 " "au! BufRead,BufNewFile   *.inc   se syn=nasm
 
+noremap <silent> <Leader>bx :BufExplorerVerticalSplit<CR>
+
 function! TextMode()            " Stolen from David Hand
     set nocindent               " nocin:  don't use C-indenting
     set nosmartindent           " nosi:  don't "smart" indent, either
