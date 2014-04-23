@@ -8,8 +8,8 @@
     # as well as a remote called "leto" (usually my fork of something)
     spread = !git push --tags origin HEAD && git push --tags leto HEAD
 
-   disregard = update-index --assume-unchanged "$0"
-   regard    = update-index --no-assume-unchanged "$0"
+   disregard = update-index --assume-unchanged
+   regard    = update-index --no-assume-unchanged
 
     a      = add
     addp   = add --patch
