@@ -110,6 +110,7 @@ function grh () {
 }
 
 alias vag="vagrant"
+alias revagrant="vagrant destroy -f && vagrant up"
 
 alias convert_to_utf8="perl -MEncode -ne 'print encode_utf8(encode_utf8(eval { decode_utf8(\$_) } || decode(q{cp-1252}, \$_)))'"
 
