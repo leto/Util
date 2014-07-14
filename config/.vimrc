@@ -1,14 +1,31 @@
+let mapleader = ","
+let g:mapleader = ","
+
 let $PAGER = 'less'
 let $LESS = 'dQFe'
 set spell spelllang=en
 set nospell
 set hidden
-set scrolloff=3
+set scrolloff=5
 set title
 set backspace=indent,eol,start
+set clipboard=unnamed
+
 
 " recurse upward, looking for tags
 set tags=./tags;/
+
+if has('persisent_undo')
+	set undofile
+	set undodir=$HOME/.vim/undo
+	set undolevels=100
+endif
+
+map <leader>uns  :r!php -r "print_r(  unserialize(file_get_contents('%')));"<CR>
+map <leader>ser  :r!php -r "print_r(  serialize(file_get_contents('%')));"<CR>
+" in conflict 
+map <leader>tw :set scrolloff=99<CR>
+map <leader>two :set scrolloff=5<CR>
 
 autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=gitcommit
 
@@ -80,7 +97,8 @@ set esckeys
 set tabstop=4
 set shiftwidth=4
 set shiftround
-set expandtab		" soft tabs
+"set expandtab		" soft tabs
+set noexpandtab
 set ruler
 set wildchar=<TAB>
 set hlsearch
@@ -108,8 +126,6 @@ set wildignore=*~,#*#,*.sw?,*.o,*.class,.viminfo,*.pdf
 
 au FileType vim set iskeyword+=. iskeyword+=/ iskeyword+=~
 
-let mapleader = ","
-let g:mapleader = ","
 
 "Fast saving
 nmap <leader>w :w!<cr>
@@ -124,7 +140,6 @@ nmap :Q :q
 nmap :E :e
 nmap :qq :q!
 map :syn :syntax on
-
 
 nmap <f5> :make<CR>
 nmap <f4> :!bash<cr>
@@ -145,6 +160,9 @@ noremap  ,pv  :!echo <cword> version `$HOME/bin/pversion '<cword>'`<cr>
 " Make comments and smart indenting play nice
 :inoremap # X#
 
+" map semicolon to colon in normal mode
+nnoremap ; :
+
 " git aliases
 nnoremap <Leader>gd :GitDiff<Enter>
 nnoremap <Leader>gb :GitBlame<Enter>
@@ -157,6 +175,9 @@ nnoremap <Leader>ga :GitAdd<Enter>
 nnoremap <Leader>gA :GitAdd <cfile><Enter>
 nnoremap <Leader>gc :GitCommit<Enter>
 nnoremap <Leader>gp :GitPullRebase<Enter>
+
+
+map <leader>pl :!php -l %<CR>
 
 map <Leader>tp  :set filetype=perl<cr>
 map <Leader>th  :set filetype=html<cr>
@@ -284,7 +305,7 @@ let asmsyntax = "nasm"
 " "au! BufRead,BufNewFile   *.asm
 " "au! BufRead,BufNewFile   *.inc   se syn=nasm
 
-noremap <silent> <Leader>bx :BufExplorerVerticalSplit<CR>
+noremap <silent> <Leader>bx :BufExplorer<CR>
 
 function! TextMode()            " Stolen from David Hand
     set nocindent               " nocin:  don't use C-indenting
@@ -346,4 +367,13 @@ function! PerlDoc()
   exe ':0r!perldoc -f ' . @
   exe ':0'
 endfunction
-set paste
+"set paste
+
+function! Tab_Or_Complete()
+	if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+		return "\<C-N>"
+	else
+		return "\<Tab>"
+	endif
+endfunction
+inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
