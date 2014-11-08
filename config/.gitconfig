@@ -8,6 +8,9 @@
     # as well as a remote called "leto" (usually my fork of something)
     spread = !git push --tags origin HEAD && git push --tags leto HEAD
 
+   disregard = update-index --assume-unchanged
+   regard    = update-index --no-assume-unchanged
+
     a      = add
     addp   = add --patch
     axe    = !sh -c 'git log -p -S"$0"'

@@ -109,6 +109,9 @@ function grh () {
     git rebase -i head~$1
 }
 
+alias vag="vagrant"
+alias revagrant="vagrant destroy -f && vagrant up"
+
 alias convert_to_utf8="perl -MEncode -ne 'print encode_utf8(encode_utf8(eval { decode_utf8(\$_) } || decode(q{cp-1252}, \$_)))'"
 
 alias tapir="parrot t/harness.pir t/*.t"
