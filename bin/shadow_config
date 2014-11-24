@@ -6,7 +6,6 @@ use File::Spec::Functions;
 my @config_files = qw/
     .ackrc
     .bashrc
-    .bashrc.aliases
     .dir_colors
     .gitconfig
     .irssi

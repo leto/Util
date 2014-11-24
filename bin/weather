@@ -19,11 +19,10 @@ my $current_text = $current->{text};
 my ($sunrise, $sunset) = ($weather->{Astronomy}{sunrise},$weather->{Astronomy}{sunset});
 my ($day1,$day2) = @{ $weather->{TwoDayForecast} };
 
-printf "Weather for $city, $region\n";
-printf "${current_temp}F, $current_text at $current_date\n";
-printf "Sunrise: $sunrise\n";
-printf "Sunset : $sunset\n";
+printf "${current_temp}F, $current_text\n";
+#printf "$city, $region\n"; # $current_date\n";
+printf "Light:($sunrise,$sunset)\n";
 
-printf "%s : %s-%sF %s\n%s : %s-%sF %s\n",
-    $day1->{day}, $day1->{low}, $day1->{high}, $day1->{text},
-    $day2->{day}, $day2->{low}, $day2->{high}, $day2->{text};
+printf "%s %s: %s-%sF %s\n%s %s: %s-%sF %s\n",
+    $day1->{day}, (split(' ',$day1->{date}))[0], $day1->{low}, $day1->{high}, $day1->{text},
+    $day2->{day}, (split(' ',$day2->{date}))[0], $day2->{low}, $day2->{high}, $day2->{text};
