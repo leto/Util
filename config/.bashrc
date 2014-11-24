@@ -130,3 +130,7 @@ done
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# http://seclists.org/fulldisclosure/2014/Nov/74
+unset LESSOPEN
+unset LESSCLOSE
