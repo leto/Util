@@ -1,0 +1,11 @@
+# This one allows Facebook scripts and objects to be included only from Facebook pages
+Site .facebook.com .fbcdn.net
+Accept from SELF
+Accept from .facebook.com .fbcdn.net
+Deny INCLUSION(SCRIPT, OBJ, FONT, XHR, MEDIA, SUBDOC)
+
+Site .twitter.com
+Accept from SELF
+Accept from .twitter.com
+Deny INCLUSION(SCRIPT, OBJ, FONT, XHR, MEDIA, SUBDOC)
+
