@@ -1,3 +1,9 @@
 # Duke Leto's Utilities, Configurations and Stuff
 
-Everything in here is GPLv3 unless otherwise stated. Feel free to submit pull requests!
+These are my configs and other bits. There are many like them but these are mine.
+
+Feel free to submit pull requests!
+
+# License
+
+GPLv3
