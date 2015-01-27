@@ -1,3 +1,7 @@
+function gas() {
+    git add . && git commit -m "sync"
+}
+
 function less_newest() {
     less `ls -tr|tail -n 1`
 }
@@ -5,6 +9,7 @@ function less_newest() {
 function ws() {
     winxed setup.winxed $@
 }
+
 function dance() {
     perl bin/app.pl $@
 }
