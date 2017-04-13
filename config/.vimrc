@@ -10,6 +10,7 @@ set scrolloff=5
 set title
 set backspace=indent,eol,start
 set clipboard=unnamed
+set number
 
 
 " recurse upward, looking for tags
