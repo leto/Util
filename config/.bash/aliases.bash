@@ -56,11 +56,11 @@ function hexless(){
     hexdump -C $1 |less -R
 }
 function tmpify() {
-    scp $@ leto@leto.net:~/public_html/tmp/
+    scp -P 4242 $@ leto@leto.net:~/public_html/tmp/
 }
 
 function screenssh () {
-    ssh -xtA $1 "/home/leto/bin/screen -D -R"
+    ssh -xtA $@ "\$HOME/bin/screen -D -R"
 }
 
 function git-spread () {
@@ -103,7 +103,7 @@ function bt () {
     ./Build test --verbose 1 --test_files $1 |colortest
 }
 function t () {
-    prove -lrv $@ | colortest
+    prove -blrv $@ | colortest
 #    ./Build test --verbose 1 --test_files $@ |colortest
 }
 function modversion () {
@@ -220,7 +220,7 @@ alias gdb_latest="run_match_latest.pl gdb"
 alias xt="t xt/*"
 alias tcover="./Build testcover --verbose 1 |colortest"
 alias pb="perl Build.PL"
-alias tlikenew="pb && ./Build clean && pb && cpanm --installdeps . && t"
+alias tlikenew="pb && ./Build clean && pb && cpanm --installdeps . && ./Build && t"
 alias mtlikenew="make clean; perl Makefile.PL && make && make test"
 alias clean_build_check="tlikenew && ./Build dist && check_dist"
 alias perlconfig="perl -e 'use Config;use Data::Dumper;print Dumper \%Config;'"

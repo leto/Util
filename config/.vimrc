@@ -10,6 +10,7 @@ set scrolloff=5
 set title
 set backspace=indent,eol,start
 set clipboard=unnamed
+set number
 
 
 " recurse upward, looking for tags
@@ -97,8 +98,10 @@ set esckeys
 set tabstop=4
 set shiftwidth=4
 set shiftround
-"set expandtab		" soft tabs
-set noexpandtab
+set expandtab		" soft tabs
+"set noexpandtab
+set ts=4
+set shiftwidth=4
 set ruler
 set wildchar=<TAB>
 set hlsearch
@@ -137,6 +140,7 @@ nmap :ww :w!
 nmap :X :x
 nmap :xx :x!
 nmap :Q :q
+nmap :Set :set
 nmap :E :e
 nmap :qq :q!
 map :syn :syntax on
@@ -377,3 +381,5 @@ function! Tab_Or_Complete()
 	endif
 endfunction
 inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+
+

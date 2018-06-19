@@ -5,10 +5,10 @@ use strict;
 use Yahoo::Weather;
 use Data::Dumper;
 
-my $default_zip = 97222;
-
-my $w = Yahoo::Weather->new;
+my $default_zip = 99156;
+my $w       = Yahoo::Weather->new;
 my $weather = $w->getWeatherByLocation(shift || $default_zip, 'f');
+warn Dumper [ $w ];
 my $city    = $weather->{LocationDetails}{city};
 my $region  = $weather->{LocationDetails}{region};
 my $current = $weather->{CurrentObservation};

@@ -14,19 +14,18 @@ export PG_PREFIX=$HOME/pg
 export PGDATA=$PG_PREFIX/data
 export PARROT=$HOME/git/parrot
 export PATH=
-export PATH=/home/leto/git/rakudo/parrot_install/bin:$PATH
+export PATH=$PATH:/Users/jonathanleto/perl5/bin
 export PATH=$PATH:$PARROT/installed_parrot/bin:$PARROT/tools/dev:/opt/local/bin
 export PATH=$PATH:~/bin:/usr/local/bin:/sbin:/bin:/usr/sbin:/opt/local/sbin:/usr/bin:/usr/games:/opt/bin:/usr/local/sbin
 export PATH=$PATH:/usr/X11R6/bin:$PGPREFIX/bin:~/svn/llvm/Debug/bin
 export PATH=$HOME/pg/bin:/home/leto/local-lib/bin:$PATH
 export PATH=$PATH:$HOME/.gem/ruby/1.8/bin
 export PATH=$PATH:$HOME/android/sdk/tools
-export PATH=$PATH:$HOME/.perl6/bin
 export PATH=~/.cabal/bin:$PATH
 export PATH=$PATH:/usr/texbin
 
 export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:$HOME/pg/lib:$HOME/lib:$HOME/git/rakudo/parrot_install/lib:$HOME/git/parrot/installed_parrot/lib
-export PERL5LIB="$HOME/git/util/perl_lib:$HOME/perl5/lib/perl5"
+export PERL5LIB="$HOME/git/util/perl_lib:$HOME/perl5/lib/perl5:$HOME/git/gg/subversion/site_perl/"
 
 export GIT_COMMITTER_EMAIL=jonathan@leto.net
 export GIT_COMMITTER_NAME='Jonathan "Duke" Leto'
@@ -116,9 +115,6 @@ export up6='../../../../../..'
 export up7='../../../../../../..'
 export up8='../../../../../../../..'
 
-# node.js version manager
-NVM_DIR=$HOME/git/nvm
-[ -e $NVM_DIR/nvm.sh ] && source $NVM_DIR/nvm.sh && nvm use
 
 # this will pickup *.sh and *.bash
 for f in ~/.bash/*sh; do
@@ -128,9 +124,16 @@ done
 # perlbrew
 [ -e ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 # http://seclists.org/fulldisclosure/2014/Nov/74
 unset LESSOPEN
 unset LESSCLOSE
+
+PATH="/Users/jonathanleto/perl5/bin${PATH+:}${PATH}"; export PATH;
+PERL5LIB="/Users/jonathanleto/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/jonathanleto/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/jonathanleto/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/jonathanleto/perl5"; export PERL_MM_OPT;
+
+export PATH=$PATH:~/Downloads/hush-1.0.9
+
+source $HOME/git/hush/contrib/hush-cli.bash-completion

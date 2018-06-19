@@ -39,7 +39,6 @@
     r      = remote
     sha1   = rev-parse
     s      = status
-    sup    = !git stash && git svn rebase && git stash pop
     staged = diff --cached
     up     = !git stash && git pull --rebase origin master && git stash pop
     unstage= reset HEAD --
@@ -52,6 +51,7 @@
     unmerged   = branch --no-merged
 
     pull-all-submodules = submodule foreach "git checkout master && git pull origin master"
+    stash-all = stash save --include-untracked
 
 [core]
     excludesfile = ~/.gitignore_global
@@ -115,9 +115,14 @@
     stat = 1
 [github]
 	user = leto
+[merge]
+    conflictstyle = diff3
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+
+[transfer]
+    fsckobjects = true
