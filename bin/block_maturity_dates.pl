@@ -4,8 +4,8 @@ use strict;
 use warnings;
 use POSIX qw(strftime);
 
-my $output = qx{./fiat/verus listtransactions |grep blockstomaturity | cut -d: -f2 | sed 's/,//g'};
-my @lines  = sort split /\n/, $output;
+my $output = qx{./fiat/verus listtransactions |grep blockstomaturity | cut -d: -f2 | sed 's/,//g' | sort -n};
+my @lines  = split /\n/, $output;
 
 my $num = 0;
 for my $line (@lines) {
