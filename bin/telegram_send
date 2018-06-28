@@ -1,0 +1,3 @@
+#!/bin/sh
+
+python ~/python/telegram_send.py $@
