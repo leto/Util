@@ -2,5 +2,5 @@
 
 cd $HOME/git/veruscoin/src
 PROCS=$(./fiat/verus getmininginfo | grep genproclimit | cut -d: -f2|sed 's/,//g')
-MSG=$(./fiat/verus getlocalsolps | awk -v THREADS="$PROCS" '{ print "loki: " $1 / (1000*1000) " MH/s with " THREADS " threads" }')
-echo $MSG | ~/bin/telegram_send --stdin
+MSG=$(./fiat/verus getlocalsolps | awk -v THREADS="$PROCS" -v HOST="$HOSTNAME" '{ print HOST ": " $1 / (1000*1000) " MH/s with " THREADS " threads" }')
+echo $MSG | telegram-send --stdin
