@@ -7,6 +7,8 @@ use POSIX qw(strftime);
 my $output = qx{./fiat/verus listtransactions "" 1000 |grep blockstomaturity | cut -d: -f2 | sed 's/,//g' | sort -n};
 my @lines  = split /\n/, $output;
 
+chomp(my $host = `hostname`);
+print "$host:\n";
 my $num = 0;
 for my $line (@lines) {
     $num++;
