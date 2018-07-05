@@ -13,7 +13,8 @@ my $blocks     = decode_json($output);
 print "$host:\n";
 my $num = 0;
 my $total = 0;
-for my $block (@$blocks) {
+my @blocks = sort { $a->{blockstomaturity} <=> $b->{blockstomaturity} } grep { defined $_->{blockstomaturity} } @$blocks;
+for my $block (@blocks) {
     next unless $block->{category} eq 'immature';
     $num++;
     my $amount           = $block->{amount};
