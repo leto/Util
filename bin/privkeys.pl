@@ -11,11 +11,13 @@ my $output = qx{$cli getaddressesbyaccount ""};
 my $addrs  = decode_json($output);
 
 # Print a bash script that you can use to import privkeys on another node
+# NOTES:
 # DO NOT LEAVE THIS LYING AROUND WHERE OTHER CAN FIND IT
+# You can use this even if your server is resyncing/scanning
 print "#!/bin/bash\n";
 for my $address (@$addrs) {
-    chomp(my $privkey = qx{./fiat/verus dumpprivkey $address});
+    chomp(my $privkey = qx{$cli dumpprivkey $address});
     # print the commands to import these keys into another node
-    print qq{./fiat/verus importprivkey $privkey "" $rescan # $address \n};
+    print qq{$cli importprivkey $privkey "" $rescan # $address \n};
 }
 
