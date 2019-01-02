@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+use LWP::Simple;
+use JSON::Any;
+my $j       = JSON::Any->new;
+my $PORT    = 13895;
+my $json    = get("http://127.0.0.1:$PORT/mining_status");
+my $mining  = $j->decode($json);
+my $speed   = $mining->{speed};
+my $threads = $mining->{threads_count};
+chomp(my $hostname= qx{hostname});
+print "$hostname: BLUR $speed H/s, $threads threads\n";
+#print $json;
