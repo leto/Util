@@ -13,10 +13,11 @@ my $info = $j->decode($json);
 warn Dumper [ 'gettxoutsetinfo=', $info ] if $ENV{DEBUG};
 
 my $total_supply = $info->{total_amount};
-my $snapshot     = qx/hush-cli getsnapshot/;
+$json            = qx/hush-cli getsnapshot/;
+warn Dumper [ 'getsnapshot=', $json ] if $ENV{DEBUG};
+my $snapshot     = $j->decode($json);
 my $taddr_total  = $snapshot->{total};
 
-warn Dumper [ 'getsnapshot=', $info ] if $ENV{DEBUG};
 
 my $shielded = $total_supply - $taddr_total;
 if ($shielded < 0.0) {
@@ -24,4 +25,4 @@ if ($shielded < 0.0) {
 }
 # All shielded notes are Sprout on this chain
 my $shielded_pct = $shielded / $total_supply;
-printf "%.8f, %.2f\n", $shielded, $shielded_pct;
+printf "%.8f, %.2f\n", $shielded, $shielded_pct * 100;
