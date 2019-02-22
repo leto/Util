@@ -1,0 +1,27 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use Data::Dumper;
+use JSON::Any;
+
+# TODO: These RPCs are not atomic!  coinsupply RPC from KMD could be ported
+# But this is just to estimate Sprout %, so seems OK
+my $j    = JSON::Any->new;
+my $json = qx/hush-cli gettxoutsetinfo/;
+my $info = $j->decode($json);
+
+warn Dumper [ 'gettxoutsetinfo=', $info ] if $ENV{DEBUG};
+
+my $total_supply = $info->{total_amount};
+my $snapshot     = qx/hush-cli getsnapshot/;
+my $taddr_total  = $snapshot->{total};
+
+warn Dumper [ 'getsnapshot=', $info ] if $ENV{DEBUG};
+
+my $shielded = $total_supply - $taddr_total;
+if ($shielded < 0.0) {
+    die "Inconsistent total supply! $total_supply in $taddr_total taddrs";
+}
+# All shielded notes are Sprout on this chain
+my $shielded_pct = $shielded / $total_supply;
+printf "%.8f, %.2f\n", $shielded, $shielded_pct;
