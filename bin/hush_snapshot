@@ -1,0 +1,29 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use Data::Dumper;
+use JSON::Any;
+
+# send to this many addresses per send
+my $BATCH   = 100;
+my $fee     = "0.0";
+my $minconf = 1;
+my $FROM = "t1balser";
+
+my $j    = JSON::Any->new;
+my $json = qx/hush-cli getsnapshot/;
+warn Dumper [ 'getsnapshot=', $json ] if $ENV{DEBUG};
+
+my $snapshot   = $j->decode($json);
+my $addresses  = $snapshot->{addresses};
+for my $addr (@$addresses) {
+    my $address = $addr->{addr};
+    my $amount  = $addr->{amount};
+    print <<SEND;
+hush-cli z_sendmany $FROM "[{\"address\":"$address",\"amount\":$amount}]' $minconf $fee
+}
+SEND
+
+}
+
+
