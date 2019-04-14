@@ -4,26 +4,70 @@ use warnings;
 use Data::Dumper;
 use JSON::Any;
 
-# send to this many addresses per send
-my $BATCH   = 100;
-my $fee     = "0.0";
+my $N       = 100;      # this many receivers per z_sendmany, TODO: add our zaddr
+my $fee     = "0.0001";
 my $minconf = 1;
-my $FROM = "t1balser";
+my $FROM    = "RHushEyeDm7XwtaTWtyCbjGQumYyV8vMjn";
+my $j       = JSON::Any->new;
+my $json    = qx/hush-cli getsnapshot/;
+my $snapshot= $j->decode($json);
+my $height  = $snapshot->{start_height} == $snapshot->{ending_height} ? $snapshot->{start_height} : die("Inconsistent block height from getsnapshot!");
+my $convert = $ENV{HOME}."/git/hush3/contrib/convert_address.py";
+my $cache   = $ENV{HOME}."/git/hush/contrib/v3/snapshot-1554926009.csv";
+my $fname   = "snapshot_$height-" . time() . ".csv";
 
-my $j    = JSON::Any->new;
-my $json = qx/hush-cli getsnapshot/;
 warn Dumper [ 'getsnapshot=', $json ] if $ENV{DEBUG};
+open(my $csv, ">", $fname) or die $!;
 
-my $snapshot   = $j->decode($json);
-my $addresses  = $snapshot->{addresses};
+my @ignores   = qw/t1bEBr1LdBQtHun7B5L82R65FgpWyyWFx8L t1KttMaacGw17oFitV448TGfwM2yovm4g6Q/;
+my $addresses = $snapshot->{addresses};
+my $ignored   = 0;
+my $batches;
+my $total_amount=0.0;
+my $Kaddrs = {};
+
+# use a previous snapshot to greatly speedup another snapshot
+# by avoiding shelling out to convert address formats
+if (-e $cache) {
+    open(my $fh, "<", $cache) or die $!;
+    while (my $line = <$fh>) {
+        my ($taddr,$kaddr) = split /,/, $line;
+        $Kaddrs->{$taddr} = $kaddr;
+    }
+    my $num_kaddrs = keys %$Kaddrs;
+    print "# Cache $cache processed with $num_kaddrs addresses\n";
+} else {
+    print "# Cache $cache not found\n";
+}
+
+my $i = 1; # batch index
+my $a = 1; # addresses index
 for my $addr (@$addresses) {
-    my $address = $addr->{addr};
-    my $amount  = $addr->{amount};
-    print <<SEND;
-hush-cli z_sendmany $FROM "[{\"address\":"$address",\"amount\":$amount}]' $minconf $fee
+    my $address   = $addr->{addr};
+    my $amount    = $addr->{amount};
+    $total_amount+= $amount;
+    # use cached addr if possible
+    my $kaddr     = $Kaddrs->{$address} || qx/$convert $address/;
+    chomp $kaddr;
+    print $csv "$address,$kaddr,$amount\n";
+    $batches->{$i} ||= [];
+
+    if ($a % $N == 0) {
+        my $recipients = $j->encode($batches->{$i});
+        $recipients =~ s/"/\\"/g;
+        print qq!hush-cli z_sendmany $FROM "$recipients" $minconf $fee\n!;
+        $i++; # next batch
+        #last;
+    } else {
+        if ($address ~~ [@ignores]) {
+            $ignored++;
+            print "# ignoring $address\n";
+        } else {
+            push @{ $batches->{$i} }, { "address" => $kaddr, "amount" => $amount };
+        }
+    }
+    $a++;
 }
-SEND
-
-}
-
-
+close($csv);
+my $size = -s $fname;
+print "# Created $fname , $size bytes, $a addresses, $total_amount HUSH\n";
